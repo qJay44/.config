@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   molokai = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\molokai",
@@ -178,16 +183,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
   },
   ["vim-better-whitespace"] = {
     loaded = true,

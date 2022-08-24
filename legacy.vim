@@ -6,13 +6,6 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_foreground='original'
 colorscheme gruvbox-material
 
-" Airline
-let g:airline_theme='powerlineish'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline#extensions#tabline#show_tab_type = 0
-
 " Rainbow parens
 let g:rainbow_active = 1
 
@@ -20,19 +13,9 @@ let g:rainbow_active = 1
 let g:rooter_change_directory_for_non_project_files = 'home'
 let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
 
-" Syntax highlighting
-syntax on
-
-" Position in code
-set number
-
 " Highlight serarch results
 set hlsearch
 set incsearch
-
-" Disable backup files
-set nobackup
-set nowritebackup
 
 " No hidden buffers
 set hidden&
@@ -47,13 +30,8 @@ set autoread
 set nowrap
 
 " Others
-set noexpandtab
-set autoindent
-set smartindent
-set signcolumn=yes
 set encoding=UTF-8
 set t_Co=256
-set noswapfile
 
 " .vert = glsl
 augroup vert_ft
@@ -68,7 +46,6 @@ augroup frag_ft
 augroup END
 
 au FileType text set colorcolumn=80
-au! BufWritePost $MYVIMRC luafile %
 
 " Easy search/replace with current visual selection
 xnoremap ;s y:%s/<C-r>"//g<Left><Left>

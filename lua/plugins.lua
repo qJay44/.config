@@ -28,11 +28,10 @@ return require('packer').startup({function()
   use 'onsails/lspkind.nvim'
   use 'sainnhe/gruvbox-material'
   use 'p00f/nvim-ts-rainbow'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
   use 'mhinz/vim-signify'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'goolord/alpha-nvim'
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*'}
   use {
     'kyazdani42/nvim-tree.lua',
