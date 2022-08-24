@@ -61,19 +61,21 @@ augroup vert_ft
   autocmd BufNewFile,BufRead *.vert     set filetype=glsl
 augroup END
 
-" " .frag = glsl
+" .frag = glsl
 augroup frag_ft
   au!
   autocmd BufNewFile,BufRead *.frag     set filetype=glsl
 augroup END
 
 au FileType text set colorcolumn=80
+au! BufWritePost $MYVIMRC luafile %
 
-" easy search/replace with current visual selection
+" Easy search/replace with current visual selection
 xnoremap ;s y:%s/<C-r>"//g<Left><Left>
 
-" easy search/replace on current line with visual selection
+" Easy search/replace on current line with visual selection
 xnoremap ;ls y:.s/<C-r>"//g<Left><Left>
 
-map <Esc> :noh <CR>
+" Clear search selection
+map <C-[> :noh <CR>
 
