@@ -1,4 +1,21 @@
-return require('packer').startup({function()
+-- Protected call
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+  return
+end
+
+-- Customize packer window
+packer.init {
+  display = {
+    open_fn = function()
+      return require('packer.util').float { border = 'rounded' }
+    end,
+    prompt_border = 'rounded'
+  }
+}
+
+-- Plugins install
+return packer.startup(function()
   use 'wbthomason/packer.nvim'
   use 'tomasr/molokai'
   use 'morhetz/gruvbox'
@@ -31,6 +48,7 @@ return require('packer').startup({function()
   use 'mhinz/vim-signify'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'goolord/alpha-nvim'
+  use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*'}
   use {
@@ -38,9 +56,4 @@ return require('packer').startup({function()
     requires = { 'kyazdani42/nvim-web-devicons' },
     tag = 'nightly'
   }
-end,
-config = {
-  display = {
-    open_fn = require('packer.util').float
-  }
-}})
+end)
