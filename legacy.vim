@@ -1,14 +1,13 @@
 " Colorscheme
 set termguicolors
-let g:gruvbox_material_background='hard'
-let g:gruvbox_material_better_performance=1
-let g:gruvbox_material_foreground='original'
-colorscheme gruvbox-material
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 " Rainbow parens
 let g:rainbow_active = 1
 
-" Rooter default non project directory
+" Rooter options
 let g:rooter_change_directory_for_non_project_files = 'home'
 let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
 
@@ -62,4 +61,16 @@ xnoremap ;ls y:.s/<C-r>"//g<Left><Left>
 
 " Clear search selection
 map <C-[> :noh <CR>
+
+" Highlight groups
+hi! Aqua guifg=#8ec07c guibg=NONE
+hi! Red guifg=#fb4934 guibg=NONE
+hi! Orange guifg=#fe8019 guibg=NONE
+hi! Yellow guifg=#fabd2f guibg=NONE
+
+" Link highlight groups
+hi! link javascriptTSKeywordOperator Orange
+hi! link TSString Aqua
+hi! link TSInclude Red
+hi! link TSConstructor Yellow
 

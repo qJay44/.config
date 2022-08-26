@@ -26,6 +26,7 @@ function close_buffer()
     vim.api.nvim_command('NvimTreeClose')
     vim.api.nvim_command('bdelete')
     vim.api.nvim_command('NvimTreeOpen')
+    vim.cmd([[ wincmd l ]])
   else
     vim.api.nvim_command('bdelete')
   end
