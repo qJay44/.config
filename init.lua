@@ -3,13 +3,13 @@ vim.o.number = true		      -- Position in code
 
 --- Other options ---------------------------
 
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.o.signcolumn = 'yes'
-vim.bo.expandtab = true
-vim.o.autoindent = true
-vim.o.smartindent = true
 vim.o.cursorline = true
-vim.bo.shiftwidth = 2
-vim.bo.softtabstop = 2
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false

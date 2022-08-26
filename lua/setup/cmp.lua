@@ -3,7 +3,7 @@ local cmp = require'cmp'
 cmp.setup({
     snippet = {
       expand = function(args)
-	require("luasnip").lsp_expand(args.body)
+        require("luasnip").lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -18,8 +18,8 @@ cmp.setup({
         }),
       ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently elected item. Set `select` to `false` to only confirm explicitly selected items.
       ['<Tab>'] = cmp.mapping.confirm {
-	  behavior = cmp.ConfirmBehavior.Insert,
-	  select = true
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true
       }
     },
     sources = cmp.config.sources({
@@ -28,11 +28,11 @@ cmp.setup({
     }),
     formatting = {
       format = lspkind.cmp_format {
-	with_text = true,
-	menu = {
-	  nvim_lsp = '[LSP]',
-	  buffer = '[buf]'
-	}
+        with_text = true,
+        menu = {
+          nvim_lsp = '[LSP]',
+          buffer = '[buf]'
+        }
       }
     }
 })

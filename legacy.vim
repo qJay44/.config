@@ -1,6 +1,5 @@
 " Colorscheme
 set termguicolors
-set background=dark
 let g:gruvbox_material_background='hard'
 let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_foreground='original'
@@ -46,6 +45,14 @@ augroup frag_ft
 augroup END
 
 au FileType text set colorcolumn=80
+
+" Enter/exit fullscreen function
+function Neovide_fullscreen()
+  let g:neovide_fullscreen = g:neovide_fullscreen == v:false ? v:true : v:false
+endfunction
+
+" Enter/exit fullscreen keymap
+map <F11> :call Neovide_fullscreen()<CR>
 
 " Easy search/replace with current visual selection
 xnoremap ;s y:%s/<C-r>"//g<Left><Left>
