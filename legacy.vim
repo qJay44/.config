@@ -1,3 +1,14 @@
+if exists('g:nvui')
+  set guifont=JetbrainsMono\ Nerd\ Font:h13
+endif
+
+if exists('g:neovide')
+  let g:neovide_refresh_rate = 90
+  let g:neovide_scroll_animation_length = 0.5
+  let g:neovide_remember_window_size = v:true
+  let g:neovide_input_use_logo=v:true  " v:true on macOS
+endif
+
 " Colorscheme
 set termguicolors
 set background=dark
@@ -65,8 +76,9 @@ xnoremap ;ls y:.s/<C-r>"//g<Left><Left>
 " Clear search selection
 map <C-[> :noh <CR>
 
-" Popup menu background
+" Popup menu colors
 hi! Pmenu guibg=#1d2021
+hi! PmenuSel guibg=#303436 guifg=#ffffff
 
 " Syntax highlight groups
 hi! javascriptTSKeywordOperator guifg=#fe8019 guibg=NONE

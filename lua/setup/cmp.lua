@@ -45,6 +45,15 @@ local cmp_kinds = {
 
 local lspkind = require('lspkind')
 cmp.setup({
+  enabled = function()
+    local treesitter_capture = require"cmp.config.context".in_treesitter_capture("comment")
+    local syntax_group = require"cmp.config.context".in_syntax_group("Comment")
+    if treesitter_capture or syntax_group then
+      return false
+    else
+      return true
+    end
+  end,
   completion = { completeopt = 'menu,menuone,noinsert' },
   snippet = {
     expand = function(args)
@@ -61,7 +70,7 @@ cmp.setup({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Space>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
