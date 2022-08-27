@@ -27,6 +27,9 @@ set autoread
 " Line wrap
 set nowrap
 
+" Popup menu opaque
+set pumblend=30
+
 " Others
 set encoding=UTF-8
 set t_Co=256
@@ -62,15 +65,24 @@ xnoremap ;ls y:.s/<C-r>"//g<Left><Left>
 " Clear search selection
 map <C-[> :noh <CR>
 
-" Highlight groups
-hi! Aqua guifg=#8ec07c guibg=NONE
-hi! Red guifg=#fb4934 guibg=NONE
-hi! Orange guifg=#fe8019 guibg=NONE
-hi! Yellow guifg=#fabd2f guibg=NONE
+" Popup menu background
+hi! Pmenu guibg=#1d2021
 
-" Link highlight groups
-hi! link javascriptTSKeywordOperator Orange
-hi! link TSString Aqua
-hi! link TSInclude Red
-hi! link TSConstructor Yellow
+" Syntax highlight groups
+hi! javascriptTSKeywordOperator guifg=#fe8019 guibg=NONE
+hi! TSString guifg=#8ec07c guibg=NONE
+hi! TSInclude guifg=#fb4934 guibg=NONE
+hi! TSConstructor guifg=#fabd2f guibg=NONE
 
+" cmp item highlight
+hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+hi! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+hi! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+hi! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+hi! CmpItemKindText guibg=NONE guifg=#9CDCFE
+hi! CmpItemKindFunction guibg=NONE guifg=#C586C0
+hi! CmpItemKindMethod guibg=NONE guifg=#C586C0
+hi! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+hi! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+hi! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
