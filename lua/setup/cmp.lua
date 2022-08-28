@@ -15,35 +15,8 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
 end
 
-local cmp_kinds = {
-  Text = ' ',
-  Method = ' ',
-  Function = ' ',
-  Constructor = ' ',
-  Field = ' ',
-  Variable = ' ',
-  Class = ' ',
-  Interface = ' ',
-  Module = ' ',
-  Property = ' ',
-  Unit = ' ',
-  Value = ' ',
-  Enum = ' ',
-  Keyword = ' ',
-  Snippet = ' ',
-  Color = ' ',
-  File = ' ',
-  Reference = ' ',
-  Folder = ' ',
-  EnumMember = ' ',
-  Constant = ' ',
-  Struct = ' ',
-  Event = ' ',
-  Operator = ' ',
-  TypeParameter = ' ',
-}
+local cmp_kinds = require('setup.icons').kind
 
-local lspkind = require('lspkind')
 cmp.setup({
   enabled = function()
     local treesitter_capture = require"cmp.config.context".in_treesitter_capture("comment")
@@ -70,7 +43,7 @@ cmp.setup({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       }),
-    ['<Space>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-Space>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -104,8 +77,9 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
-      { name = 'luasnip', keyword_length = 3, max_item_count = 15 },
       { name = 'nvim_lsp', keyword_length = 3, max_item_count = 15 },
+      { name = 'luasnip', keyword_length = 3, max_item_count = 15 },
+      { name = 'nvim_lua' },
       { name = 'buffer' },
       { name = 'path'}
   }),

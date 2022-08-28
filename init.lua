@@ -41,6 +41,7 @@ keymap('i', '<c-s>', '<Esc>:w<CR>a', {})
 keymap('n', '<F6>', ':NvimTreeToggle<CR>', {})
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', {})
 keymap('n', '<leader>so', ':luafile $MYVIMRC<CR>:noh<CR>', {})
+keymap('n', '<leader>p', '"*p', {})
 
 local opts = { noremap=true }
 keymap('n', '<c-j>', '<c-w>j', opts)

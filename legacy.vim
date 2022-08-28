@@ -1,12 +1,8 @@
-if exists('g:nvui')
-  set guifont=JetbrainsMono\ Nerd\ Font:h13
-endif
-
 if exists('g:neovide')
   let g:neovide_refresh_rate = 90
   let g:neovide_scroll_animation_length = 0.5
+  let g:neovide_remember_window_position = v:true
   let g:neovide_remember_window_size = v:true
-  let g:neovide_input_use_logo=v:true  " v:true on macOS
 endif
 
 " Colorscheme
@@ -85,6 +81,8 @@ hi! javascriptTSKeywordOperator guifg=#fe8019 guibg=NONE
 hi! TSString guifg=#8ec07c guibg=NONE
 hi! TSInclude guifg=#fb4934 guibg=NONE
 hi! TSConstructor guifg=#fabd2f guibg=NONE
+hi! TSOperator guibg=NONE
+hi! vimOper guibg=NONE
 
 " cmp item highlight
 hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
