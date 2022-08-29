@@ -15,6 +15,7 @@ packer.init {
 
 -- Plugins install
 return packer.startup(function(use)
+  -- Packer
   use 'wbthomason/packer.nvim'
 
   -- colorschemes
@@ -22,21 +23,12 @@ return packer.startup(function(use)
   use 'morhetz/gruvbox'
   use 'sainnhe/gruvbox-material'
 
-  use 'wakatime/vim-wakatime'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
-  use 'airblade/vim-rooter'
-  use 'tpope/vim-dispatch'
-
   -- LSP
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
   use 'ray-x/lsp_signature.nvim'
   use 'SmiteshP/nvim-navic'
 
-  -- cmp core
+  -- CMP core
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -44,12 +36,20 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lua'
   use 'onsails/lspkind.nvim'
 
-  -- cmp snippets
+  -- CMP snippets
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
+  -- Other
+  use 'wakatime/vim-wakatime'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+  use 'airblade/vim-rooter'
+  use 'tpope/vim-dispatch'
   use 'nvim-treesitter/nvim-treesitter'
   use 'ntpeters/vim-better-whitespace'
   use 'windwp/nvim-autopairs'
@@ -66,6 +66,9 @@ return packer.startup(function(use)
   use 'folke/lua-dev.nvim'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use 'rcarriga/nvim-notify'
+
+  -- Plugins which require other plugins
   use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*'}

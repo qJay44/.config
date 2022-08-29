@@ -1,24 +1,22 @@
-vim.opt.syntax = 'ON'		      -- Syntax highlighting
-vim.o.number = true		      -- Position in code
+--- Options ---------------------------
 
---- Other options ---------------------------
-
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.laststatus = 3
-vim.o.signcolumn = 'yes'
-vim.o.cursorline = true
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.swapfile = false
+vim.opt.number = true		              -- Position in code
+vim.opt.expandtab = true              -- Convert tabs to spaces
+vim.opt.smartindent = true            -- Make indenting smarter again
+vim.opt.shiftwidth = 2                -- The number of spaces inserted for each indetation
+vim.opt.wrap = false                  -- No line wrapping
+vim.opt.tabstop = 2                   -- Insert 2 spaces for a tab
+vim.opt.signcolumn = 'yes'            -- The column for line signs
+vim.opt.cursorline = true             -- Highlight current line
+vim.opt.backup = false                -- No backup files
+vim.opt.writebackup = false           -- No backup when writting a file in different editors
+vim.opt.swapfile = false              -- No swap files (realtime backup)
+vim.opt.laststatus = 3                -- Makes statuline unsplittable
+vim.opt.updatetime = 100              -- The lenght of time Vim waits after you stop typing before it triggers the associated plugins
+vim.notify = require('notify')
+vim.cmd([[ so ~/AppData/Local/nvim/legacy.vim ]])
 
 ---------------------------------------------
-
-vim.g.mapleader = ' '
-vim.cmd([[ so ~/AppData/Local/nvim/legacy.vim ]])
 
 -- Nvim tree behavior when deleting a buffer
 function close_buffer()
@@ -35,13 +33,16 @@ end
 
 --- Keymapping ------------------------------
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local keymap = vim.api.nvim_set_keymap
 keymap('n', '<c-s>', ':w<CR>', {})
 keymap('i', '<c-s>', '<Esc>:w<CR>a', {})
 keymap('n', '<F6>', ':NvimTreeToggle<CR>', {})
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', {})
-keymap('n', '<leader>so', ':luafile $MYVIMRC<CR>:noh<CR>', {})
 keymap('n', '<leader>p', '"*p', {})
+keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', {})
 
 local opts = { noremap=true }
 keymap('n', '<c-j>', '<c-w>j', opts)

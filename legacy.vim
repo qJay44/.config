@@ -5,41 +5,31 @@ if exists('g:neovide')
   let g:neovide_remember_window_size = v:true
 endif
 
-" Colorscheme
-set termguicolors
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+if exists('nvim')
+  set termguicolors
+endif
 
-" Rainbow parens
-let g:rainbow_active = 1
+" Colorscheme
+if !exists('g:loaded_color')
+  let g:loaded_color = 1
+
+  set background=dark
+  let g:gruvbox_contrast_dark = 'hard'
+  colorscheme gruvbox
+endif
 
 " Rooter options
 let g:rooter_change_directory_for_non_project_files = 'home'
 let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
 
-" Highlight serarch results
-set hlsearch
-set incsearch
-
-" No hidden buffers
-set hidden&
-
 " Faster updates
 set updatetime=100
-
-" Automatically read on change
-set autoread
-
-" Line wrap
-set nowrap
 
 " Popup menu opaque
 set pumblend=30
 
-" Others
-set encoding=UTF-8
-set t_Co=256
+" No autocomment on next line
+set formatoptions-=cro
 
 " .vert = glsl
 augroup vert_ft
@@ -81,8 +71,8 @@ hi! javascriptTSKeywordOperator guifg=#fe8019 guibg=NONE
 hi! TSString guifg=#8ec07c guibg=NONE
 hi! TSInclude guifg=#fb4934 guibg=NONE
 hi! TSConstructor guifg=#fabd2f guibg=NONE
-hi! TSOperator guibg=NONE
-hi! vimOper guibg=NONE
+hi! vimOper guifg=* guibg=NONE
+hi! TSOperator guifg=* guibg=NONE
 
 " cmp item highlight
 hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
