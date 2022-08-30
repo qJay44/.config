@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'
   use 'ap/vim-css-color'
   use 'p00f/nvim-ts-rainbow'
-  use 'mhinz/vim-signify'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'goolord/alpha-nvim'
   use 'nvim-treesitter/playground'
@@ -67,6 +66,7 @@ return packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'rcarriga/nvim-notify'
+  use 'lewis6991/gitsigns.nvim'
 
   -- Plugins which require other plugins
   use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }
@@ -78,3 +78,4 @@ return packer.startup(function(use)
     tag = 'nightly'
   }
 end)
+

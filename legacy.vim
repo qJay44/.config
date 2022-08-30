@@ -3,12 +3,13 @@ if exists('g:neovide')
   let g:neovide_scroll_animation_length = 0.5
   let g:neovide_remember_window_position = v:true
   let g:neovide_remember_window_size = v:true
-endif
-
-if exists('nvim')
+else
   set termguicolors
+  set t_Co=256
 endif
 
+let g:underline_style = has('nvim-0.8') ? 'gui=underdashed' : 'gui=underdash'
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 " Colorscheme
 if !exists('g:loaded_color')
   let g:loaded_color = 1
@@ -73,6 +74,19 @@ hi! TSInclude guifg=#fb4934 guibg=NONE
 hi! TSConstructor guifg=#fabd2f guibg=NONE
 hi! vimOper guifg=* guibg=NONE
 hi! TSOperator guifg=* guibg=NONE
+hi! NvimTreeGitDirty guifg=#fabd2f
+hi! NvimTreeGitNew guifg=#8ec07c
+hi! SignColumn guifg=* guibg=NONE
+
+" GitSings
+hi! GitSignsAdd guifg=#b8bb26 guibg=NONE
+hi! GitSignsChange guifg=#fabd2f guibg=NONE
+hi! GitSignsDelete guifg=#fb4934 guibg=NONE
+
+" Illuminate
+execute 'hi! IlluminatedWordText ' . g:underline_style
+execute 'hi! IlluminatedWordRead ' . g:underline_style
+execute 'hi! IlluminatedWordWrite ' . g:underline_style
 
 " cmp item highlight
 hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080

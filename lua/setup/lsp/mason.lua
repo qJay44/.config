@@ -1,13 +1,11 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-  print('call fail: mason')
-  return
+  return vim.notify('mason', 'error', { title = 'Plugin call fail' })
 end
 
 local status_ok1, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok1 then
-  print('call fail: mason-lspconfig')
-  return
+  return vim.notify('mason-lspconfig', 'error', { title = 'Plugin call fail' })
 end
 
 local servers = {
@@ -40,8 +38,7 @@ mason_lspconfig.setup {
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
-  print('call fail: lspconfig')
-  return
+  return vim.notify('lspconfig', 'error', { title = 'Plugin call fail' })
 end
 
 local opts = {}
@@ -57,8 +54,7 @@ for _, server in pairs(servers) do
   if server == 'sumneko_lua' then
     local l_status_ok, lua_dev = pcall(require, 'lua-dev')
     if not l_status_ok then
-      print('call fail: lua-dev')
-      return
+      return vim.notify('luadev', 'error', { title = 'Plugin call fail' })
     end
 
     local luadev = lua_dev.setup {

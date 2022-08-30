@@ -1,6 +1,6 @@
 local status_ok, toggleterm = pcall(require, 'toggleterm')
 if not status_ok then
-  return
+  return vim.notify('toggleterm', 'error', { title = 'Plugin call fail' })
 end
 
 toggleterm.setup{

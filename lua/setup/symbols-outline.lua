@@ -1,6 +1,6 @@
 local status_ok, symbols_outline = pcall(require, "symbols-outline")
 if not status_ok then
-  print('call fail: symbols-outline')
+  return vim.notify('symbols-outline', 'error', { title = 'Plugin call fail' })
 end
 
 local icons = require "setup.icons"

@@ -1,6 +1,6 @@
 local status_ok, signature = pcall(require, "lsp_signature")
 if not status_ok then
-  print('call fail: lsp_signature')
+  return vim.notify('lsp_signature', 'error', { title = 'Plugin call fail' })
 end
 
 local icons = require "setup.icons"

@@ -1,6 +1,6 @@
 local status_ok, navic = pcall(require, "nvim-navic")
 if not status_ok then
-  print('call fail: nvim-navic')
+  return vim.notify('nvim-navic', 'error', { title = 'Plugin call fail' })
 end
 
 local icons = require "setup.icons"

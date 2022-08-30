@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["alpha-nvim"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\alpha-nvim",
@@ -94,10 +99,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   fzf = {
     loaded = true,
@@ -134,10 +149,25 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
+  ["lua-dev.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lua-dev.nvim",
+    url = "https://github.com/folke/lua-dev.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   molokai = {
     loaded = true,
@@ -158,6 +188,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -184,6 +224,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
   ["toggleterm.nvim"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
@@ -194,11 +244,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-better-whitespace",
     url = "https://github.com/ntpeters/vim-better-whitespace"
   },
-  ["vim-colortuner"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-colortuner",
-    url = "https://github.com/zefei/vim-colortuner"
-  },
   ["vim-commentary"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-commentary",
@@ -208,11 +253,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-css-color",
     url = "https://github.com/ap/vim-css-color"
-  },
-  ["vim-devicons"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-devicons",
-    url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-dispatch"] = {
     loaded = true,
@@ -228,6 +268,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-rooter"] = {
     loaded = true,
@@ -253,6 +298,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
+  },
+  ["winbar.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\winbar.nvim",
+    url = "https://github.com/fgheng/winbar.nvim"
   }
 }
 
