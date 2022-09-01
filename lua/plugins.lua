@@ -55,7 +55,6 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'easymotion/vim-easymotion'
   use 'tpope/vim-fugitive'
-  use 'ap/vim-css-color'
   use 'p00f/nvim-ts-rainbow'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'goolord/alpha-nvim'
@@ -67,6 +66,7 @@ return packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   use 'rcarriga/nvim-notify'
   use 'lewis6991/gitsigns.nvim'
+  use 'norcalli/nvim-colorizer.lua'
 
   -- Plugins which require other plugins
   use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }

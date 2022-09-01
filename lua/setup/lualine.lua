@@ -1,3 +1,5 @@
+local icons = require('setup.icons')
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -36,7 +38,34 @@ require('lualine').setup {
                       --   { added = add_count, modified = modified_count, removed = removed_count }
                       -- or nil on failure. count <= 0 won't be displayed.
       },
-        'diagnostics'
+      {
+        'diagnostics',
+        -- Table of diagnostic sources, available sources are:
+        --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
+        -- or a function that returns a table as such:
+        --   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
+        sources = { 'nvim_diagnostic', 'coc' },
+
+        -- Displays diagnostics for the defined severity types
+        sections = { 'error', 'warn', 'info', 'hint' },
+
+        diagnostics_color = {
+          -- Same values as the general color option can be used here.
+          error = { fg = '#fb4934' }, -- Changes diagnostics' error color.
+          -- warn  = { fg = },  -- Changes diagnostics' warn color.
+          -- info  = { fg = },  -- Changes diagnostics' info color.
+          -- hint  = { fg = }  -- Changes diagnostics' hint color.
+        },
+        symbols = {
+          error = icons.diagnostics.Error .. ' ',
+          warn = icons.diagnostics.Warning .. ' ',
+          info = icons.diagnostics.Information .. ' ',
+          hint = icons.diagnostics.Hint .. ' '
+        },
+        colored = true,           -- Displays diagnostics status in color if set to true.
+        update_in_insert = false, -- Update diagnostics in insert mode.
+        always_visible = false,   -- Show diagnostics even if there are none.
+      }
     },
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},

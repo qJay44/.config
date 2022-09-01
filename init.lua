@@ -1,5 +1,10 @@
+vim.notify = require('notify')
+require('plugins')
+require('configs')
+
 --- Options ---------------------------
 
+vim.cmd([[ so ~/AppData/Local/nvim/legacy.vim ]])
 vim.opt.number = true		              -- Position in code
 vim.opt.expandtab = true              -- Convert tabs to spaces
 vim.opt.smartindent = true            -- Make indenting smarter again
@@ -11,10 +16,9 @@ vim.opt.cursorline = true             -- Highlight current line
 vim.opt.backup = false                -- No backup files
 vim.opt.writebackup = false           -- No backup when writting a file in different editors
 vim.opt.swapfile = false              -- No swap files (realtime backup)
-vim.opt.laststatus = 3                -- Makes statuline unsplittable
 vim.opt.updatetime = 100              -- The lenght of time Vim waits after you stop typing before it triggers the associated plugins
-vim.notify = require('notify')
-vim.cmd([[ so ~/AppData/Local/nvim/legacy.vim ]])
+vim.opt.laststatus = 3                -- Makes statuline unsplittable
+vim.opt.pumblend = 30                 -- Popup menu opaque
 
 ---------------------------------------------
 
@@ -56,7 +60,4 @@ keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
 keymap("n", "Q", "<cmd>lua close_buffer()<CR>", opts)
 
 ---------------------------------------------
-
-require('plugins')
-require('configs')
 

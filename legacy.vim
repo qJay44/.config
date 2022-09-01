@@ -10,6 +10,7 @@ endif
 
 let g:underline_style = has('nvim-0.8') ? 'gui=underdashed' : 'gui=underdash'
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
 " Colorscheme
 if !exists('g:loaded_color')
   let g:loaded_color = 1
@@ -22,12 +23,6 @@ endif
 " Rooter options
 let g:rooter_change_directory_for_non_project_files = 'home'
 let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
-
-" Faster updates
-set updatetime=100
-
-" Popup menu opaque
-set pumblend=30
 
 " No autocomment on next line
 set formatoptions-=cro
@@ -77,6 +72,9 @@ hi! TSOperator guifg=* guibg=NONE
 hi! NvimTreeGitDirty guifg=#fabd2f
 hi! NvimTreeGitNew guifg=#8ec07c
 hi! SignColumn guifg=* guibg=NONE
+
+" Diagnostics
+hi! DiagnosticError guifg=#fb4934
 
 " GitSings
 hi! GitSignsAdd guifg=#b8bb26 guibg=NONE
