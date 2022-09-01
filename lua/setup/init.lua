@@ -8,4 +8,5 @@ require('setup.lsp')
 require('setup.symbols-outline')
 require('setup.gitsigns')
 require('setup.lualine')
+require('setup.telescope')
 

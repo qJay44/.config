@@ -46,8 +46,6 @@ return packer.startup(function(use)
   use 'wakatime/vim-wakatime'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
   use 'airblade/vim-rooter'
   use 'tpope/vim-dispatch'
   use 'nvim-treesitter/nvim-treesitter'
@@ -68,7 +66,8 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'norcalli/nvim-colorizer.lua'
 
-  -- Plugins which require other plugins
+  -- Plugins which requirements
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*'}

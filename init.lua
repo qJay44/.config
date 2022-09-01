@@ -53,11 +53,10 @@ keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
-keymap('n', '<c-p>', ':Files<CR>', opts)
-keymap('n', '<leader>h', ':History<CR>', opts)
 keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', opts)
 keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
 keymap("n", "Q", "<cmd>lua close_buffer()<CR>", opts)
+keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 
 ---------------------------------------------
 

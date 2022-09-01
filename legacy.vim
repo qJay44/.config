@@ -81,6 +81,9 @@ hi! GitSignsAdd guifg=#b8bb26 guibg=NONE
 hi! GitSignsChange guifg=#fabd2f guibg=NONE
 hi! GitSignsDelete guifg=#fb4934 guibg=NONE
 
+" Telescope
+hi! TelescopeSelection guifg=* guibg=#3c4144
+
 " Illuminate
 execute 'hi! IlluminatedWordText ' . g:underline_style
 execute 'hi! IlluminatedWordRead ' . g:underline_style
