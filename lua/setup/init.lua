@@ -1,3 +1,4 @@
+require('setup.notify')
 require('setup.nvim-tree')
 require('setup.toggleterm')
 require('setup.nvim-treesitter')

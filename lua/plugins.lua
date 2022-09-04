@@ -1,6 +1,6 @@
 local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
-  print('call fail: packer')
+  vim.notify('packer', 'error', { title = 'Pluging call fail' })
 end
 
 -- Customize packer window
@@ -66,7 +66,7 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'norcalli/nvim-colorizer.lua'
 
-  -- Plugins which requirements
+  -- Plugins with requirements
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }

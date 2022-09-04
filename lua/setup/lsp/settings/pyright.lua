@@ -2,8 +2,9 @@ return {
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "basic",
-        diagnosticMode = "workspace",
+        typeCheckingMode = 'off',
+        diagnosticMode = 'workspace',
+        useLibraryCodeForTypes = false,
         inlayHints = {
           variableTypes = true,
           functionReturnTypes = true,
