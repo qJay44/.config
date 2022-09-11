@@ -22,7 +22,7 @@ vim.opt.pumblend = 30                 -- Popup menu opaque
 ---------------------------------------------
 
 -- Nvim tree behavior when deleting a buffer
-function close_buffer()
+function DeleteBuffer()
   local tree_status = require'nvim-tree.view'.is_visible()
   if tree_status then
     vim.api.nvim_command('NvimTreeClose')
@@ -32,6 +32,11 @@ function close_buffer()
   else
     vim.api.nvim_command('bdelete')
   end
+end
+
+function MyTerminal()
+  vim.env.NVIM_CWD=vim.fn.getcwd()
+  vim.cmd([[ TermExec cmd="cd $NVIM_CWD && python %"]])
 end
 
 --- Keymapping ------------------------------
@@ -54,10 +59,11 @@ keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
 keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', opts)
 keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
-keymap('n', "Q", "<cmd>lua close_buffer()<CR>", opts)
+keymap('n', "Q", "<cmd>lua DeleteBuffer()<CR>", opts)
 keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', "<leader>h", "<cmd>Telescope oldfiles<CR>", opts)
-keymap('n', '<leader>r', ':w<CR> :TermExec cmd="python %"<CR>', opts)
+keymap('n', '<leader>r', '<cmd>lua MyTerminal()<CR>', opts)
+keymap('n', ';el', '8o<C-[>7dk', opts)
 
 ---------------------------------------------
 

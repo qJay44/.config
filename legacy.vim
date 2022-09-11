@@ -22,7 +22,7 @@ endif
 
 " Rooter options
 let g:rooter_change_directory_for_non_project_files = 'home'
-let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh', 'main.py']
+let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
 
 " No autocomment on next line
 set formatoptions-=cro
