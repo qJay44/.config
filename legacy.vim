@@ -72,6 +72,7 @@ hi! TSOperator guifg=* guibg=NONE
 hi! NvimTreeGitDirty guifg=#fabd2f
 hi! NvimTreeGitNew guifg=#8ec07c
 hi! SignColumn guifg=* guibg=NONE
+hi! pythonTSKeywordOperator guifg=#fb4934 guibg=NONE
 
 " Diagnostics
 hi! DiagnosticError guifg=#fb4934

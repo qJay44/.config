@@ -51,6 +51,7 @@ keymap('n', '<F6>', ':NvimTreeToggle<CR>', {})
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', {})
 keymap('n', '<leader>p', '"*p', {})
 keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', {})
+keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', {})
 
 local opts = { noremap=true }
 keymap('n', '<c-j>', '<c-w>j', opts)
@@ -63,7 +64,9 @@ keymap('n', "Q", "<cmd>lua DeleteBuffer()<CR>", opts)
 keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', "<leader>h", "<cmd>Telescope oldfiles<CR>", opts)
 keymap('n', '<leader>r', '<cmd>lua MyTerminal()<CR>', opts)
-keymap('n', ';el', '8o<C-[>7dk', opts)
+keymap('n', ';al', '8o<C-[>7dk', opts)
+keymap('n', '<leader>i', 'bi', opts)
+keymap('n', '<leader>a', 'ei', opts)
 
 ---------------------------------------------
 

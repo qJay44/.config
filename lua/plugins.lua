@@ -65,6 +65,8 @@ return packer.startup(function(use)
   use 'rcarriga/nvim-notify'
   use 'lewis6991/gitsigns.nvim'
   use 'norcalli/nvim-colorizer.lua'
+  use 'nvim-lua/plenary.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- Plugins with requirements
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }
