@@ -18,6 +18,7 @@ vim.opt.swapfile = false              -- No swap files (realtime backup)
 vim.opt.updatetime = 100              -- The lenght of time Vim waits after you stop typing before it triggers the associated plugins
 vim.opt.laststatus = 3                -- Makes statuline unsplittable
 vim.opt.pumblend = 30                 -- Popup menu opaque
+vim.opt.scrolloff = 7                 -- Show a few lines of context around the cursor
 
 ---------------------------------------------
 

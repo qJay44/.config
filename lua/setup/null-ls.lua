@@ -8,7 +8,7 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
   debug = false,
   sources = {
-    formatting.prettier({ extra_args = { '--no-sime', '--single-quote', '--jsx-single-quote' }}),
+    formatting.prettier.with({ extra_args = { '--no-sime', '--single-quote', '--jsx-single-quote' }}),
     formatting.black.with({ extra_args = { '--fast' }}),
     formatting.stylua
   }
