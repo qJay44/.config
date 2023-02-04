@@ -59,7 +59,7 @@ return packer.startup(function(use)
   use 'nvim-treesitter/playground'
   use 'simrat39/symbols-outline.nvim'
   use 'RRethy/vim-illuminate'
-  use 'folke/lua-dev.nvim'
+  use 'folke/neodev.nvim'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'rcarriga/nvim-notify'
@@ -67,6 +67,7 @@ return packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'nvim-lua/plenary.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'cdelledonne/vim-cmake'
 
   -- Plugins with requirements
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }

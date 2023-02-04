@@ -10,6 +10,8 @@ endif
 
 let g:underline_style = has('nvim-0.8') ? 'gui=underdashed' : 'gui=underdash'
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:cmake_link_compile_commands=1
+let g:cmake_generate_options=['-G"MinGW Makefiles"']
 
 " Colorscheme
 if !exists('g:loaded_color')
@@ -63,16 +65,12 @@ hi! Pmenu guibg=#1d2021
 hi! PmenuSel guibg=#303436 guifg=#ffffff
 
 " Syntax highlight groups
-hi! javascriptTSKeywordOperator guifg=#fe8019 guibg=NONE
-hi! TSString guifg=#8ec07c guibg=NONE
-hi! TSInclude guifg=#fb4934 guibg=NONE
-hi! TSConstructor guifg=#fabd2f guibg=NONE
-hi! vimOper guifg=* guibg=NONE
-hi! TSOperator guifg=* guibg=NONE
+hi! @string guifg=#8ec07c guibg=NONE
+hi! @include guifg=#fb4934 guibg=NONE
+hi! @operator guifg=* guibg=NONE
 hi! NvimTreeGitDirty guifg=#fabd2f
 hi! NvimTreeGitNew guifg=#8ec07c
 hi! SignColumn guifg=* guibg=NONE
-hi! pythonTSKeywordOperator guifg=#fb4934 guibg=NONE
 
 " Diagnostics
 hi! DiagnosticError guifg=#fb4934

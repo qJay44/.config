@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 notify.setup {
-  background_colour = "Normal",
+  background_colour = "#000000",
   fps = 75,
   icons = {
     DEBUG = "",
