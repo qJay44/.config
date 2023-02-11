@@ -68,6 +68,8 @@ hi! PmenuSel guibg=#303436 guifg=#ffffff
 hi! @string guifg=#8ec07c guibg=NONE
 hi! @include guifg=#fb4934 guibg=NONE
 hi! @operator guifg=* guibg=NONE
+hi! @type.qualifier guifg=#fb4934 guibg=NONE
+hi! @type.builtin guifg=#fb4934 guibg=NONE
 hi! NvimTreeGitDirty guifg=#fabd2f
 hi! NvimTreeGitNew guifg=#8ec07c
 hi! SignColumn guifg=* guibg=NONE
