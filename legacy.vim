@@ -3,6 +3,7 @@ if exists('g:neovide')
   let g:neovide_scroll_animation_length = 0.5
   let g:neovide_remember_window_position = v:true
   let g:neovide_remember_window_size = v:true
+  let g:neovide_transparency = 1.0
 else
   set termguicolors
   set t_Co=256
@@ -24,7 +25,7 @@ endif
 
 " Rooter options
 let g:rooter_change_directory_for_non_project_files = 'home'
-let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
+let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh', '*.md']
 
 " No autocomment on next line
 set formatoptions-=cro

@@ -23,8 +23,8 @@ vim.opt.scrolloff = 7                 -- Show a few lines of context around the 
 ---------------------------------------------
 
 local termCommands = {
-  ["py"] = ":TermExec cmd=\"cd $NVIM_CWD && python %\"",
-  ["cpp"] = ":TermExec cmd=\"cd $NVIM_CWD\\Release && start MyProject.exe\""
+  ["python"] = ":TermExec cmd=\"cd $NVIM_CWD && python %\"",
+  ["cpp"] = ":TermExec cmd=\"cmake --build $NVIM_CWD/Release/ && start MyProject.exe\""
 }
 
 -- Nvim tree behavior when deleting a buffer
@@ -43,9 +43,6 @@ end
 function MyTerminal()
   vim.env.NVIM_CWD=vim.fn.getcwd()
   vim.cmd(termCommands[vim.bo.filetype])
-end
-
-function RunCpp()
 end
 
 --- Keymapping ------------------------------
