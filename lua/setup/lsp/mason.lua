@@ -8,6 +8,7 @@ if not status_ok1 then
   return vim.notify('mason-lspconfig', 'error', { title = 'Plugin call fail' })
 end
 
+-- 'lua_ls' is 'sumneko_lua' but have to use old name for 'ensure_installed'
 local servers = {
   'clangd',
   'cssls',
@@ -51,7 +52,7 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, '@')[1]
 
-  if server == 'sumneko_lua' then
+  if server == 'lua_ls' then
     local l_status_ok, neo_dev = pcall(require, 'neodev')
     if not l_status_ok then
       return vim.notify('neodev', 'error', { title = 'Plugin call fail' })
@@ -63,7 +64,7 @@ for _, server in pairs(servers) do
         capabilities = opts.capabilities
       }
     }
-    lspconfig.sumneko_lua.setup(neodev)
+    lspconfig.lua_ls.setup(neodev)
 
     goto continue
   end
@@ -81,3 +82,4 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
   ::continue::
 end
+

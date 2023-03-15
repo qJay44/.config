@@ -56,6 +56,7 @@ keymap('i', '<c-s>', '<Esc>:w<CR>a', {})
 keymap('n', '<F6>', ':NvimTreeToggle<CR>', {})
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', {})
 keymap('n', '<leader>p', '"*p', {})
+keymap('n', '<leader>y', '"*y', {})
 keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', {})
 keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', {})
 
