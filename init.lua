@@ -60,6 +60,14 @@ keymap('n', '<leader>y', '"*y', {})
 keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', {})
 keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', {})
 
+-- Move lines up/down
+keymap('v', 'J', ":m '>+1<CR>gv=gv", {})
+keymap('v', 'K', ":m '<-2<CR>gv=gv", {})
+
+-- Make cursor at the center when scrolling
+keymap('n', '<C-d>', '<C-d>zz', {})
+keymap('n', '<C-u>', '<C-u>zz', {})
+
 local opts = { noremap=true }
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
@@ -70,7 +78,7 @@ keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
 keymap('n', "Q", "<cmd>lua DeleteBuffer()<CR>", opts)
 keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', "<leader>h", "<cmd>Telescope oldfiles<CR>", opts)
-keymap('n', '<leader>r', '<cmd>lua MyTerminal()<CR>', opts)
+keymap('n', '<leader><S-r>', '<cmd>lua MyTerminal()<CR>', opts)
 keymap('n', ';al', '8o<C-[>7dk', opts)
 keymap('n', '<leader>i', 'bi', opts)
 keymap('n', '<leader>a', 'ei', opts)

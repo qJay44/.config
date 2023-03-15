@@ -1,11 +1,11 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-  return vim.notify('mason', 'error', { title = 'Plugin call fail' })
+  return vim.notify('mason', vim.log.levels.ERROR, { title = 'Plugin call fail' })
 end
 
 local status_ok1, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok1 then
-  return vim.notify('mason-lspconfig', 'error', { title = 'Plugin call fail' })
+  return vim.notify('mason-lspconfig', vim.log.levels.ERROR, { title = 'Plugin call fail' })
 end
 
 -- 'lua_ls' is 'sumneko_lua' but have to use old name for 'ensure_installed'
@@ -39,7 +39,7 @@ mason_lspconfig.setup {
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
-  return vim.notify('lspconfig', 'error', { title = 'Plugin call fail' })
+  return vim.notify('lspconfig', vim.log.levels.ERROR, { title = 'Plugin call fail' })
 end
 
 local opts = {}
@@ -50,23 +50,16 @@ for _, server in pairs(servers) do
     capabilities = require('setup.lsp.handlers').capabilities
   }
 
-  server = vim.split(server, '@')[1]
-
-  if server == 'lua_ls' then
-    local l_status_ok, neo_dev = pcall(require, 'neodev')
+  if server == 'sumneko_lua' then
+    local l_status_ok, neodev = pcall(require, 'neodev')
     if not l_status_ok then
-      return vim.notify('neodev', 'error', { title = 'Plugin call fail' })
+      return vim.notify('neodev', vim.log.levels.INFO, { title = 'Plugin call fail' })
     end
 
-    local neodev = neo_dev.setup {
-      lspconfig = {
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities
-      }
-    }
-    lspconfig.lua_ls.setup(neodev)
+    neodev.setup()
 
-    goto continue
+    local lua_ls_opts = require "setup.lsp.settings.lua_ls"
+    opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
   end
 
   if server == "tsserver" then
@@ -80,6 +73,5 @@ for _, server in pairs(servers) do
   end
 
   lspconfig[server].setup(opts)
-  ::continue::
 end
 
