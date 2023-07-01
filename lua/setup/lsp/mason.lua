@@ -13,7 +13,7 @@ local servers = {
   'clangd',
   'cssls',
   'html',
-  'sumneko_lua',
+  'lua_ls',
   'tsserver',
   'pyright'
 }
@@ -50,7 +50,7 @@ for _, server in pairs(servers) do
     capabilities = require('setup.lsp.handlers').capabilities
   }
 
-  if server == 'sumneko_lua' then
+  if server == 'lua_ls' then
     local l_status_ok, neodev = pcall(require, 'neodev')
     if not l_status_ok then
       return vim.notify('neodev', vim.log.levels.INFO, { title = 'Plugin call fail' })

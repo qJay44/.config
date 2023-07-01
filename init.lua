@@ -60,7 +60,7 @@ keymap('n', '<leader>y', '"*y', {})
 keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', {})
 keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', {})
 
--- Move lines up/down
+-- Move selected lines up/down
 keymap('v', 'J', ":m '>+1<CR>gv=gv", {})
 keymap('v', 'K', ":m '<-2<CR>gv=gv", {})
 

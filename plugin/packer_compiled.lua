@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -114,15 +119,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  fzf = {
+  ["gitsigns.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf",
-    url = "https://github.com/junegunn/fzf"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   gruvbox = {
     loaded = true,
@@ -149,11 +149,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
-  ["lua-dev.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lua-dev.nvim",
-    url = "https://github.com/folke/lua-dev.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
@@ -174,6 +169,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\molokai",
     url = "https://github.com/tomasr/molokai"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
@@ -183,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -229,10 +239,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\playground",
     url = "https://github.com/nvim-treesitter/playground"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
   ["symbols-outline.nvim"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\symbols-outline.nvim",
     url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,
@@ -244,15 +264,15 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-better-whitespace",
     url = "https://github.com/ntpeters/vim-better-whitespace"
   },
+  ["vim-cmake"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-cmake",
+    url = "https://github.com/cdelledonne/vim-cmake"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-css-color"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-css-color",
-    url = "https://github.com/ap/vim-css-color"
   },
   ["vim-dispatch"] = {
     loaded = true,
@@ -279,11 +299,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rooter",
     url = "https://github.com/airblade/vim-rooter"
   },
-  ["vim-signify"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-signify",
-    url = "https://github.com/mhinz/vim-signify"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
@@ -298,15 +313,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
-  },
-  ["winbar.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\winbar.nvim",
-    url = "https://github.com/fgheng/winbar.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
