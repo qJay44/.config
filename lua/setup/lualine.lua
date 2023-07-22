@@ -1,7 +1,18 @@
 local icons = require('setup.icons')
 local custom_gruvbox = require('lualine.themes.gruvbox_dark')
 
+-- Set background to match with navic
 custom_gruvbox.insert.c.bg = "#3c3836"
+custom_gruvbox.command.c.bg = "#3c3836"
+
+-- Remove boldness
+custom_gruvbox.normal.a.gui = ''
+custom_gruvbox.insert.a.gui = ''
+custom_gruvbox.visual.a.gui = ''
+custom_gruvbox.command.a.gui = ''
+
+-- Increase visiablility of the "c part" elements in command mode
+custom_gruvbox.command.c.fg = '#a89984'
 
 require('lualine').setup {
   options = {

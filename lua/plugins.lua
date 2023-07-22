@@ -70,13 +70,13 @@ return packer.startup(function(use)
   use 'cdelledonne/vim-cmake'
 
   -- Plugins with requirements
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.2', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'akinsho/bufferline.nvim', tag = '*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
-  use { 'akinsho/toggleterm.nvim', tag = 'v2.*'}
+  use { 'akinsho/toggleterm.nvim', tag = '*'}
   use {
     'nvim-tree/nvim-tree.lua',
-    requires = { 'nvim-tree/nvim-web-devicons' },
+    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 end)
 

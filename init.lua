@@ -3,6 +3,7 @@ require('configs')
 
 --- Options ---------------------------
 
+vim.o.guifont = "FiraCode Nerd Font:h14"
 vim.cmd([[ so ~/AppData/Local/nvim/legacy.vim ]])
 vim.opt.number = true		              -- Position in code
 vim.opt.expandtab = true              -- Convert tabs to spaces

@@ -21,6 +21,8 @@ if !exists('g:loaded_color')
 
   set background=dark
   let g:gruvbox_contrast_dark = 'hard'
+  let g:gruvbox_bold = 0
+
   colorscheme gruvbox
 endif
 
@@ -139,7 +141,7 @@ let g:navic_colors = [
       \ ["String", "#40a02b"],
       \ ["Struct", "#b8bb26"],
       \ ["TypeParameter", "#b8bb26"],
-      \ ["Variable", "#dd7878"],
+      \ ["Variable", "#83a598"],
       \ ]
 
 hi! NavicText guifg=#83a598 guibg=#3c3836
