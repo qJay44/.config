@@ -77,8 +77,9 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
-      { name = 'nvim_lsp', keyword_length = 3, max_item_count = 5 },
-      { name = 'luasnip', keyword_length = 3, max_item_count = 5 },
+      -- { name = 'nvim_lsp', keyword_length = 0, max_item_count = 7 },
+      { name = 'nvim_lsp', max_item_count = 7 },
+      { name = 'luasnip', max_item_count = 7 },
       { name = 'nvim_lua' },
       { name = 'buffer' },
       { name = 'path' }

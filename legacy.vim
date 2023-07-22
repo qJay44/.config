@@ -3,7 +3,8 @@ if exists('g:neovide')
   let g:neovide_scroll_animation_length = 0.5
   let g:neovide_remember_window_position = v:true
   let g:neovide_remember_window_size = v:true
-  let g:neovide_transparency = 1.0
+  let g:neovide_transparency = 0.85
+  let g:neovide_fullscreen=v:false
 else
   set termguicolors
   set t_Co=256
@@ -74,6 +75,7 @@ hi! @type.builtin guifg=#fb4934 guibg=NONE
 hi! NvimTreeGitDirty guifg=#fabd2f
 hi! NvimTreeGitNew guifg=#8ec07c
 hi! SignColumn guifg=* guibg=NONE
+hi! @variable.builtin guifg=#fe8019 guibg=NONE
 
 " Diagnostics
 hi! DiagnosticError guifg=#fb4934
@@ -93,7 +95,7 @@ execute 'hi! IlluminatedWordText ' . g:underline_style
 execute 'hi! IlluminatedWordRead ' . g:underline_style
 execute 'hi! IlluminatedWordWrite ' . g:underline_style
 
-" cmp item highlight
+" Cmp item highlight
 hi! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 hi! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
 hi! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
@@ -105,3 +107,44 @@ hi! CmpItemKindMethod guibg=NONE guifg=#C586C0
 hi! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
 hi! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
 hi! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+
+" Navic highlight
+" Stolen from catppuccin theme
+" Unused icon groups: Color, Default, Folder, Reference, Snippet, Unit, Value
+let g:navic_colors = [
+      \ ["Array", "#fabd2f"],
+      \ ["Boolean", "#fabd2f"],
+      \ ["Folder", "#df8e1d"],
+      \ ["Class", "#df8e1d"],
+      \ ["Constant", "#fabd2f"],
+      \ ["Constructor", "#b8bb26"],
+      \ ["Enum", "#40a02b"],
+      \ ["EnumMember","#d20f39"],
+      \ ["Event", "#b8bb26"],
+      \ ["Field", "#40a02b"],
+      \ ["File",  "#b8bb26"],
+      \ ["Function", "#b8bb26"],
+      \ ["Interface", "#df8e1d"],
+      \ ["Key", "#ea76cb"],
+      \ ["Keyword","#ea76cb"],
+      \ ["Method", "#b8bb26"],
+      \ ["Module", "#b8bb26"],
+      \ ["Namespace", "#b8bb26"],
+      \ ["Null", "#fabd2f"],
+      \ ["Number", "#fabd2f"],
+      \ ["Object", "#fabd2f"],
+      \ ["Operator", "#04a5e5"],
+      \ ["Package", "#b8bb26"],
+      \ ["Property", "#40a02b"],
+      \ ["String", "#40a02b"],
+      \ ["Struct", "#b8bb26"],
+      \ ["TypeParameter", "#b8bb26"],
+      \ ["Variable", "#dd7878"],
+      \ ]
+
+hi! NavicText guifg=#83a598 guibg=#3c3836
+hi! NavicSeparator guibg=#3c3836
+for kind in g:navic_colors
+  execute "highlight! NavicIcons" . kind[0] . " guifg=" . kind[1] . " guibg=#3c3836"
+endfor
+

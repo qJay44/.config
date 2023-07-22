@@ -1,9 +1,12 @@
 local icons = require('setup.icons')
+local custom_gruvbox = require('lualine.themes.gruvbox_dark')
+
+custom_gruvbox.insert.c.bg = "#3c3836"
 
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox_dark',
+    theme = custom_gruvbox,
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -67,7 +70,17 @@ require('lualine').setup {
         always_visible = false,   -- Show diagnostics even if there are none.
       }
     },
-    lualine_c = {'filename'},
+    lualine_c = {
+      {
+        "navic",
+        color_correction = 'static',
+        navic_opts = { highlight = true },
+        padding = {
+          left = 1,
+          right = 0
+        }
+      }
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -75,7 +88,7 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
+    lualine_c = {},
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}

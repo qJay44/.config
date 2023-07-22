@@ -19,6 +19,7 @@ vim.opt.updatetime = 100              -- The lenght of time Vim waits after you 
 vim.opt.laststatus = 3                -- Makes statusline unsplittable
 vim.opt.pumblend = 30                 -- Popup menu opaque
 vim.opt.scrolloff = 7                 -- Show a few lines of context around the cursor
+vim.lsp.set_log_level("off")          -- Logs for lsp
 
 ---------------------------------------------
 

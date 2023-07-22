@@ -87,7 +87,7 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  --attach_navic(client, bufnr)
+  attach_navic(client, bufnr)
 end
 
 return M

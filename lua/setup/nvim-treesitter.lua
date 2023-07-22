@@ -1,6 +1,6 @@
 require'nvim-treesitter.install'.compilers = { 'clang' }
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "python", "javascript", "lua", "glsl", "typescript" },
+  ensure_installed = { "cpp", "python", "javascript", "lua", "glsl", "typescript", "cmake", "help" },
   highlight = { enable = true },
   rainbow = { enable = true, extended_mode = true, max_file_lines = nil },
   playground = {

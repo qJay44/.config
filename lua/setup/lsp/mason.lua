@@ -8,7 +8,6 @@ if not status_ok1 then
   return vim.notify('mason-lspconfig', vim.log.levels.ERROR, { title = 'Plugin call fail' })
 end
 
--- 'lua_ls' is 'sumneko_lua' but have to use old name for 'ensure_installed'
 local servers = {
   'clangd',
   'cssls',
