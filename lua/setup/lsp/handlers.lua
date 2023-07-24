@@ -2,10 +2,7 @@ local M = {}
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return vim.notify('cmp_nvim_lsp', vim.log.levels.ERROR, { title = 'Plugin call fail' })
-end
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
@@ -57,10 +54,7 @@ M.setup = function()
 end
 
 local function attach_navic(client, bufnr)
-  local status_ok, navic = pcall(require, 'nvim-navic')
-  if not status_ok then
-    return vim.notify('nvim-navic', vim.log.levels.ERROR, { title = 'Plugin call fail' })
-  end
+  local navic = require('nvim-navic')
   navic.attach(client, bufnr)
 end
 

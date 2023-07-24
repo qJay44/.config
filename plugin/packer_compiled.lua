@@ -124,15 +124,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  gruvbox = {
+  ["gruvbox.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox",
-    url = "https://github.com/morhetz/gruvbox"
-  },
-  ["gruvbox-material"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -219,11 +214,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
@@ -264,20 +254,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-better-whitespace",
     url = "https://github.com/ntpeters/vim-better-whitespace"
   },
-  ["vim-cmake"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-cmake",
-    url = "https://github.com/cdelledonne/vim-cmake"
-  },
   ["vim-commentary"] = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-dispatch"] = {
-    loaded = true,
-    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-dispatch",
-    url = "https://github.com/tpope/vim-dispatch"
   },
   ["vim-easymotion"] = {
     loaded = true,
@@ -298,6 +278,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rooter",
     url = "https://github.com/airblade/vim-rooter"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "C:\\Users\\gerku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
   },
   ["vim-surround"] = {
     loaded = true,

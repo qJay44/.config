@@ -1,3 +1,17 @@
+--- Preload ---------------------------
+
+if vim.fn.exists('g:neovide') == 1 then
+  vim.g.neovide_refresh_rate = 90
+  vim.g.neovide_scroll_animation_length = 0.7
+  vim.g.neovide_remember_window_position = true
+  vim.g.neovide_remember_window_size = true
+  vim.g.neovide_transparency = 0.85
+  vim.g.neovide_fullscreen=false
+else
+  vim.o.termguicolors = true
+end
+vim.loader.enable()
+
 --- Keymapping ------------------------
 
 vim.g.mapleader = ' '
@@ -43,21 +57,9 @@ keymap('n', '<leader><S-r>', '<cmd>lua MyTerminal()<CR>', opts)
 keymap('n', ';al', '8o<C-[>7dk', opts)
 keymap('n', '<leader>i', 'bi', opts)
 keymap('n', '<leader>a', 'ei', opts)
+keymap('n', '<leader>t', ':SymbolsOutline<CR>', opts)
 keymap('x', ';s', 'y:%s/<C-r>"//g<Left><Left>', opts)
 keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', opts)
-
---- Preload ---------------------------
-
-if vim.fn.exists('g:neovide') ~= 0 then
-  vim.g.neovide_refresh_rate = 90
-  vim.g.neovide_scroll_animation_length = 0.5
-  vim.g.neovide_remember_window_position = true
-  vim.g.neovide_remember_window_size = true
-  vim.g.neovide_transparency = 0.85
-  vim.g.neovide_fullscreen=false
-else
-  vim.o.termguicolors = true
-end
 
 --- Load plugins and configs ----------
 

@@ -17,6 +17,7 @@ require("gruvbox").setup({
   contrast = "hard", -- can be "hard", "soft" or empty string
   palette_overrides = {},
   overrides = {
+    -- General
     Normal                  = { bg   = '#1d2021'       },
     CmpItemKindFunction     = { link = 'GruvboxGreen'  },
     CmpItemKindMethod       = { link = 'GruvboxGreen'  },
@@ -27,14 +28,36 @@ require("gruvbox").setup({
     TelescopeSelectionCaret = { link = 'GruvboxFg0'    },
     TelescopePromptPrefix   = { link = 'GruvboxFg0'    },
     GitSignsChange          = { link = 'GruvBoxYellow' },
-    ['@variable']           = { link = 'GruvboxBlue'   },
-    ['@string']             = { link = 'GruvboxAqua'   },
-    ['@include']            = { link = 'GruvboxRed'    },
-    ['@type.qualifier']     = { link = 'GruvboxRed'    },
-    ['@type.builtin']       = { link = 'GruvboxRed'    },
-    ['@variable.builtin']   = { link = 'GruvboxOrange' },
-    ['NvimTreeGitDirty']    = { link = 'GruvboxYellow' },
-    ['NvimTreeGitNew']      = { link = 'GruvboxAqua'   },
+    FocusedSymbol           = { link = 'CursorLine'    },
+
+    -- Treesitter
+    ['@variable']         = { link = 'GruvboxBlue'   },
+    ['@string']           = { link = 'GruvboxAqua'   },
+    ['@include']          = { link = 'GruvboxRed'    },
+    ['@type.qualifier']   = { link = 'GruvboxRed'    },
+    ['@type.builtin']     = { link = 'GruvboxRed'    },
+    ['@variable.builtin'] = { link = 'GruvboxOrange' },
+
+    -- Git signs
+    ['NvimTreeGitDirty'] = { link = 'GruvboxYellow' },
+    ['NvimTreeGitNew']   = { link = 'GruvboxAqua'   },
+
+    -- LSP semantics to match Treesitter
+    ["@lsp.type.class"]         = { link = "@type"  },
+    ["@lsp.type.decorator"]     = { link = "Function"   },
+    ["@lsp.type.enum"]          = { link = "Type"       },
+    ["@lsp.type.enumMember"]    = { link = "Constant"   },
+    ["@lsp.type.function"]      = { link = "@function"  },
+    ["@lsp.type.interface"]     = { link = "Structure"  },
+    ["@lsp.type.macro"]         = { link = "@macro"     },
+    ["@lsp.type.method"]        = { link = "@method"    },
+    ["@lsp.type.namespace"]     = { link = "@namespace" },
+    ["@lsp.type.parameter"]     = { link = "@parameter" },
+    ["@lsp.type.property"]      = { link = "@property"  },
+    ["@lsp.type.struct"]        = { link = "Structure"  },
+    ["@lsp.type.type"]          = { link = "@type"      },
+    ["@lsp.type.typeParamater"] = { link = "TypeDef"    },
+    ["@lsp.type.variable"]      = { link = "@variable"  },
   },
   dim_inactive = false,
   transparent_mode = true,
@@ -43,7 +66,7 @@ require("gruvbox").setup({
 vim.o.background = 'dark'
 vim.cmd("colorscheme gruvbox")
 
--- Setting manually since doesn't work in 'overrides' property
+-- Setting here since doesn't work in 'overrides' property
 vim.cmd('hi IlluminatedWordText  gui=underdashed')
 vim.cmd('hi IlluminatedWordRead  gui=underdashed')
 vim.cmd('hi IlluminatedWordWrite gui=underdashed')

@@ -1,12 +1,5 @@
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
-  return vim.notify('mason', vim.log.levels.ERROR, { title = 'Plugin call fail' })
-end
-
-local status_ok1, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok1 then
-  return vim.notify('mason-lspconfig', vim.log.levels.ERROR, { title = 'Plugin call fail' })
-end
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 
 local servers = {
   'clangd',
@@ -36,11 +29,7 @@ mason_lspconfig.setup {
   automatic_installation = true,
 }
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-  return vim.notify('lspconfig', vim.log.levels.ERROR, { title = 'Plugin call fail' })
-end
-
+local lspconfig = require("lspconfig")
 local opts = {}
 
 for _, server in pairs(servers) do
@@ -50,12 +39,7 @@ for _, server in pairs(servers) do
   }
 
   if server == 'lua_ls' then
-    local l_status_ok, neodev = pcall(require, 'neodev')
-    if not l_status_ok then
-      return vim.notify('neodev', vim.log.levels.INFO, { title = 'Plugin call fail' })
-    end
-
-    neodev.setup()
+    require('neodev').setup()
 
     local lua_ls_opts = require "setup.lsp.settings.lua_ls"
     opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)

@@ -1,7 +1,4 @@
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  vim.notify('packer', 'error', { title = 'Pluging call fail' })
-end
+local packer = require('packer')
 
 -- Customize packer window
 packer.init {

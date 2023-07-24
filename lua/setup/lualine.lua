@@ -9,6 +9,10 @@ custom_gruvbox.command.a.gui = ''
 
 -- Increase visiablility of the "c part" elements in command mode
 custom_gruvbox.command.c.fg = '#a89984'
+custom_gruvbox.command.c.bg = '#504945'
+
+-- Insert bg will match navic bg
+custom_gruvbox.insert.c.bg = custom_gruvbox.normal.c.bg
 
 require('lualine').setup {
   options = {
