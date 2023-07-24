@@ -11,5 +11,7 @@ require('setup.gitsigns')
 require('setup.lualine')
 require('setup.telescope')
 require('setup.bufferline')
+require('setup.gruvbox')
+-- require('setup.alpha')
 --require('setup.null-ls')
 

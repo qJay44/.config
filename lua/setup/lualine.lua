@@ -1,10 +1,6 @@
 local icons = require('setup.icons')
 local custom_gruvbox = require('lualine.themes.gruvbox_dark')
 
--- Set background to match with navic
-custom_gruvbox.insert.c.bg = "#3c3836"
-custom_gruvbox.command.c.bg = "#3c3836"
-
 -- Remove boldness
 custom_gruvbox.normal.a.gui = ''
 custom_gruvbox.insert.a.gui = ''
@@ -40,12 +36,12 @@ require('lualine').setup {
       {
         'diff',
         colored = true, -- Displays a colored diff status if set to true
-        diff_color = {
+        -- diff_color = {
           -- Same color values as the general color option can be used here.
-          added    = { fg = '#b8bb26' }, -- Changes the diff's added color
-          modified = { fg = '#fabd2f' }, -- Changes the diff's modified color
-          removed  = { fg = '#fb4934' }, -- Changes the diff's removed color you
-        },
+          -- added    = { fg = '#b8bb26' }, -- Changes the diff's added color
+          -- modified = { fg = '#fabd2f' }, -- Changes the diff's modified color
+          -- removed  = { fg = '#fb4934' }, -- Changes the diff's removed color you
+        -- },
         symbols = { added = '+', modified = '~', removed = '-' }, -- Changes the symbols used by the diff.
         source = nil, -- A function that works as a data source for diff.
                       -- It must return a table as such:
@@ -63,13 +59,13 @@ require('lualine').setup {
         -- Displays diagnostics for the defined severity types
         sections = { 'error', 'warn', 'info', 'hint' },
 
-        diagnostics_color = {
+        -- diagnostics_color = {
           -- Same values as the general color option can be used here.
-          error = { fg = '#fb4934' }, -- Changes diagnostics' error color.
+          -- error = { fg = '#fb4934' }, -- Changes diagnostics' error color.
           -- warn  = { fg = },  -- Changes diagnostics' warn color.
           -- info  = { fg = },  -- Changes diagnostics' info color.
           -- hint  = { fg = }  -- Changes diagnostics' hint color.
-        },
+        -- },
         symbols = {
           error = icons.diagnostics.Error .. ' ',
           warn = icons.diagnostics.Warning .. ' ',

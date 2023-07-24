@@ -20,8 +20,7 @@ return packer.startup(function(use)
 
   -- colorschemes
   use 'tomasr/molokai'
-  use 'morhetz/gruvbox'
-  use 'sainnhe/gruvbox-material'
+  use 'ellisonleao/gruvbox.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -43,40 +42,35 @@ return packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
   -- Other
-  use 'wakatime/vim-wakatime'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'airblade/vim-rooter'
-  use 'tpope/vim-dispatch'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'ntpeters/vim-better-whitespace'
-  use 'windwp/nvim-autopairs'
-  use 'easymotion/vim-easymotion'
-  use 'tpope/vim-fugitive'
-  use 'p00f/nvim-ts-rainbow'
-  use 'lukas-reineke/indent-blankline.nvim'
-  use 'goolord/alpha-nvim'
-  use 'nvim-treesitter/playground'
-  use 'simrat39/symbols-outline.nvim'
-  use 'RRethy/vim-illuminate'
-  use 'folke/neodev.nvim'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'rcarriga/nvim-notify'
-  use 'lewis6991/gitsigns.nvim'
-  use 'norcalli/nvim-colorizer.lua'
-  use 'nvim-lua/plenary.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'cdelledonne/vim-cmake'
+  use 'wakatime/vim-wakatime'                           -- Wakatime                             (Unupdateble?)
+  use 'tpope/vim-surround'                              -- Vim surround keymaps
+  use 'tpope/vim-commentary'                            -- Vim comment keymaps
+  use 'airblade/vim-rooter'                             -- Vim workspace setter
+  use 'nvim-treesitter/nvim-treesitter'                 -- TS
+  use 'ntpeters/vim-better-whitespace'                  -- Highlight extra whitespaces
+  use 'windwp/nvim-autopairs'                           -- Place two perantheses at once
+  use 'easymotion/vim-easymotion'                       -- Better search                        (Do not forget to use)
+  use 'tpope/vim-fugitive'                              -- Git commands
+  use 'lukas-reineke/indent-blankline.nvim'             -- Improved indents
+  use 'nvim-treesitter/playground'                      -- Usefull treesitter tools
+  use 'simrat39/symbols-outline.nvim'                   -- Tree view                            (Do not forget to use)
+  use 'RRethy/vim-illuminate'                           -- Underline word under cursor
+  use 'folke/neodev.nvim'                               -- Signature help in floating window
+  use 'williamboman/mason.nvim'                         -- Package manager (LSP, DAP, etc.)
+  use 'williamboman/mason-lspconfig.nvim'               -- LSP extension for mason.nvim
+  use 'rcarriga/nvim-notify'                            -- Notifier windows
+  use 'lewis6991/gitsigns.nvim'                         -- Git signs
+  use 'norcalli/nvim-colorizer.lua'                     -- Highlight color codes
+  use 'nvim-lua/plenary.nvim'                           -- Some functions                       (Need to check it more)
+  use 'jose-elias-alvarez/null-ls.nvim'                 -- Use formatters on buffers
+  use 'dstein64/vim-startuptime'                        -- Measure startup time
 
   -- Plugins with requirements
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.2', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'akinsho/bufferline.nvim', tag = '*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'akinsho/toggleterm.nvim', tag = '*'}
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+  use { 'nvim-tree/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' }, }
 end)
 
