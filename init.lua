@@ -18,16 +18,16 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 local keymap = vim.api.nvim_set_keymap
-keymap('n', '<c-s>', ':w<CR>', {})
-keymap('i', '<c-s>', '<Esc>:w<CR>a', {})
-keymap('n', '<F6>', ':NvimTreeToggle<CR>', {})
-keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', {})
-keymap('n', '<leader>p', '"*p', {})
-keymap('n', '<leader>y', '"*y', {})
-keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', {})
-keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', {})
-keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', {})
-keymap('n', '<C-[>', ':noh<CR>', {}) -- Clear search selection
+keymap('n', '<c-s>', ':w<CR>', { silent=true })
+keymap('i', '<c-s>', '<Esc>:w<CR>a', { silent=true })
+keymap('n', '<F6>', ':NvimTreeToggle<CR>', { silent=true })
+keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', { silent=true })
+keymap('n', '<leader>p', '"*p', { silent=true })
+keymap('n', '<leader>y', '"*y', { silent=true })
+keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', { silent=true })
+keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
+keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', { silent=true })
+keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
 
 -- Move selected lines up/down
 keymap('v', 'J', ":m '>+1<CR>gv=gv", {})
@@ -43,7 +43,7 @@ keymap('o', '/', '<Plug>(easymotion-tn)', {})
 keymap('n', 'n', '<Plug>(easymotion-next)', {})
 keymap('n', 'N', '<Plug>(easymotion-prev)', {})
 
-local opts = { noremap=true }
+local opts = { noremap=true, silent=true }
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
@@ -83,6 +83,7 @@ vim.opt.updatetime  = 100             -- The lenght of time Vim waits after you 
 vim.opt.laststatus  = 3               -- Makes statusline unsplittable
 vim.opt.pumblend    = 30              -- Popup menu opaque
 vim.opt.scrolloff   = 7               -- Show a few lines of context around the cursor
+vim.opt.cmdheight   = 0               -- Hide command line
 
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h14"

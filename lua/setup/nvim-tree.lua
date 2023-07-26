@@ -1,8 +1,4 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return vim.notify('nvim-tree', 'error', { title = 'Plugin call fail' })
-end
-
+local nvim_tree = require("nvim-tree")
 local icons = require "setup.icons"
 
 nvim_tree.setup {

@@ -15,49 +15,37 @@ bufferline.setup {
         icon = '▎', -- this should be omitted if indicator style is not 'icon'
         -- style = 'underline',
     },
-    enforce_regular_tabs = true,
+    enforce_regular_tabs = false,
   },
   highlights = {
+    fill = {
+      bg = '#191919'
+    },
     background = {
         fg = '#a89984',
         bg = 'none'
-    },
-    tab = {
-        fg = '#fb4934',
-        -- bg = ''
-    },
-    tab_selected = {
-        fg = '#fb4934',
-        -- bg = ''
-    },
-    tab_close = {
-        fg = '#fb4934',
-        -- bg = ''
     },
     buffer_visible = {
         fg = '#a89984',
         bg = 'none',
     },
     buffer_selected = {
-        fg = '#f9f5d7',
+        fg = '#80a0ff',
         bg = 'none',
         bold = false,
         italic = false,
     },
-    close_button = {
-        fg = '#fb4934',
-        -- bg = ''
+    close_button ={
+      fg = '#a89984'
     },
-    close_button_visible = {
-        fg = '#fb4934',
-        -- bg = ''
+    close_button_visible ={
+      fg = '#a89984'
     },
     close_button_selected = {
-        fg = '#fb4934',
-        -- bg = ''
+      fg = '#80a0ff'
     },
     indicator_selected = {
-        fg = '#b8bb26',
+        fg = '#80a0ff',
     },
     separator = {
         fg = '#1d2021',

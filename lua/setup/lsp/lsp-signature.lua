@@ -18,7 +18,7 @@ local cfg = {
   noice = false, -- set to true if you using noice to render markdown
   wrap = true, -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
 
-  floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
+  floating_window = false, -- show hint in a floating window, set to false for virtual text only mode
 
   floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
   -- will set to true when fully tested, set to false will use whichever side has more space
@@ -32,8 +32,8 @@ local cfg = {
   close_timeout = 4000, -- close floating window after ms when laster parameter is entered
   fix_pos = false,  -- set to true, the floating window will not auto-close until finish all parameters
   hint_enable = true, -- virtual hint enable
-  hint_prefix = "🐼 ",  -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
-  hint_scheme = "String",
+  hint_prefix = "[lsp] ",  -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
+  hint_scheme = "GruvboxFg4",
   hint_inline = function() return false end,  -- should the hint be inline(nvim 0.10 only)?  default false
   hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
   handler_opts = {
