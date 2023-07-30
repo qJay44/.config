@@ -1,12 +1,10 @@
-local status_ok, toggleterm = pcall(require, 'toggleterm')
-if not status_ok then
-  return vim.notify('toggleterm', 'error', { title = 'Plugin call fail' })
-end
+local toggleterm = require('toggleterm')
 
 toggleterm.setup{
   size = 20,
   open_mapping = [[<c-\>]],
   hide_numbers = true,
+  autochdir = true,
   shade_filetypes = {},
   shade_terminals = true,
   shading_factor = 2,
@@ -18,7 +16,7 @@ toggleterm.setup{
   shell = vim.o.shell,
   float_opts = {
     border = 'curved',
-    winblend = 0,
+    winblend = 10,
     highlights = {
       border = 'Normal',
       background = 'Normal'

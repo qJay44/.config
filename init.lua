@@ -24,7 +24,6 @@ keymap('n', '<F6>', ':NvimTreeToggle<CR>', { silent=true })
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', { silent=true })
 keymap('n', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
-keymap('n', '<leader>so', ':so $MYVIMRC<CR>:noh<CR>', { silent=true })
 keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
 keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', { silent=true })
 keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
@@ -44,6 +43,7 @@ keymap('n', 'n', '<Plug>(easymotion-next)', {})
 keymap('n', 'N', '<Plug>(easymotion-prev)', {})
 
 local opts = { noremap=true, silent=true }
+keymap('n', '<leader>so', ':so %<CR>:noh<CR>', opts)
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
@@ -58,8 +58,9 @@ keymap('n', ';al', '8o<C-[>7dk', opts)
 keymap('n', '<leader>i', 'bi', opts)
 keymap('n', '<leader>a', 'ei', opts)
 keymap('n', '<leader>t', ':SymbolsOutline<CR>', opts)
-keymap('x', ';s', 'y:%s/<C-r>"//g<Left><Left>', opts)
-keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', opts)
+
+keymap('x', ';s', 'y:%s/<C-r>"//g<Left><Left>', { noremap=true })
+keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', { noremap=true })
 
 --- Load plugins and configs ----------
 
@@ -89,6 +90,7 @@ vim.opt.cmdheight   = 0               -- Hide command line
 vim.o.guifont = "FiraCode Nerd Font:h14"
 vim.lsp.set_log_level("off")
 vim.g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/env.sh', '*.md', "main.py" }
+vim.g.rooter_silent_chdir = true
 
 --- Functions --------------------------
 

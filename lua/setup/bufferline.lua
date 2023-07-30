@@ -22,18 +22,18 @@ bufferline.setup {
       bg = '#191919'
     },
     background = {
-        fg = '#a89984',
-        bg = 'none'
+      fg = '#a89984',
+      bg = 'none'
     },
     buffer_visible = {
-        fg = '#a89984',
-        bg = 'none',
+      fg = '#a89984',
+      bg = 'none',
     },
     buffer_selected = {
-        fg = '#80a0ff',
-        bg = 'none',
-        bold = false,
-        italic = false,
+      fg = '#80a0ff',
+      bg = 'none',
+      bold = false,
+      italic = false,
     },
     close_button ={
       fg = '#a89984'
@@ -45,11 +45,23 @@ bufferline.setup {
       fg = '#80a0ff'
     },
     indicator_selected = {
-        fg = '#80a0ff',
+      fg = '#80a0ff',
     },
     separator = {
-        fg = '#1d2021',
-        bg = '#1d2021',
+      fg = '#1d2021',
+      bg = '#1d2021',
+    },
+    separator_visible = {
+      fg = '#1d2021',
+      bg = '#1d2021',
+    },
+    separator_selected = {
+      fg = '#1d2021',
+      bg = '#1d2021',
+    },
+    offset_separator = {
+      fg = '#1d2021',
+      bg = '#1d2021',
     },
   }
 }

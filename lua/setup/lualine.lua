@@ -6,14 +6,17 @@ custom_gruvbox.normal.a.gui = ''
 custom_gruvbox.insert.a.gui = ''
 custom_gruvbox.visual.a.gui = ''
 custom_gruvbox.command.a.gui = ''
+custom_gruvbox.replace.a.gui = ''
 
--- Increase visiablility of the "c part" elements in command mode
-custom_gruvbox.command.c.fg = '#a89984'
-custom_gruvbox.command.c.bg = '#504945'
-custom_gruvbox.command.c.bg = custom_gruvbox.normal.c.bg
+-- Increase visiablility of the elements
+custom_gruvbox.command.c.fg = custom_gruvbox.normal.c.fg
+custom_gruvbox.visual.c.fg = custom_gruvbox.normal.c.fg
 
--- Insert bg will match navic bg
+-- Match navic bg
 custom_gruvbox.insert.c.bg = custom_gruvbox.normal.c.bg
+custom_gruvbox.visual.c.bg = custom_gruvbox.normal.c.bg
+custom_gruvbox.replace.c.bg = custom_gruvbox.normal.c.bg
+custom_gruvbox.command.c.bg = custom_gruvbox.normal.c.bg
 
 require('lualine').setup {
   options = {

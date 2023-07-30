@@ -19,6 +19,8 @@ require("gruvbox").setup({
   overrides = {
     -- General
     Normal                  = { bg   = '#1d2021'       },
+    NormalFloat             = { link = 'Normal'        },
+    FloatBorder             = { link = 'Normal'        },
     CmpItemKindFunction     = { link = 'GruvboxGreen'  },
     CmpItemKindMethod       = { link = 'GruvboxGreen'  },
     CmpItemKindText         = { link = "GruvboxFg0"    },

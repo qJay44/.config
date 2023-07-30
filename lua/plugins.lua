@@ -23,6 +23,12 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'ray-x/lsp_signature.nvim'
   use 'SmiteshP/nvim-navic'
+  use 'williamboman/mason-lspconfig.nvim'
+
+  -- DAP
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'jay-babu/mason-nvim-dap.nvim'
 
   -- CMP core
   use 'hrsh7th/nvim-cmp'
@@ -54,7 +60,6 @@ return packer.startup(function(use)
   use 'RRethy/vim-illuminate'                           -- Underline word under cursor
   use 'folke/neodev.nvim'                               -- Signature help in floating window
   use 'williamboman/mason.nvim'                         -- Package manager (LSP, DAP, etc.)
-  use 'williamboman/mason-lspconfig.nvim'               -- LSP extension for mason.nvim
   use 'rcarriga/nvim-notify'                            -- Notifier windows
   use 'lewis6991/gitsigns.nvim'                         -- Git signs
   use 'norcalli/nvim-colorizer.lua'                     -- Highlight color codes
@@ -62,7 +67,6 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'                 -- Use formatters on buffers
   use 'dstein64/vim-startuptime'                        -- Measure startup time
 
-  -- Plugins with requirements
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.2', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'akinsho/bufferline.nvim', tag = '*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
