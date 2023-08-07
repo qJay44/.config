@@ -1,5 +1,4 @@
 local dap = require('dap')
-dap.set_log_level('TRACE')
 
 -- setup cpptools adapter
 dap.adapters.cppdbg = {
@@ -33,6 +32,8 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+dapui.setup()
 
 vim.keymap.set('n', '<F5>', function() dap.continue() end)
 vim.keymap.set('n', '<F10>', function() dap.step_over() end)

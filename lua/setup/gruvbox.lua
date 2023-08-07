@@ -44,13 +44,15 @@ require("gruvbox").setup({
     ['@type.builtin']     = { link = 'GruvboxRed'    },
     ['@variable.builtin'] = { link = 'GruvboxOrange' },
     ['@namespace']        = { link = 'GruvboxAqua'   },
+    ['@text.todo']        = { link = 'GruvboxOrange' },
+    ['@text.danger']      = { link = 'GruvboxRed'    },
 
     -- Git signs
     ['NvimTreeGitDirty'] = { link = 'GruvboxYellow' },
     ['NvimTreeGitNew']   = { link = 'GruvboxAqua'   },
 
     -- LSP semantics to match Treesitter
-    ["@lsp.type.class"]         = { link = "@type"  },
+    ["@lsp.type.class"]         = { link = "@type"         },
     ["@lsp.type.decorator"]     = { link = "Function"      },
     ["@lsp.type.enum"]          = { link = "Type"          },
     ["@lsp.type.enumMember"]    = { link = "Constant"      },
