@@ -24,6 +24,7 @@ keymap('n', '<F6>', ':NvimTreeToggle<CR>', { silent=true })
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', { silent=true })
 keymap('n', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
+keymap('v', '<leader>y', '"*y', { silent=true })
 keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
 keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', { silent=true })
 keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
@@ -58,6 +59,7 @@ keymap('n', ';al', '8o<C-[>7dk', opts)
 keymap('n', '<leader>i', 'bi', opts)
 keymap('n', '<leader>a', 'ei', opts)
 keymap('n', '<leader>t', ':SymbolsOutline<CR>', opts)
+keymap('n', '<leader>j', 'cw<Enter><Esc>', opts)
 
 keymap('x', ';s', 'y:%s/<C-r>"//g<Left><Left>', { noremap=true })
 keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', { noremap=true })
@@ -85,6 +87,9 @@ vim.opt.laststatus  = 3               -- Makes statusline unsplittable
 vim.opt.pumblend    = 30              -- Popup menu opaque
 vim.opt.scrolloff   = 7               -- Show a few lines of context around the cursor
 vim.opt.cmdheight   = 0               -- Hide command line
+vim.opt.foldmethod  = 'expr'
+vim.opt.foldexpr    = 'nvim_treesitter#foldexpr()'
+vim.opt.foldminlines = 5
 
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h14"

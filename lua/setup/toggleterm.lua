@@ -35,23 +35,5 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-local Terminal  = require('toggleterm.terminal').Terminal
-local launch = Terminal:new({
-  cmd = "mingwRelease.bat",
-  on_open = function(term)
-    vim.cmd("startinsert!")
-    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-  end,
-})
-
-function _build_toggle()
-  if vim.bo.filetype == "cpp" then
-    launch:toggle()
-  else
-    vim.notify("No toggleterm command for this file yet", vim.log.levels.WARN)
-  end
-end
-
-vim.api.nvim_set_keymap("n", "<C-F6>", "<cmd>lua _build_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-F6>", "<cmd>w<CR><cmd>ToggleTerm<CR>i<Backspace><Up><CR>", {noremap = true, silent = true})
 

@@ -3,23 +3,30 @@ local dap = require('dap')
 -- setup cpptools adapter
 dap.adapters.cppdbg = {
   id = "cppdbg",
-  type = 'executable';
-  command = vim.fn.stdpath('data') .. '/mason/bin/OpenDebugAD7.cmd',
+  type = 'executable',
+  command = vim.fn.stdpath('data') .. '\\mason\\bin\\OpenDebugAD7.cmd',
   options = {
     detached = false
-  }
+  },
 }
 
 -- this configuration should start cpptools and the debug the executable main in the current directory when executing :DapContinue
 dap.configurations.cpp = {
   {
-    name = "Launch file",
-    type = "cppdbg",
-    request = "launch",
-    program = '${workspaceFolder}/Build/Debug/MyProject.exe',
-    cwd = '${workspaceFolder}',
+    name = 'Launch file',
+    type = 'cppdbg',
+    request = 'launch',
+    program = '${workspaceFolder}\\Build\\Debug\\MyProject.exe',
+    cwd = '${workspaceFolder}\\Build\\Debug\\',
     stopOnEntry = true,
-  },
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description =  'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  }
 }
 
 local dapui = require("dapui")
@@ -32,8 +39,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
-
-dapui.setup()
 
 vim.keymap.set('n', '<F5>', function() dap.continue() end)
 vim.keymap.set('n', '<F10>', function() dap.step_over() end)
@@ -57,6 +62,11 @@ end)
 vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.scopes)
+end)
+
+vim.keymap.set('n', '<S-F5>', function()
+  dap.terminate()
+  dapui.close()
 end)
 
 local dap_breakpoint = {

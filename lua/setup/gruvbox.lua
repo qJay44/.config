@@ -58,7 +58,7 @@ require("gruvbox").setup({
     ["@lsp.type.enumMember"]    = { link = "Constant"      },
     ["@lsp.type.function"]      = { link = "@function"     },
     ["@lsp.type.interface"]     = { link = "Structure"     },
-    ["@lsp.type.macro"]         = { link = "@macro"        },
+    ["@lsp.type.macro"]         = { link = "@constant"     },
     ["@lsp.type.method"]        = { link = "@method"       },
     ["@lsp.type.namespace"]     = { link = "@namespace"    },
     ["@lsp.type.parameter"]     = { link = "@parameter"    },
