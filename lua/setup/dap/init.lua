@@ -19,6 +19,8 @@ dap.configurations.cpp = {
     program = '${workspaceFolder}\\Build\\Debug\\MyProject.exe',
     cwd = '${workspaceFolder}\\Build\\Debug\\',
     stopOnEntry = true,
+    MIMode = 'gdb',
+    miDebuggerPath = 'C:\\MinGW\\mingw64\\bin\\gdb.exe',
     setupCommands = {
       {
         text = '-enable-pretty-printing',

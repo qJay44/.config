@@ -18,6 +18,14 @@ custom_gruvbox.visual.c.bg = custom_gruvbox.normal.c.bg
 custom_gruvbox.replace.c.bg = custom_gruvbox.normal.c.bg
 custom_gruvbox.command.c.bg = custom_gruvbox.normal.c.bg
 
+if (TransparentMode) then
+  for _, value in pairs(custom_gruvbox) do
+    value.a = 'none'
+    value.b = 'none'
+    value.c = 'none'
+  end
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,

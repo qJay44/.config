@@ -7,6 +7,7 @@ require("gruvbox").setup({
     comments = true,
     operators = false,
     folds = true,
+    emphasis = false
   },
   strikethrough = true,
   invert_selection = false,
@@ -35,6 +36,7 @@ require("gruvbox").setup({
     TelescopePromptPrefix   = { link = 'GruvboxFg0'    },
     GitSignsChange          = { link = 'GruvBoxYellow' },
     FocusedSymbol           = { link = 'CursorLine'    },
+    packerSuccess           = { link = 'GruvboxAqua'   },
 
     -- Treesitter
     ['@variable']         = { link = 'GruvboxBlue'   },
@@ -72,6 +74,19 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = true,
 })
+
+if (TransparentMode) then
+  require('gruvbox').setup({
+    overrides = {
+      CursorLine   = { bg = 'none' },
+      CursorLineNR = { bg = 'none' },
+      Folded       = { bg = 'none' },
+      SignColumn   = { bg = 'none' },
+      FloatBorder  = { bg = 'none' },
+      NormalFloat  = { bg = 'none' },
+    }
+  })
+end
 
 vim.o.background = 'dark'
 vim.cmd("colorscheme gruvbox")

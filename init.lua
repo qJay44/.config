@@ -1,12 +1,18 @@
 --- Preload ---------------------------
 
 if vim.fn.exists('g:neovide') == 1 then
+  TransparentMode = false
+
   vim.g.neovide_refresh_rate = 90
   vim.g.neovide_scroll_animation_length = 0.7
   vim.g.neovide_remember_window_position = true
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_transparency = 0.85
   vim.g.neovide_fullscreen=false
+
+  if (TransparentMode) then
+    vim.g.neovide_transparency = 0
+  end
 else
   vim.o.termguicolors = true
 end
@@ -25,7 +31,7 @@ keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', { silent=true })
 keymap('n', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
 keymap('v', '<leader>y', '"*y', { silent=true })
-keymap('n', '<F9>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
+keymap('n', '<F10>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
 keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', { silent=true })
 keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
 
@@ -87,9 +93,9 @@ vim.opt.laststatus  = 3               -- Makes statusline unsplittable
 vim.opt.pumblend    = 30              -- Popup menu opaque
 vim.opt.scrolloff   = 7               -- Show a few lines of context around the cursor
 vim.opt.cmdheight   = 0               -- Hide command line
-vim.opt.foldmethod  = 'expr'
-vim.opt.foldexpr    = 'nvim_treesitter#foldexpr()'
-vim.opt.foldminlines = 5
+-- vim.opt.foldmethod  = 'expr'
+-- vim.opt.foldexpr    = 'nvim_treesitter#foldexpr()'
+-- vim.opt.foldminlines = 5
 
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h14"

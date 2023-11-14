@@ -1,14 +1,9 @@
-local status_ok, telescope = pcall(require, 'telescope')
-if not status_ok then
-  vim.notify('telescope', 'error', { title = 'Plugin call fail' })
-end
-
+local telescope = require'telescope'
 local actions = require 'telescope.actions'
 local icons = require 'setup.icons'
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = icons.ui.Telescope .. " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -23,7 +18,7 @@ telescope.setup {
         ["<C-b>"] = actions.results_scrolling_up,
         ["<C-f>"] = actions.results_scrolling_down,
 
-        ["<C-c>"] = actions.close,
+        ["<C-[>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
@@ -39,8 +34,6 @@ telescope.setup {
         -- ["<C-d>"] = actions.preview_scrolling_down,
 
         -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<Tab>"] = actions.close,
-        ["<S-Tab>"] = actions.close,
         -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
@@ -56,9 +49,8 @@ telescope.setup {
         ["<C-t>"] = actions.select_tab,
         ["<C-b>"] = actions.results_scrolling_up,
         ["<C-f>"] = actions.results_scrolling_down,
+        ["<C-[>"] = actions.close,
 
-        ["<Tab>"] = actions.close,
-        ["<S-Tab>"] = actions.close,
         -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
@@ -89,6 +81,20 @@ telescope.setup {
         ["?"] = actions.which_key,
       }
     }
+  },
+  -- You dont need to set any of these options. These are the default ones. Only
+  -- the loading is important
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
   }
 }
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
 

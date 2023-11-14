@@ -66,12 +66,12 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'                           -- Some functions                       (Need to check it more)
   use 'jose-elias-alvarez/null-ls.nvim'                 -- Use formatters on buffers
   use 'dstein64/vim-startuptime'                        -- Measure startup time
-
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.2', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'akinsho/bufferline.nvim', tag = '*', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'akinsho/toggleterm.nvim', tag = '*'}
   use { 'nvim-tree/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' }, }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 end)
 

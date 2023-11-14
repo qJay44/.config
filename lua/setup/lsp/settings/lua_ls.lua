@@ -2,7 +2,7 @@ return {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "TransparentMode" },
       },
       workspace = {
         checkThirdParty = false

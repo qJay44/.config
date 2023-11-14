@@ -3,7 +3,7 @@ return {
     python = {
       analysis = {
         typeCheckingMode = 'off',
-        diagnosticMode = 'openFilesOnly',
+        diagnosticMode = 'workspace',
         useLibraryCodeForTypes = false,
         inlayHints = {
           variableTypes = true,

@@ -1,4 +1,11 @@
 local bufferline = require('bufferline')
+local fillBg
+
+if (TransparentMode) then
+  fillBg = 'none'
+else
+  fillBg = '#191919'
+end
 
 bufferline.setup {
   options = {
@@ -19,7 +26,7 @@ bufferline.setup {
   },
   highlights = {
     fill = {
-      bg = '#191919'
+      bg = fillBg
     },
     background = {
       fg = '#a89984',
