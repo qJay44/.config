@@ -15,5 +15,4 @@ require('setup.gruvbox')
 require('setup.dap')
 require('setup.ibl')
 -- require('setup.alpha')
---require('setup.null-ls')
 

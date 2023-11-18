@@ -1,10 +1,10 @@
+---@diagnostic disable: missing-fields
+
 local bufferline = require('bufferline')
-local fillBg
+local fillBg = '#191919'
 
 if (TransparentMode) then
   fillBg = 'none'
-else
-  fillBg = '#191919'
 end
 
 bufferline.setup {
