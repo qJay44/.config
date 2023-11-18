@@ -73,7 +73,7 @@ keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', { noremap=true })
 --- Load plugins and configs ----------
 
 require('plugins')
-require('configs')
+require('setup')
 
 --- Options ---------------------------
 

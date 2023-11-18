@@ -1,76 +1,75 @@
-local packer = require('packer')
-
--- Customize packer window
-packer.init {
-  display = {
-    open_fn = function()
-      return require('packer.util').float { border = 'rounded' }
-    end,
-    prompt_border = 'rounded'
-  }
-}
+-- Make sure lazy is installed
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- Plugins install
-return packer.startup(function(use)
-  -- Packer
-  use 'wbthomason/packer.nvim'
-
+require('lazy').setup({
   -- colorschemes
-  use 'tomasr/molokai'
-  use 'ellisonleao/gruvbox.nvim'
+  'tomasr/molokai',
+  'ellisonleao/gruvbox.nvim',
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'ray-x/lsp_signature.nvim'
-  use 'SmiteshP/nvim-navic'
-  use 'williamboman/mason-lspconfig.nvim'
+  'neovim/nvim-lspconfig',
+  'ray-x/lsp_signature.nvim',
+  'SmiteshP/nvim-navic',
+  'williamboman/mason-lspconfig.nvim',
 
   -- DAP
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'jay-babu/mason-nvim-dap.nvim'
+  'mfussenegger/nvim-dap',
+  'rcarriga/nvim-dap-ui',
+  'jay-babu/mason-nvim-dap.nvim',
 
   -- CMP core
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'onsails/lspkind.nvim'
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/cmp-nvim-lua',
+  'onsails/lspkind.nvim',
 
   -- CMP snippets
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/vim-vsnip'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/vim-vsnip',
+  'L3MON4D3/LuaSnip',
+  'saadparwaiz1/cmp_luasnip',
 
   -- Other
-  use 'wakatime/vim-wakatime'                           -- Coding time                          (No longer updates after manually hardcoded the fix for amd)
-  use 'tpope/vim-surround'                              -- Vim surround keymaps
-  use 'tpope/vim-commentary'                            -- Vim comment keymaps
-  use 'airblade/vim-rooter'                             -- Vim workspace setter
-  use 'nvim-treesitter/nvim-treesitter'                 -- Better highlight
-  use 'ntpeters/vim-better-whitespace'                  -- Highlight extra whitespaces
-  use 'windwp/nvim-autopairs'                           -- Place two parenthesises at once
-  use 'easymotion/vim-easymotion'                       -- Better search                        (Do not forget to use)
-  use 'tpope/vim-fugitive'                              -- Git commands
-  use 'lukas-reineke/indent-blankline.nvim'             -- Improved indents
-  use 'nvim-treesitter/playground'                      -- Usefull treesitter tools
-  use 'simrat39/symbols-outline.nvim'                   -- Code tree view                       (Do not forget to use)
-  use 'RRethy/vim-illuminate'                           -- Underline the same words
-  use 'folke/neodev.nvim'                               -- Signature help in floating window
-  use 'williamboman/mason.nvim'                         -- Package manager (LSP, DAP, etc.)
-  use 'rcarriga/nvim-notify'                            -- Notifier windows
-  use 'lewis6991/gitsigns.nvim'                         -- Git signs
-  use 'norcalli/nvim-colorizer.lua'                     -- Highlight color codes
-  use 'nvim-lua/plenary.nvim'                           -- Some functions                       (Need to check it more)
-  use 'dstein64/vim-startuptime'                        -- Measure startup time
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'akinsho/bufferline.nvim', tag = '*', requires = { 'kyazdani42/nvim-web-devicons' } }
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
-  use { 'akinsho/toggleterm.nvim', tag = '*'}
-  use { 'nvim-tree/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
-  use { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons' }, }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-end)
+  'wakatime/vim-wakatime',                          -- Coding time
+  'tpope/vim-surround',                             -- Vim surround keymaps
+  'tpope/vim-commentary',                           -- Vim comment keymaps
+  'airblade/vim-rooter',                            -- Vim workspace setter
+  'nvim-treesitter/nvim-treesitter',                -- Better highlight
+  'nvim-treesitter/playground',                     -- Usefull treesitter tools
+  'ntpeters/vim-better-whitespace',                 -- Highlight extra whitespaces
+  'windwp/nvim-autopairs',                          -- Place two parenthesises at once
+  'easymotion/vim-easymotion',                      -- Better search                        (Do not forget to use)
+  'tpope/vim-fugitive',                             -- Git commands
+  'lukas-reineke/indent-blankline.nvim',            -- Improved indents
+  'simrat39/symbols-outline.nvim',                  -- Code tree view                       (Do not forget to use)
+  'RRethy/vim-illuminate',                          -- Underline the same words
+  'folke/neodev.nvim',                              -- Signature help in floating window
+  'williamboman/mason.nvim',                        -- Package manager (LSP, DAP, etc.)
+  'rcarriga/nvim-notify',                           -- Notifier windows
+  'lewis6991/gitsigns.nvim',                        -- Git signs
+  'norcalli/nvim-colorizer.lua',                    -- Highlight color codes
+  'nvim-lua/plenary.nvim',                          -- Some functions                       (Need to check it more)
+  'dstein64/vim-startuptime',                       -- Measure startup time
+  { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'akinsho/bufferline.nvim', version = '*', dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 'akinsho/toggleterm.nvim', version = '*'},
+  { 'nvim-tree/nvim-tree.lua', dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 'goolord/alpha-nvim', dependencies = { 'kyazdani42/nvim-web-devicons' }, },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+})
 

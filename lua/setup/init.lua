@@ -1,3 +1,7 @@
+require'nvim-autopairs'.setup()
+require'colorizer'.setup()
+require('alpha').setup(require('alpha.themes.startify').config)
+
 require('setup.notify')
 require('setup.nvim-tree')
 require('setup.toggleterm')
@@ -14,5 +18,6 @@ require('setup.bufferline')
 require('setup.gruvbox')
 require('setup.dap')
 require('setup.ibl')
--- require('setup.alpha')
+
+require'dapui'.setup()
 

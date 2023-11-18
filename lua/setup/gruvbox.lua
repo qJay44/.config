@@ -36,7 +36,6 @@ require("gruvbox").setup({
     TelescopePromptPrefix   = { link = 'GruvboxFg0'    },
     GitSignsChange          = { link = 'GruvBoxYellow' },
     FocusedSymbol           = { link = 'CursorLine'    },
-    packerSuccess           = { link = 'GruvboxAqua'   },
 
     -- Treesitter
     ['@variable']         = { link = 'GruvboxBlue'   },

@@ -1,8 +1,4 @@
-local status_ok, symbols_outline = pcall(require, "symbols-outline")
-if not status_ok then
-  return vim.notify('symbols-outline', 'error', { title = 'Plugin call fail' })
-end
-
+local symbols_outline = require"symbols-outline"
 local icons = require "setup.icons"
 local opts = {
   highlight_hovered_item = true,
