@@ -35,12 +35,11 @@ require('lazy').setup({
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
   'hrsh7th/cmp-nvim-lua',
+  'hrsh7th/cmp-nvim-lsp',
   'onsails/lspkind.nvim',
 
   -- CMP snippets
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/vim-vsnip',
-  'L3MON4D3/LuaSnip',
+  {'L3MON4D3/LuaSnip', dependencies = {'rafamadriz/friendly-snippets'}},
   'saadparwaiz1/cmp_luasnip',
 
   -- Other
@@ -64,6 +63,7 @@ require('lazy').setup({
   'norcalli/nvim-colorizer.lua',                    -- Highlight color codes
   'nvim-lua/plenary.nvim',                          -- Some functions                       (Need to check it more)
   'dstein64/vim-startuptime',                       -- Measure startup time
+
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'akinsho/bufferline.nvim', version = '*', dependencies = { 'kyazdani42/nvim-web-devicons' } },
   { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },

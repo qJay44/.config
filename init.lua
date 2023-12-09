@@ -29,11 +29,15 @@ keymap('i', '<c-s>', '<Esc>:w<CR>a', { silent=true })
 keymap('n', '<F6>', ':NvimTreeToggle<CR>', { silent=true })
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', { silent=true })
 keymap('n', '<leader>p', '"*p', { silent=true })
+keymap('v', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
 keymap('v', '<leader>y', '"*y', { silent=true })
 keymap('n', '<F10>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
 keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', { silent=true })
 keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
+keymap('n', '<leader>)', 'bveS)', { silent=true })
+keymap('n', '<leader>}', 'bveS}', { silent=true })
+keymap('n', '<leader>]', 'bveS]', { silent=true })
 
 -- Move selected lines up/down
 keymap('v', 'J', ":m '>+1<CR>gv=gv", {})
@@ -44,10 +48,10 @@ keymap('n', '<C-d>', '<C-d>zz', {})
 keymap('n', '<C-u>', '<C-u>zz', {})
 
 -- Easymotion
-keymap('n', '/', '<Plug>(easymotion-sn)', {})
-keymap('o', '/', '<Plug>(easymotion-tn)', {})
-keymap('n', 'n', '<Plug>(easymotion-next)', {})
-keymap('n', 'N', '<Plug>(easymotion-prev)', {})
+-- keymap('n', '/', '<Plug>(easymotion-sn)', {})
+-- keymap('o', '/', '<Plug>(easymotion-tn)', {})
+-- keymap('n', 'n', '<Plug>(easymotion-next)', {})
+-- keymap('n', 'N', '<Plug>(easymotion-prev)', {})
 
 local opts = { noremap=true, silent=true }
 keymap('n', '<leader>so', ':so %<CR>:noh<CR>', opts)
@@ -101,7 +105,7 @@ vim.opt.shortmess   = 'nocI'          -- Disable prompting for ENTER to continue
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h14"
 vim.lsp.set_log_level("off")
-vim.g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/env.sh', '*.md', "main.py" }
+vim.g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/env.sh', 'README.md', "main.py" }
 vim.g.rooter_silent_chdir = true
 
 --- Functions --------------------------

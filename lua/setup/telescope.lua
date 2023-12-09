@@ -18,7 +18,7 @@ telescope.setup {
         ["<C-b>"] = actions.results_scrolling_up,
         ["<C-f>"] = actions.results_scrolling_down,
 
-        ["<C-[>"] = actions.close,
+        ["<C-c>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
@@ -49,7 +49,7 @@ telescope.setup {
         ["<C-t>"] = actions.select_tab,
         ["<C-b>"] = actions.results_scrolling_up,
         ["<C-f>"] = actions.results_scrolling_down,
-        ["<C-[>"] = actions.close,
+        ["<C-c>"] = actions.close,
 
         -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
