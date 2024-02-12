@@ -39,7 +39,7 @@ require('lazy').setup({
   'onsails/lspkind.nvim',
 
   -- CMP snippets
-  {'L3MON4D3/LuaSnip', dependencies = {'rafamadriz/friendly-snippets'}},
+  {'L3MON4D3/LuaSnip', version = "v2.*"},
   'saadparwaiz1/cmp_luasnip',
 
   -- Other
@@ -63,6 +63,7 @@ require('lazy').setup({
   'norcalli/nvim-colorizer.lua',                    -- Highlight color codes
   'nvim-lua/plenary.nvim',                          -- Some functions                       (Need to check it more)
   'dstein64/vim-startuptime',                       -- Measure startup time
+  'eandrju/cellular-automaton.nvim',                -- Falling sand-like code (and more)
 
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'akinsho/bufferline.nvim', version = '*', dependencies = { 'kyazdani42/nvim-web-devicons' } },

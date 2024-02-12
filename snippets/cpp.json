@@ -16,5 +16,31 @@
             "}"
         ],
         "description": "Simple for j loop"
+    },
+    "ooo": {
+        "prefix": "ooo",
+        "body": [
+            "static int ooo = 0;",
+            "if (ooo++ < 5) printf(\"ooo: %${1:d}\\n\", $0);"
+        ],
+        "description": "Print value only 5 times"
+    },
+    "class": {
+        "prefix": "class",
+        "body": [
+            "class $1 {",
+            "\t$0",
+            "};\n"
+        ],
+        "description": "Class template"
+    },
+    "struct": {
+        "prefix": "struct",
+        "body": [
+            "struct $1 {",
+            "\t$0",
+            "};\n"
+        ],
+        "description": "Struct template"
     }
 }

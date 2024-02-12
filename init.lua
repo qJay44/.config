@@ -64,12 +64,9 @@ keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
 keymap('n', "Q", "<cmd>lua DeleteBuffer()<CR>", opts)
 keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', "<leader>h", "<cmd>Telescope oldfiles<CR>", opts)
-keymap('n', '<leader><S-r>', '<cmd>lua MyTerminal()<CR>', opts)
+keymap('n', "<leader>lg", "<cmd>Telescope live_grep<CR>", opts)
 keymap('n', ';al', '8o<C-[>7dk', opts)
-keymap('n', '<leader>i', 'bi', opts)
-keymap('n', '<leader>a', 'ei', opts)
 keymap('n', '<leader>t', ':SymbolsOutline<CR>', opts)
-keymap('n', '<leader>j', 'cw<Enter><Esc>', opts)
 
 keymap('x', ';s', 'y:%s/<C-r>"//g<Left><Left>', { noremap=true })
 keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', { noremap=true })
@@ -105,7 +102,7 @@ vim.opt.shortmess   = 'nocI'          -- Disable prompting for ENTER to continue
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h14"
 vim.lsp.set_log_level("off")
-vim.g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/env.sh', 'README.md', "main.py" }
+vim.g.rooter_patterns = { '.git', '*.sln', 'main.py', 'src/main.cpp' }
 vim.g.rooter_silent_chdir = true
 
 --- Functions --------------------------
