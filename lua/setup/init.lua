@@ -18,6 +18,7 @@ require('setup.bufferline')
 require('setup.gruvbox')
 require('setup.dap')
 require('setup.ibl')
+require('setup.lint')
 
 require'dapui'.setup()
 

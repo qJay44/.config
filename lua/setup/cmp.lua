@@ -76,9 +76,9 @@ cmp.setup({
       -- { name = 'nvim_lsp', keyword_length = 0, max_item_count = 7 },
       { name = 'nvim_lsp', max_item_count = 7 },
       { name = 'luasnip', max_item_count = 7 },
-      { name = 'nvim_lua' },
-      { name = 'buffer' },
-      { name = 'path' }
+      { name = 'nvim_lua', max_item_count = 7 },
+      { name = 'buffer', max_item_count = 7  },
+      { name = 'path', max_item_count = 7  }
   }),
   formatting = {
     format = function(_, vim_item)

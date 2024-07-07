@@ -33,7 +33,6 @@ keymap('v', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
 keymap('v', '<leader>y', '"*y', { silent=true })
 keymap('n', '<F10>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
-keymap('n', '<F11>', ':lua NeovideFullscreen()<CR>', { silent=true })
 keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
 keymap('n', '<leader>)', 'bveS)', { silent=true })
 keymap('n', '<leader>}', 'bveS}', { silent=true })
@@ -100,9 +99,9 @@ vim.opt.shortmess   = 'nocI'          -- Disable prompting for ENTER to continue
 -- vim.opt.foldminlines = 5
 
 -- Other
-vim.o.guifont = "FiraCode Nerd Font:h14"
+vim.o.guifont = "FiraCode Nerd Font:h12"
 vim.lsp.set_log_level("off")
-vim.g.rooter_patterns = { '.git', '*.sln', 'main.py', 'src/main.cpp' }
+vim.g.rooter_patterns = { '.git', '*.sln', 'main.py', 'src/main.cpp', 'src/main.c' }
 vim.g.rooter_silent_chdir = true
 
 --- Functions --------------------------
@@ -117,15 +116,6 @@ function DeleteBuffer()
     vim.cmd([[ wincmd l ]])
   else
     vim.api.nvim_command('bdelete')
-  end
-end
-
--- Enter/exit fullscreen function
-function NeovideFullscreen()
-  if vim.g.neovide_fullscreen then
-    vim.g.neovide_fullscreen = false
-  else
-    vim.g.neovide_fullscreen = true
   end
 end
 

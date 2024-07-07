@@ -29,7 +29,9 @@
         "prefix": "class",
         "body": [
             "class $1 {",
-            "\t$0",
+            "\tpublic:\n\t$2",
+            "\tprivate:\n\t$3",
+            "\tprivate:\n\t$0",
             "};\n"
         ],
         "description": "Class template"

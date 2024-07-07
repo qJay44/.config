@@ -1,4 +1,5 @@
 local dap = require('dap')
+local mingw64bin = 'C:\\Users\\gerku\\Documents\\mingw64\\bin\\'
 
 -- setup cpptools adapter
 dap.adapters.cppdbg = {
@@ -8,6 +9,26 @@ dap.adapters.cppdbg = {
   options = {
     detached = false
   },
+}
+
+dap.configurations.c = {
+  {
+    name = 'Launch file',
+    type = 'cppdbg',
+    request = 'launch',
+    program = '${workspaceFolder}\\Build\\Debug\\MyProject.exe',
+    cwd = '${workspaceFolder}\\Build\\Debug\\',
+    stopOnEntry = true,
+    MIMode = 'gdb',
+    miDebuggerPath = mingw64bin .. 'gdb.exe',
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description =  'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  }
 }
 
 -- this configuration should start cpptools and the debug the executable main in the current directory when executing :DapContinue
@@ -20,7 +41,7 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}\\Build\\Debug\\',
     stopOnEntry = true,
     MIMode = 'gdb',
-    miDebuggerPath = 'C:\\MinGW\\mingw64\\bin\\gdb.exe',
+    miDebuggerPath = mingw64bin .. 'gdb.exe',
     setupCommands = {
       {
         text = '-enable-pretty-printing',

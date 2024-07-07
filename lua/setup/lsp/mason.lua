@@ -8,7 +8,8 @@ local servers = {
   'html',
   'lua_ls',
   'tsserver',
-  'pyright'
+  'pyright',
+  'ruff_lsp',
 }
 
 local settings = {
@@ -58,6 +59,11 @@ for _, server in pairs(servers) do
   if server == "pyright" then
     local pyright_opts = require "setup.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  end
+
+  if server == "ruff_lsp" then
+    local ruff_lsp_opts = require "setup.lsp.settings.ruff_lsp"
+    opts = vim.tbl_deep_extend("force", ruff_lsp_opts, opts)
   end
 
   lspconfig[server].setup(opts)

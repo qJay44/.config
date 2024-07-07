@@ -80,8 +80,13 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+  if client.name == 'ruff_lsp' then
+    client.server_capabilities.hoverProvider = false
+  else
+    attach_navic(client, bufnr)
+  end
+
   lsp_keymaps(bufnr)
-  attach_navic(client, bufnr)
 end
 
 return M

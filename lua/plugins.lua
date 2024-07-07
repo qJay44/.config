@@ -29,6 +29,9 @@ require('lazy').setup({
   'rcarriga/nvim-dap-ui',
   'jay-babu/mason-nvim-dap.nvim',
 
+  -- Linters
+  'mfussenegger/nvim-lint',
+
   -- CMP core
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-buffer',
