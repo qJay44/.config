@@ -8,6 +8,15 @@
         ],
         "description": "Simple for i loop"
     },
+    "forui": {
+        "prefix": "forui",
+        "body": [
+            "for (u32 i = 0; i < ${1:length}; i++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for u32 i loop"
+    },
     "forj": {
         "prefix": "forj",
         "body": [
@@ -16,6 +25,15 @@
             "}"
         ],
         "description": "Simple for j loop"
+    },
+    "foruj": {
+        "prefix": "foruj",
+        "body": [
+            "for (u32 j = 0; j < ${1:length}; j++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for u32 j loop"
     },
     "ooo": {
         "prefix": "ooo",
@@ -29,9 +47,9 @@
         "prefix": "class",
         "body": [
             "class $1 {",
-            "\tpublic:\n\t$2",
-            "\tprivate:\n\t$3",
-            "\tprivate:\n\t$0",
+            "public:\n\t$2",
+            "private:\n\t$3",
+            "private:\n\t$0",
             "};\n"
         ],
         "description": "Class template"
@@ -44,5 +62,15 @@
             "};\n"
         ],
         "description": "Struct template"
+    },
+    "ifndef": {
+        "prefix": "#ifndef",
+        "body": [
+            "#ifndef $1_H",
+            "#define $1_H\n",
+            "$0\n",
+            "#endif\n"
+        ],
+        "description": "Header ifndef template"
     }
 }

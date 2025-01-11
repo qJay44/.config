@@ -49,8 +49,9 @@ require("gruvbox").setup({
     ['@text.danger']      = { link = 'GruvboxRed'    },
 
     -- Git signs
-    ['NvimTreeGitDirty'] = { link = 'GruvboxYellow' },
-    ['NvimTreeGitNew']   = { link = 'GruvboxAqua'   },
+    ['NvimTreeGitDirty']       = { link = 'GruvboxYellow' },
+    ['NvimTreeGitNew']         = { link = 'GruvboxAqua'   },
+    ['NvimTreeGitDirtyIcon']   = { link = 'GruvboxYellow' },
 
     -- LSP semantics to match Treesitter
     ["@lsp.type.class"]         = { link = "@type"         },

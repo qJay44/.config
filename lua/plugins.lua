@@ -75,5 +75,10 @@ require('lazy').setup({
   { 'nvim-tree/nvim-tree.lua', dependencies = { 'kyazdani42/nvim-web-devicons' } },
   { 'goolord/alpha-nvim', dependencies = { 'kyazdani42/nvim-web-devicons' }, },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { 'linux-cultist/venv-selector.nvim',
+    dependencies = { "neovim/nvim-lspconfig", "mfussenegger/nvim-dap", { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } }, },
+    lazy = false,
+    branch = 'regexp',
+  }
 })
 

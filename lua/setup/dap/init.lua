@@ -1,9 +1,9 @@
 local dap = require('dap')
 local mingw64bin = 'C:\\Users\\gerku\\Documents\\mingw64\\bin\\'
 
--- setup cpptools adapter
+-- setup cppdbg adapter
 dap.adapters.cppdbg = {
-  id = "cppdbg",
+  id = 'cppdbg',
   type = 'executable',
   command = vim.fn.stdpath('data') .. '\\mason\\bin\\OpenDebugAD7.cmd',
   options = {
@@ -11,13 +11,32 @@ dap.adapters.cppdbg = {
   },
 }
 
-dap.configurations.c = {
+dap.adapters.executable = {
+  type = 'executable',
+  command = vim.fn.stdpath('data') .. '\\mason\\bin\\codelldb.cmd',
+  name = 'lldb1',
+  host = '127.0.0.1',
+  port = 13000
+}
+
+dap.adapters.codelldb = {
+  name = 'codelldb server',
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = vim.fn.stdpath('data') .. '\\mason\\bin\\codelldb.cmd',
+    args = {'--port', '${port}'}
+  }
+}
+
+-- this configuration should start cppdbg and the debug the executable main in the current directory when executing :DapContinue
+dap.configurations.cpp = {
   {
-    name = 'Launch file',
+    name = 'Launch',
     type = 'cppdbg',
     request = 'launch',
-    program = '${workspaceFolder}\\Build\\Debug\\MyProject.exe',
-    cwd = '${workspaceFolder}\\Build\\Debug\\',
+    program = '${workspaceFolder}\\Build\\Debug\\Run\\MyProject.exe',
+    cwd = '${workspaceFolder}\\Build\\Debug\\Run',
     stopOnEntry = true,
     MIMode = 'gdb',
     miDebuggerPath = mingw64bin .. 'gdb.exe',
@@ -31,26 +50,7 @@ dap.configurations.c = {
   }
 }
 
--- this configuration should start cpptools and the debug the executable main in the current directory when executing :DapContinue
-dap.configurations.cpp = {
-  {
-    name = 'Launch file',
-    type = 'cppdbg',
-    request = 'launch',
-    program = '${workspaceFolder}\\Build\\Debug\\MyProject.exe',
-    cwd = '${workspaceFolder}\\Build\\Debug\\',
-    stopOnEntry = true,
-    MIMode = 'gdb',
-    miDebuggerPath = mingw64bin .. 'gdb.exe',
-    setupCommands = {
-      {
-        text = '-enable-pretty-printing',
-        description =  'enable pretty printing',
-        ignoreFailures = false
-      },
-    },
-  }
-}
+dap.configurations.c = dap.configurations.cpp
 
 local dapui = require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
