@@ -24,8 +24,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 local keymap = vim.api.nvim_set_keymap
-keymap('n', '<c-s>', ':w<CR>', { silent=true })
-keymap('i', '<c-s>', '<Esc>:w<CR>a', { silent=true })
+keymap('n', '<c-s>', ':silent w<CR>', { silent=true })
+keymap('i', '<c-s>', '<Esc>:silent w<CR>a', { silent=true })
 keymap('n', '<F6>', ':NvimTreeToggle<CR>', { silent=true })
 keymap('i', '<F6>', '<Esc>:NvimTreeToggle<CR>', { silent=true })
 keymap('n', '<leader>p', '"*p', { silent=true })

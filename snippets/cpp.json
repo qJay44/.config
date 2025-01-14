@@ -47,8 +47,8 @@
         "prefix": "class",
         "body": [
             "class $1 {",
-            "public:\n\t$2",
-            "private:\n\t$3",
+            "public:\n\t$2\n",
+            "private:\n\t$3\n",
             "private:\n\t$0",
             "};\n"
         ],

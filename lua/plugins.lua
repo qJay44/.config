@@ -67,13 +67,14 @@ require('lazy').setup({
   'nvim-lua/plenary.nvim',                          -- Some functions                       (Need to check it more)
   'dstein64/vim-startuptime',                       -- Measure startup time
   'eandrju/cellular-automaton.nvim',                -- Falling sand-like code (and more)
+  'kyazdani42/nvim-web-devicons',                   -- Icons support
+  'nvim-tree/nvim-tree.lua',                        -- Directory tree (icons support required)
+  'nvim-lualine/lualine.nvim',                      -- Status bar (icons support required)
+  'goolord/alpha-nvim',                             -- Start screen (icons support required)
 
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'akinsho/bufferline.nvim', version = '*', dependencies = { 'kyazdani42/nvim-web-devicons' } },
-  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 'akinsho/bufferline.nvim', version = '*'}, -- icons support required
   { 'akinsho/toggleterm.nvim', version = '*'},
-  { 'nvim-tree/nvim-tree.lua', dependencies = { 'kyazdani42/nvim-web-devicons' } },
-  { 'goolord/alpha-nvim', dependencies = { 'kyazdani42/nvim-web-devicons' }, },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   { 'linux-cultist/venv-selector.nvim',
     dependencies = { "neovim/nvim-lspconfig", "mfussenegger/nvim-dap", { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } }, },

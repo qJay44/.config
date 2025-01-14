@@ -1,8 +1,12 @@
+Language: Cpp
 BasedOnStyle: LLVM
-AlignArrayOfStructures: Left
 PackConstructorInitializers: CurrentLine
+AlignArrayOfStructures: Left
 AlignAfterOpenBracket: BlockIndent
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AlignEscapedNewlines: LeftWithLastLine
 BracedInitializerIndentWidth: 2
+SkipMacroDefinitionBody: true
 InsertNewlineAtEOF: true
 ColumnLimit: 120
 PointerAlignment: Left
