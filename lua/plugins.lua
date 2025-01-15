@@ -28,6 +28,7 @@ require('lazy').setup({
   'mfussenegger/nvim-dap',
   'rcarriga/nvim-dap-ui',
   'jay-babu/mason-nvim-dap.nvim',
+  'nvim-neotest/nvim-nio', -- Required for DAP
 
   -- Linters
   'mfussenegger/nvim-lint',

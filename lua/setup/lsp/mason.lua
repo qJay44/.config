@@ -7,9 +7,9 @@ local servers = {
   'cssls',
   'html',
   'lua_ls',
-  'tsserver',
+  'ts_ls',
   'pyright',
-  'ruff_lsp',
+  'ruff',
 }
 
 local settings = {
@@ -51,9 +51,9 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
   end
 
-  if server == "tsserver" then
-    local tsserver_opts = require "setup.lsp.settings.tsserver"
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+  if server == "ts_ls" then
+    local ts_ls_opts = require "setup.lsp.settings.ts_ls"
+    opts = vim.tbl_deep_extend("force", ts_ls_opts, opts)
   end
 
   if server == "pyright" then
@@ -61,9 +61,9 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
-  if server == "ruff_lsp" then
-    local ruff_lsp_opts = require "setup.lsp.settings.ruff_lsp"
-    opts = vim.tbl_deep_extend("force", ruff_lsp_opts, opts)
+  if server == "ruff" then
+    local ruff_opts = require "setup.lsp.settings.ruff"
+    opts = vim.tbl_deep_extend("force", ruff_opts, opts)
   end
 
   lspconfig[server].setup(opts)

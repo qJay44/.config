@@ -36,6 +36,7 @@ require("gruvbox").setup({
     TelescopePromptPrefix   = { link = 'GruvboxFg0'    },
     GitSignsChange          = { link = 'GruvBoxYellow' },
     FocusedSymbol           = { link = 'CursorLine'    },
+    Directory               = { link = 'GruvboxBlue'   },
 
     -- Treesitter
     ['@variable']         = { link = 'GruvboxBlue'   },
@@ -77,6 +78,8 @@ require("gruvbox").setup({
 
 if (TransparentMode) then
   require('gruvbox').setup({
+    dim_inactive = false,
+    transparent_mode = true,
     overrides = {
       CursorLine   = { bg = 'none' },
       CursorLineNR = { bg = 'none' },
