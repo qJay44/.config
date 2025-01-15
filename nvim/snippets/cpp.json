@@ -1,0 +1,76 @@
+{
+    "fori": {
+        "prefix": "fori",
+        "body": [
+            "for (int i = 0; i < ${1:length}; i++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for i loop"
+    },
+    "forui": {
+        "prefix": "forui",
+        "body": [
+            "for (u32 i = 0; i < ${1:length}; i++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for u32 i loop"
+    },
+    "forj": {
+        "prefix": "forj",
+        "body": [
+            "for (int j = 0; j < ${1:length}; j++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for j loop"
+    },
+    "foruj": {
+        "prefix": "foruj",
+        "body": [
+            "for (u32 j = 0; j < ${1:length}; j++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for u32 j loop"
+    },
+    "ooo": {
+        "prefix": "ooo",
+        "body": [
+            "static int ooo = 0;",
+            "if (ooo++ < 5) printf(\"ooo: %${1:d}\\n\", $0);"
+        ],
+        "description": "Print value only 5 times"
+    },
+    "class": {
+        "prefix": "class",
+        "body": [
+            "class $1 {",
+            "public:\n\t$2\n",
+            "private:\n\t$3\n",
+            "private:\n\t$0",
+            "};\n"
+        ],
+        "description": "Class template"
+    },
+    "struct": {
+        "prefix": "struct",
+        "body": [
+            "struct $1 {",
+            "\t$0",
+            "};\n"
+        ],
+        "description": "Struct template"
+    },
+    "ifndef": {
+        "prefix": "#ifndef",
+        "body": [
+            "#ifndef $1_H",
+            "#define $1_H\n",
+            "$0\n",
+            "#endif\n"
+        ],
+        "description": "Header ifndef template"
+    }
+}

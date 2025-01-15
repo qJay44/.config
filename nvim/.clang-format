@@ -1,0 +1,19 @@
+Language: Cpp
+BasedOnStyle: LLVM
+PackConstructorInitializers: CurrentLine
+AlignArrayOfStructures: Left
+AlignAfterOpenBracket: BlockIndent
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AlignEscapedNewlines: LeftWithLastLine
+BracedInitializerIndentWidth: 2
+SkipMacroDefinitionBody: true
+InsertNewlineAtEOF: true
+ColumnLimit: 120
+PointerAlignment: Left
+IncludeBlocks: Regroup
+ConstructorInitializerIndentWidth: 2
+ReflowComments: true
+IntegerLiteralSeparator:
+  Binary: 4
+  Decimal: 3
+  Hex: 2
