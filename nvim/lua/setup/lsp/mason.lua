@@ -46,26 +46,10 @@ for _, server in pairs(servers) do
 
   if server == 'lua_ls' then
     require('neodev').setup()
-
-    local lua_ls_opts = require "setup.lsp.settings.lua_ls"
-    opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
   end
 
-  if server == "ts_ls" then
-    local ts_ls_opts = require "setup.lsp.settings.ts_ls"
-    opts = vim.tbl_deep_extend("force", ts_ls_opts, opts)
-  end
-
-  if server == "pyright" then
-    local pyright_opts = require "setup.lsp.settings.pyright"
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
-
-  if server == "ruff" then
-    local ruff_opts = require "setup.lsp.settings.ruff"
-    opts = vim.tbl_deep_extend("force", ruff_opts, opts)
-  end
-
+  local exist, module = pcall(require, "setup.lsp.settings." .. server)
+	if exist then opts = vim.tbl_deep_extend("force", module, opts) end
   lspconfig[server].setup(opts)
 end
 

@@ -1,5 +1,3 @@
----@diagnostic disable: missing-fields
-
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
@@ -17,11 +15,8 @@ cmp.setup({
   enabled = function()
     local treesitter_capture = require"cmp.config.context".in_treesitter_capture("comment")
     local syntax_group = require"cmp.config.context".in_syntax_group("Comment")
-    if treesitter_capture or syntax_group then
-      return false
-    else
-      return true
-    end
+    local buff_type = vim.api.nvim_buf_get_option(0, "buftype")
+    return not (treesitter_capture or syntax_group or buff_type == 'prompt')
   end,
   completion = { completeopt = 'menu,menuone,noinsert' },
   snippet = {
@@ -34,7 +29,6 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
     ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
@@ -81,6 +75,8 @@ cmp.setup({
       { name = 'path', max_item_count = 7  }
   }),
   formatting = {
+    expandable_indicator = true,
+    fields = {'abbr','kind', 'menu'},
     format = function(_, vim_item)
       vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
       return vim_item

@@ -1,9 +1,10 @@
 local status_ok, notify = pcall(require, 'notify')
 if not status_ok then
-  return vim.notify('notify', 'error', { title = 'Plugin call fail' })
+  return vim.notify('notify', vim.log.levels.ERROR, { title = 'Plugin call fail' })
 end
 
 notify.setup {
+  merge_duplicates = 3,
   background_colour = "#000000",
   fps = 75,
   icons = {

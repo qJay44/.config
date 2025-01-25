@@ -43,13 +43,16 @@ bufferline.setup {
       italic = false,
     },
     close_button ={
-      fg = '#a89984'
+      fg = '#a89984',
+      bg = 'none'
     },
     close_button_visible ={
-      fg = '#a89984'
+      fg = '#a89984',
+      bg = 'none'
     },
     close_button_selected = {
-      fg = '#80a0ff'
+      fg = '#80a0ff',
+      bg = 'none'
     },
     indicator_selected = {
       fg = '#80a0ff',

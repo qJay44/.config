@@ -1,7 +1,7 @@
 local autocmdGroup = vim.api.nvim_create_augroup("Custom auto-commands", {clear = true})
 
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
-  pattern = {"*.c", "*.cpp", "*.cs", "*.json", "*.java", "*.js"},
+  pattern = {"*.c*", "*.h*", "*.vert", "*.geom", "*.frag"},
   desc = "clang formatter",
   callback = function ()
     local fileName = vim.api.nvim_buf_get_name(0)

@@ -104,7 +104,7 @@ require('lualine').setup {
         }
       }
     },
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {{'searchcount', maxcount=999999}, 'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },

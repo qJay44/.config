@@ -4,11 +4,26 @@ if vim.fn.exists('g:neovide') == 1 then
   TransparentMode = false
 
   vim.g.neovide_refresh_rate = 90
-  vim.g.neovide_scroll_animation_length = 0.7
   vim.g.neovide_remember_window_position = true
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_transparency = 0.85
   vim.g.neovide_fullscreen=false
+
+  vim.api.nvim_create_autocmd("BufLeave", {
+    callback = function()
+      vim.g.neovide_scroll_animation_length = 0
+      vim.g.neovide_cursor_animation_length = 0
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+      vim.fn.timer_start(200, function()
+        vim.g.neovide_scroll_animation_length = 0.7
+        vim.g.neovide_cursor_animation_length = 0.06
+      end)
+    end,
+  })
 
   if (TransparentMode) then
     vim.g.neovide_transparency = 0
@@ -32,27 +47,23 @@ keymap('n', '<leader>p', '"*p', { silent=true })
 keymap('v', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
 keymap('v', '<leader>y', '"*y', { silent=true })
-keymap('n', '<F10>', ':lua vim.lsp.buf.range_formatting()<CR>', { silent=true })
-keymap('n', '<C-[>', ':noh<CR>', { silent=true }) -- Clear search selection
+keymap('n', '<c-[>', ':noh<CR>', { silent=true }) -- Clear search selection
 keymap('n', '<leader>)', 'bveS)', { silent=true })
 keymap('n', '<leader>}', 'bveS}', { silent=true })
 keymap('n', '<leader>]', 'bveS]', { silent=true })
+keymap('n', '<leader>>', 'bveS>', { silent=true })
 
 -- Move selected lines up/down
 keymap('v', 'J', ":m '>+1<CR>gv=gv", {})
 keymap('v', 'K', ":m '<-2<CR>gv=gv", {})
 
 -- Make cursor at the center when scrolling
-keymap('n', '<C-d>', '<C-d>zz', {})
-keymap('n', '<C-u>', '<C-u>zz', {})
-
--- Easymotion
--- keymap('n', '/', '<Plug>(easymotion-sn)', {})
--- keymap('o', '/', '<Plug>(easymotion-tn)', {})
--- keymap('n', 'n', '<Plug>(easymotion-next)', {})
--- keymap('n', 'N', '<Plug>(easymotion-prev)', {})
+keymap('n', '<c-d>', '<c-d>zz', {})
+keymap('n', '<c-u>', '<c-u>zz', {})
 
 local opts = { noremap=true, silent=true }
+keymap('n', '<cs-s>', ':silent noau w<CR>', opts)
+keymap('i', '<cs-s>', '<Esc>:silent noau w<CR>a', opts)
 keymap('n', '<leader>so', ':so %<CR>:noh<CR>', opts)
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
@@ -67,8 +78,8 @@ keymap('n', "<leader>lg", "<cmd>Telescope live_grep<CR>", opts)
 keymap('n', ';al', '8o<C-[>7dk', opts)
 keymap('n', '<leader>t', ':SymbolsOutline<CR>', opts)
 
-keymap('x', ';s', 'y:%s/<C-r>"//g<Left><Left>', { noremap=true })
-keymap('x', ';ls', 'y:.s/<C-r>"//g<Left><Left>', { noremap=true })
+keymap('x', ';s', 'y:%s/<c-r>"//g<Left><Left>', { noremap=true })
+keymap('x', ';ls', 'y:.s/<c-r>"//g<Left><Left>', { noremap=true })
 
 --- Load plugins and configs ----------
 
@@ -94,6 +105,7 @@ vim.opt.pumblend    = 30              -- Popup menu opaque
 vim.opt.scrolloff   = 7               -- Show a few lines of context around the cursor
 vim.opt.cmdheight   = 0               -- Hide command line
 vim.opt.shortmess   = 'nocI'          -- Disable prompting for ENTER to continue when cmdheight=0
+vim.opt.splitright  = true            -- Vertically split windows will open on the right side
 -- vim.opt.foldmethod  = 'expr'
 -- vim.opt.foldexpr    = 'nvim_treesitter#foldexpr()'
 -- vim.opt.foldminlines = 5
@@ -119,5 +131,11 @@ function DeleteBuffer()
   end
 end
 
+--- Auto commands ----------------------
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"help", "man"},
+  command = "wincmd L",
+})
 ----------------------------------------
 

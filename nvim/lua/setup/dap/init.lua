@@ -1,5 +1,5 @@
 local dap = require('dap')
-local mingw64bin = 'C:\\Users\\gerku\\Documents\\mingw64\\bin\\'
+local mingw64bin = 'C:\\Users\\q44\\Documents\\Libs\\mingw64\\bin\\'
 
 -- setup cppdbg adapter
 dap.adapters.cppdbg = {
