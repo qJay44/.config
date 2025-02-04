@@ -1,8 +1,6 @@
 --- Preload ---------------------------
 
 if vim.fn.exists('g:neovide') == 1 then
-  TransparentMode = false
-
   vim.g.neovide_refresh_rate = 90
   vim.g.neovide_remember_window_position = true
   vim.g.neovide_remember_window_size = true
@@ -24,10 +22,6 @@ if vim.fn.exists('g:neovide') == 1 then
       end)
     end,
   })
-
-  if (TransparentMode) then
-    vim.g.neovide_transparency = 0
-  end
 else
   vim.o.termguicolors = true
 end
@@ -48,10 +42,6 @@ keymap('v', '<leader>p', '"*p', { silent=true })
 keymap('n', '<leader>y', '"*y', { silent=true })
 keymap('v', '<leader>y', '"*y', { silent=true })
 keymap('n', '<c-[>', ':noh<CR>', { silent=true }) -- Clear search selection
-keymap('n', '<leader>)', 'bveS)', { silent=true })
-keymap('n', '<leader>}', 'bveS}', { silent=true })
-keymap('n', '<leader>]', 'bveS]', { silent=true })
-keymap('n', '<leader>>', 'bveS>', { silent=true })
 
 -- Move selected lines up/down
 keymap('v', 'J', ":m '>+1<CR>gv=gv", {})
@@ -69,6 +59,8 @@ keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
+keymap('c', '<c-j>', '<Down>', opts)
+keymap('c', '<c-k>', '<Up>', opts)
 keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', opts)
 keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
 keymap('n', "Q", "<cmd>lua DeleteBuffer()<CR>", opts)
@@ -113,8 +105,6 @@ vim.opt.splitright  = true            -- Vertically split windows will open on t
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h12"
 vim.lsp.set_log_level("off")
-vim.g.rooter_patterns = { '.git', '*.sln', 'main.py', 'src/main.cpp', 'src/main.c' }
-vim.g.rooter_silent_chdir = true
 
 --- Functions --------------------------
 
@@ -137,5 +127,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {"help", "man"},
   command = "wincmd L",
 })
+
 ----------------------------------------
 

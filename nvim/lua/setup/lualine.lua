@@ -18,14 +18,6 @@ custom_gruvbox.visual.c.bg = custom_gruvbox.normal.c.bg
 custom_gruvbox.replace.c.bg = custom_gruvbox.normal.c.bg
 custom_gruvbox.command.c.bg = custom_gruvbox.normal.c.bg
 
-if (TransparentMode) then
-  for _, value in pairs(custom_gruvbox) do
-    value.a = 'none'
-    value.b = 'none'
-    value.c = 'none'
-  end
-end
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -104,7 +96,20 @@ require('lualine').setup {
         }
       }
     },
-    lualine_x = {{'searchcount', maxcount=999999}, 'encoding', 'fileformat', 'filetype'},
+    lualine_x = {
+      {'searchcount', maxcount=999999},
+      {
+        function()
+          local reg = vim.fn.reg_recording()
+          if reg == "" then return "" end -- not recording
+          return "recording @" .. reg
+        end,
+        color = {fg = "Yellow"}
+      },
+      'encoding',
+      'fileformat',
+      'filetype'
+    },
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },

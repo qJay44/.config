@@ -3,10 +3,6 @@
 local bufferline = require('bufferline')
 local fillBg = '#191919'
 
-if (TransparentMode) then
-  fillBg = 'none'
-end
-
 bufferline.setup {
   options = {
     offsets = {

@@ -50,7 +50,6 @@ require('lazy').setup({
   'wakatime/vim-wakatime',                          -- Coding time
   'tpope/vim-surround',                             -- Vim surround keymaps
   'tpope/vim-commentary',                           -- Vim comment keymaps
-  'airblade/vim-rooter',                            -- Vim workspace setter
   'nvim-treesitter/nvim-treesitter',                -- Better highlight
   'nvim-treesitter/playground',                     -- Usefull treesitter tools
   'ntpeters/vim-better-whitespace',                 -- Highlight extra whitespaces
@@ -67,7 +66,6 @@ require('lazy').setup({
   'norcalli/nvim-colorizer.lua',                    -- Highlight color codes
   'nvim-lua/plenary.nvim',                          -- Some functions                       (Need to check it more)
   'dstein64/vim-startuptime',                       -- Measure startup time
-  'eandrju/cellular-automaton.nvim',                -- Falling sand-like code (and more)
   'kyazdani42/nvim-web-devicons',                   -- Icons support
   'nvim-tree/nvim-tree.lua',                        -- Directory tree (icons support required)
   'nvim-lualine/lualine.nvim',                      -- Status bar (icons support required)
@@ -75,7 +73,7 @@ require('lazy').setup({
 
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'akinsho/bufferline.nvim', version = '*'}, -- icons support required
-  { 'akinsho/toggleterm.nvim', version = '*'},
+  { 'akinsho/toggleterm.nvim', version = '*', config = true},
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   { 'linux-cultist/venv-selector.nvim',
     dependencies = { "neovim/nvim-lspconfig", "mfussenegger/nvim-dap", { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } }, },

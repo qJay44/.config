@@ -1,20 +1,30 @@
 Language: Cpp
 BasedOnStyle: LLVM
-PackConstructorInitializers: CurrentLine
+AllowAllParametersOfDeclarationOnNextLine: false
 AlignArrayOfStructures: Left
 AlignAfterOpenBracket: BlockIndent
-AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AlignEscapedNewlines: LeftWithLastLine
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+#AllowShortFunctionsOnASingleLine: Leave
 BracedInitializerIndentWidth: 2
+BinPackParameters: false
+ContinuationIndentWidth: 2
+ColumnLimit: 120
+ConstructorInitializerIndentWidth: 2
+PackConstructorInitializers: CurrentLine
 SkipMacroDefinitionBody: true
 InsertNewlineAtEOF: true
-ColumnLimit: 120
 PointerAlignment: Left
 IncludeBlocks: Regroup
-ConstructorInitializerIndentWidth: 2
 ReflowComments: true
 IndentCaseLabels: true
 SpaceAfterTemplateKeyword: false
+SeparateDefinitionBlocks: Leave
+
+KeepEmptyLines:
+  AtEndOfFile: true
+  AtStartOfBlock: false
+  AtStartOfFile: false
 
 IntegerLiteralSeparator:
   Binary: 4

@@ -76,21 +76,6 @@ require("gruvbox").setup({
   transparent_mode = true,
 })
 
-if (TransparentMode) then
-  require('gruvbox').setup({
-    dim_inactive = false,
-    transparent_mode = true,
-    overrides = {
-      CursorLine   = { bg = 'none' },
-      CursorLineNR = { bg = 'none' },
-      Folded       = { bg = 'none' },
-      SignColumn   = { bg = 'none' },
-      FloatBorder  = { bg = 'none' },
-      NormalFloat  = { bg = 'none' },
-    }
-  })
-end
-
 vim.o.background = 'dark'
 vim.cmd("colorscheme gruvbox")
 
