@@ -59,7 +59,6 @@ require('lazy').setup({
   'lukas-reineke/indent-blankline.nvim',            -- Improved indents
   'simrat39/symbols-outline.nvim',                  -- Code tree view                       (Do not forget to use)
   'RRethy/vim-illuminate',                          -- Underline the same words
-  'folke/neodev.nvim',                              -- Signature help in floating window
   'williamboman/mason.nvim',                        -- Package manager (LSP, DAP, etc.)
   'rcarriga/nvim-notify',                           -- Notifier windows
   'lewis6991/gitsigns.nvim',                        -- Git signs
@@ -71,6 +70,7 @@ require('lazy').setup({
   'nvim-lualine/lualine.nvim',                      -- Status bar (icons support required)
   'goolord/alpha-nvim',                             -- Start screen (icons support required)
 
+  { 'folke/lazydev.nvim', ft = 'lua'},              -- Signature help in floating window
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'akinsho/bufferline.nvim', version = '*'}, -- icons support required
   { 'akinsho/toggleterm.nvim', version = '*', config = true},

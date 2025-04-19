@@ -20,7 +20,6 @@ require('setup.gruvbox')
 require('setup.dap')
 require('setup.ibl')
 require('setup.lint')
-require('setup.formatters')
 require('setup.autochdir')
 
 require'dapui'.setup()

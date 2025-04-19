@@ -4,9 +4,9 @@ return {
       diagnostics = {
         globals = { "vim" },
       },
-      workspace = {
-        checkThirdParty = false
-      }
+      -- workspace = {
+      --   checkThirdParty = false
+      -- }
     },
   },
 }

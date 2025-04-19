@@ -1,8 +1,8 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip.loaders.from_vscode').lazy_load({paths = {'./snippets'}})
+require('luasnip.loaders.from_vscode').lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col '.' - 1
@@ -15,13 +15,14 @@ cmp.setup({
   enabled = function()
     local treesitter_capture = require"cmp.config.context".in_treesitter_capture("comment")
     local syntax_group = require"cmp.config.context".in_syntax_group("Comment")
-    local buff_type = vim.api.nvim_buf_get_option(0, "buftype")
+    local buff_type = vim.api.nvim_get_option_value("buftype", {buf = 0})
     return not (treesitter_capture or syntax_group or buff_type == 'prompt')
   end,
   completion = { completeopt = 'menu,menuone,noinsert' },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
+      vim.snippet.expandn(args.body)
     end,
   },
   mapping = {
@@ -72,7 +73,8 @@ cmp.setup({
       { name = 'luasnip', max_item_count = 7 },
       { name = 'nvim_lua', max_item_count = 7 },
       { name = 'buffer', max_item_count = 7  },
-      { name = 'path', max_item_count = 7  }
+      { name = 'path', max_item_count = 7  },
+      { name = 'lazydev', group_index = 0 }
   }),
   formatting = {
     expandable_indicator = true,

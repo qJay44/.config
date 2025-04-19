@@ -9,7 +9,6 @@ local servers = {
   'lua_ls',
   'ts_ls',
   'pyright',
-  'ruff',
 }
 
 local settings = {
@@ -35,21 +34,15 @@ mason_nvim_dap.setup {
   automatic_installation = true,
 }
 
-local lspconfig = require("lspconfig")
-local opts = {}
-
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 for _, server in pairs(servers) do
-  opts = {
-    on_attach = require('setup.lsp.handlers').on_attach,
-    capabilities = require('setup.lsp.handlers').capabilities
-  }
-
   if server == 'lua_ls' then
-    require('neodev').setup()
+    require('lazydev').setup()
   end
 
-  local exist, module = pcall(require, "setup.lsp.settings." .. server)
-	if exist then opts = vim.tbl_deep_extend("force", module, opts) end
-  lspconfig[server].setup(opts)
+  local exists, module = pcall(require, "setup.lsp.settings." .. server)
+  if exists then vim.lsp.config[server] = module end
+  vim.lsp.config[server].capabilities = capabilities
+  vim.lsp.enable(server)
 end
 
