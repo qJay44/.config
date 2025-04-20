@@ -98,35 +98,9 @@ require('lualine').setup {
       }
     },
     lualine_x = {
-      -- RAM usage (updates every 10 seconds)
       {
         function ()
-          local currTime = os.time()
-          if currTime - ramUpdTime >= 10 then
-            local handle = io.popen('tasklist')
-            if handle ~= nil then
-              local result = handle:read("*a")
-              local mem = 0
-              local units = {'K', 'KB', 'MB', 'GB'}
-              local unit = 'K'
-
-              for str in string.gmatch(result, '([^ ]*) K') do
-                mem = mem + tonumber(''..string.gsub(str, ',', ''))
-              end
-
-              for _, u in ipairs(units) do
-                if mem >= 1000 then
-                  mem = mem / 1000
-                else
-                  unit = u
-                  break
-                end
-              end
-
-              return string.format('RAM: %.2f %s', mem, unit)
-            end
-            ramUpdTime = currTime
-          end
+          return vim.system({'mem'}):wait().stdout
         end
       },
       {'searchcount', maxcount=999999, color = {fg = 'GruvboxOrange'}},
