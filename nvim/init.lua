@@ -4,7 +4,7 @@ if vim.fn.exists('g:neovide') == 1 then
   vim.g.neovide_refresh_rate = 90
   vim.g.neovide_remember_window_position = true
   vim.g.neovide_remember_window_size = true
-  vim.g.neovide_transparency = 0.85
+  vim.g.neovide_opacity = 0.85
   vim.g.neovide_fullscreen=false
   vim.g.neovide_floating_corner_radius = 1.0
   vim.g.neovide_floating_shadow = false
