@@ -42,6 +42,7 @@ for _, server in pairs(servers) do
 
   local exists, module = pcall(require, "setup.lsp.settings." .. server)
   if exists then vim.lsp.config[server] = module end
+
   vim.lsp.config[server].capabilities = capabilities
   vim.lsp.enable(server)
 end
