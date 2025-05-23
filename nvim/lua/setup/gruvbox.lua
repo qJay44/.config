@@ -19,28 +19,30 @@ require("gruvbox").setup({
   palette_overrides = {},
   overrides = {
     -- General
-    Normal                  = { bg   = '#1d2021'              },
-    NormalFloat             = { link = 'Normal',              },
-    FloatBorder             = { bg   = '#1d2021', blend = 100 },
-    CmpItemKindFunction     = { link = 'GruvboxGreen'         },
-    CmpItemKindMethod       = { link = 'GruvboxGreen'         },
-    CmpItemKindText         = { link = "GruvboxFg0"           },
-    CmpItemKindField        = { link = 'GruvboxOrange'        },
-    CmpItemKindVariable     = { link = "GruvboxBlue"          },
-    NavicIconsFunction      = { link = 'GruvboxGreen'         },
-    NavicIconsMethod        = { link = 'GruvboxGreen'         },
-    NavicIconsConstructor   = { link = "GruvboxYellow"        },
-    Pmenu                   = { link = 'GruvboxFg4'           },
-    PmenuSel                = { link = 'CursorLine'           },
-    TelescopeSelectionCaret = { link = 'GruvboxFg0'           },
-    TelescopePromptPrefix   = { link = 'GruvboxFg0'           },
-    TelescopeResultsBorder  = { link = 'FloatBorder'          },
-    TelescopePreviewBorder  = { link = 'FloatBorder'          },
-    TelescopePromptBorder   = { link = 'FloatBorder'          },
-    TelescopeBorder         = { link = 'FloatBorder'          },
-    GitSignsChange          = { link = 'GruvBoxYellow'        },
-    FocusedSymbol           = { link = 'CursorLine'           },
-    Directory               = { link = 'GruvboxBlue'          },
+    Normal                  = { bg   = '#1d2021' },
+    NormalFloat             = { bg   = '#1d2021' },
+    FloatBorder             = { bg   = '#1d2021' },
+    CmpItemKindFunction     = { link = 'GruvboxGreen'  },
+    CmpItemKindMethod       = { link = 'GruvboxGreen'  },
+    CmpItemKindText         = { link = "GruvboxFg0"    },
+    CmpItemKindField        = { link = 'GruvboxOrange' },
+    CmpItemKindVariable     = { link = "GruvboxBlue"   },
+    NavicIconsFunction      = { link = 'GruvboxGreen'  },
+    NavicIconsMethod        = { link = 'GruvboxGreen'  },
+    NavicIconsConstructor   = { link = "GruvboxYellow" },
+    NeoTreeDirectoryName    = { link = "GruvboxBlue"   },
+    NeoTreeDirectoryIcon    = { link = "GruvboxBlue"   },
+    Pmenu                   = { link = 'GruvboxFg4'    },
+    PmenuSel                = { link = 'CursorLine'    },
+    TelescopeSelectionCaret = { link = 'GruvboxFg0'    },
+    TelescopePromptPrefix   = { link = 'GruvboxFg0'    },
+    TelescopeResultsBorder  = { link = 'FloatBorder'   },
+    TelescopePreviewBorder  = { link = 'FloatBorder'   },
+    TelescopePromptBorder   = { link = 'FloatBorder'   },
+    TelescopeBorder         = { link = 'FloatBorder'   },
+    GitSignsChange          = { link = 'GruvBoxYellow' },
+    FocusedSymbol           = { link = 'CursorLine'    },
+    Directory               = { link = 'GruvboxBlue'   },
 
     -- Treesitter
     ['@variable']         = { link = 'GruvboxBlue'   },
@@ -79,6 +81,25 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = true,
 })
+
+if vim.fn.exists('g:neovide') == 0 then
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    callback = function()
+      local highlights = {
+        'Normal',
+        'LineNr',
+        'Folded',
+        'NonText',
+        'SpecialKey',
+        'VertSplit',
+        'SignColumn',
+        'EndOfBuffer',
+        'TablineFill', -- this is specific to how I like my tabline to look like
+      }
+      for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
+  end,
+  })
+end
 
 vim.o.background = 'dark'
 vim.cmd("colorscheme gruvbox")

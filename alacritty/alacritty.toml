@@ -1,0 +1,21 @@
+[general]
+working_directory = "C:/Users/q44/Documents/Projects"
+
+[window]
+dimensions = {columns = 120, lines = 30}
+decorations = "None"
+opacity = 0.85
+blur = true
+resize_increments = true
+
+[font]
+normal = {family = "FiraCode Nerd Font", style = "Retina"}
+bold        = {style = "Bold"}
+italic      = {style = "Italic"}
+bold_italic = {style = "Bold Italic"}
+size = 11.55
+offset = {y = 1}
+
+[colors]
+primary.background = "#1d2021"
+

@@ -66,14 +66,21 @@ vim.lsp.set_log_level("error")
 
 --- Functions --------------------------
 
+local function NeotreeIsVisible()
+  local manager = require("neo-tree.sources.manager")
+  local renderer = require("neo-tree.ui.renderer")
+
+  local state = manager.get_state("filesystem")
+  return renderer.window_exists(state)
+end
+
 -- Nvim tree behavior when deleting a buffer
 function DeleteBuffer()
-  local tree_status = require'nvim-tree.view'.is_visible()
+  local tree_status = NeotreeIsVisible()
   if tree_status then
-    vim.api.nvim_command('NvimTreeClose')
+    vim.api.nvim_command('Neotree close')
     vim.api.nvim_command('bdelete')
-    vim.api.nvim_command('NvimTreeOpen')
-    vim.cmd([[ wincmd l ]])
+    vim.api.nvim_command('Neotree show')
   else
     vim.api.nvim_command('bdelete')
   end

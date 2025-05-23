@@ -54,22 +54,29 @@ require('lazy').setup({
   'nvim-treesitter/playground',                     -- Usefull treesitter tools
   'ntpeters/vim-better-whitespace',                 -- Highlight extra whitespaces
   'windwp/nvim-autopairs',                          -- Place two parenthesises at once
-  'easymotion/vim-easymotion',                      -- Better search                        (Do not forget to use)
   'tpope/vim-fugitive',                             -- Git commands
   'lukas-reineke/indent-blankline.nvim',            -- Improved indents
-  'simrat39/symbols-outline.nvim',                  -- Code tree view                       (Do not forget to use)
   'RRethy/vim-illuminate',                          -- Underline the same words
   'williamboman/mason.nvim',                        -- Package manager (LSP, DAP, etc.)
   'rcarriga/nvim-notify',                           -- Notifier windows
   'lewis6991/gitsigns.nvim',                        -- Git signs
   'norcalli/nvim-colorizer.lua',                    -- Highlight color codes
-  'nvim-lua/plenary.nvim',                          -- Some functions                       (Need to check it more)
+  'nvim-lua/plenary.nvim',                          -- Some functions
   'dstein64/vim-startuptime',                       -- Measure startup time
   'kyazdani42/nvim-web-devicons',                   -- Icons support
-  'nvim-tree/nvim-tree.lua',                        -- Directory tree (icons support required)
   'nvim-lualine/lualine.nvim',                      -- Status bar (icons support required)
   'goolord/alpha-nvim',                             -- Start screen (icons support required)
+  'karb94/neoscroll.nvim',                          -- Scrolll animation
 
+  { 'nvim-neo-tree/neo-tree.nvim',
+    branch='v3.x',
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      lazy = false,
+    },
+  },
   { 'folke/lazydev.nvim', ft = 'lua'},              -- Signature help in floating window
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'akinsho/bufferline.nvim', version = '*'}, -- icons support required
