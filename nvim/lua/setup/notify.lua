@@ -5,7 +5,7 @@ end
 
 notify.setup {
   merge_duplicates = 3,
-  background_colour = "#000000",
+  background_colour = "#1d2021",
   fps = 75,
   icons = {
     DEBUG = "",

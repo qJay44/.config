@@ -30,5 +30,10 @@ local diagConfig = {
 
 vim.diagnostic.config(diagConfig)
 
-require('lsp_signature').setup({hint_enable = false})
+require('lsp_signature').setup({
+  hint_enable = false,
+  floating_window = false
+})
+
 require('setup.lsp.mason')
+

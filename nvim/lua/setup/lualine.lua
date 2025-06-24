@@ -1,6 +1,6 @@
 local icons = require('setup.icons')
 local custom_gruvbox = require('lualine.themes.gruvbox_dark')
-local ramUpdTime = os.time()
+local lsp_signature = require('lsp_signature')
 
 -- Remove boldness
 custom_gruvbox.normal.a.gui = ''
@@ -10,14 +10,10 @@ custom_gruvbox.command.a.gui = ''
 custom_gruvbox.replace.a.gui = ''
 
 -- Increase visiablility of the elements
-custom_gruvbox.command.c.fg = custom_gruvbox.normal.c.fg
-custom_gruvbox.visual.c.fg = custom_gruvbox.normal.c.fg
-
--- Match navic bg
 custom_gruvbox.insert.c.bg = custom_gruvbox.normal.c.bg
-custom_gruvbox.visual.c.bg = custom_gruvbox.normal.c.bg
-custom_gruvbox.replace.c.bg = custom_gruvbox.normal.c.bg
+custom_gruvbox.command.c.fg = custom_gruvbox.normal.c.fg
 custom_gruvbox.command.c.bg = custom_gruvbox.normal.c.bg
+custom_gruvbox.visual.c.fg = custom_gruvbox.normal.c.fg
 
 require('lualine').setup {
   options = {
@@ -88,14 +84,35 @@ require('lualine').setup {
     },
     lualine_c = {
       {
-        "navic",
-        color_correction = 'static',
-        navic_opts = { highlight = true },
-        padding = {
-          left = 1,
-          right = 0
-        }
-      }
+        function ()
+          local sig = lsp_signature.status_line(vim.o.columns * 0.66)
+          return sig.label:sub(1, sig.range['start'] - 1)
+        end,
+        icons_enabled = false,
+        separator = '',
+        padding = 0,
+        color = {fg = "#a89984"},
+      },
+      {
+        function ()
+          local sig = lsp_signature.status_line(vim.o.columns * 0.66)
+          return sig.hint
+        end,
+        icons_enabled = false,
+        separator = '',
+        padding = 0,
+        color = {fg = "#fabd2f",},
+      },
+      {
+        function ()
+          local sig = lsp_signature.status_line(vim.o.columns * 0.66)
+          return sig.label:sub(sig.range['end'] + 1, #sig.label)
+        end,
+        icons_enabled = false,
+        separator = '',
+        padding = 0,
+        color = {fg = "#a89984"},
+      },
     },
     lualine_x = {
       {
@@ -105,15 +122,15 @@ require('lualine').setup {
       },
       {'searchcount', maxcount=999999, color = {fg = 'GruvboxOrange'}},
       {
-        function()
+        function ()
           local reg = vim.fn.reg_recording()
           if reg == "" then return "" end -- not recording
           return "recording @" .. reg
         end,
         color = {fg = "Yellow"}
       },
-      'encoding',
-      'fileformat',
+      -- 'encoding',
+      -- 'fileformat',
       'filetype'
     },
     lualine_y = {'progress'},

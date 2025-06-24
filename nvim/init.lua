@@ -52,7 +52,7 @@ vim.opt.laststatus  = 3               -- Makes statusline unsplittable
 vim.opt.pumblend    = 30              -- Popup menu opaque
 vim.opt.winblend    = 10              -- Floating windows opaque
 vim.opt.scrolloff   = 7               -- Show a few lines of context around the cursor
-vim.opt.cmdheight   = 0               -- Hide command line
+vim.opt.cmdheight   = 1               -- Hide command line
 vim.opt.shortmess   = 'nocI'          -- Disable prompting for ENTER to continue when cmdheight=0
 vim.opt.splitright  = true            -- Vertically split windows will open on the right side
 vim.opt.fillchars   = {eob = " "}     -- Hide tildas at the sidebar (missing fields are optional)

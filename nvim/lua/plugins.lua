@@ -21,7 +21,6 @@ require('lazy').setup({
   -- LSP
   'neovim/nvim-lspconfig',
   'ray-x/lsp_signature.nvim',
-  'SmiteshP/nvim-navic',
   'williamboman/mason-lspconfig.nvim',
 
   -- DAP

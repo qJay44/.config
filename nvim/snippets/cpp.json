@@ -2,38 +2,29 @@
     "fori": {
         "prefix": "fori",
         "body": [
-            "for (int i = 0; i < ${1:length}; i++) {",
+            "for (size_t i = 0; i < ${1:length}; i++) {",
             "\t$0",
             "}"
         ],
         "description": "Simple for i loop"
     },
-    "forui": {
-        "prefix": "forui",
-        "body": [
-            "for (u32 i = 0; i < ${1:length}; i++) {",
-            "\t$0",
-            "}"
-        ],
-        "description": "Simple for u32 i loop"
-    },
     "forj": {
         "prefix": "forj",
         "body": [
-            "for (int j = 0; j < ${1:length}; j++) {",
+            "for (size_t j = 0; j < ${1:length}; j++) {",
             "\t$0",
             "}"
         ],
         "description": "Simple for j loop"
     },
-    "foruj": {
-        "prefix": "foruj",
+    "fork": {
+        "prefix": "fork",
         "body": [
-            "for (u32 j = 0; j < ${1:length}; j++) {",
+            "for (size_t k = 0; k < ${1:length}; k++) {",
             "\t$0",
             "}"
         ],
-        "description": "Simple for u32 j loop"
+        "description": "Simple for k loop"
     },
     "ooo": {
         "prefix": "ooo",

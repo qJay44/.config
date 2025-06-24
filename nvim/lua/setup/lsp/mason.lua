@@ -25,10 +25,10 @@ local settings = {
 }
 
 mason.setup(settings)
-mason_lspconfig.setup {
-  ensure_installed = servers,
-  automatic_installation = true,
-}
+-- mason_lspconfig.setup {
+--   ensure_installed = servers,
+--   automatic_installation = true,
+-- }
 mason_nvim_dap.setup {
   ensure_installed = { 'cpptools' },
   automatic_installation = true,

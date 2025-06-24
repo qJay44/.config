@@ -27,9 +27,6 @@ require("gruvbox").setup({
     CmpItemKindText         = { link = "GruvboxFg0"    },
     CmpItemKindField        = { link = 'GruvboxOrange' },
     CmpItemKindVariable     = { link = "GruvboxBlue"   },
-    NavicIconsFunction      = { link = 'GruvboxGreen'  },
-    NavicIconsMethod        = { link = 'GruvboxGreen'  },
-    NavicIconsConstructor   = { link = "GruvboxYellow" },
     NeoTreeDirectoryName    = { link = "GruvboxBlue"   },
     NeoTreeDirectoryIcon    = { link = "GruvboxBlue"   },
     Pmenu                   = { link = 'GruvboxFg4'    },
@@ -108,4 +105,5 @@ vim.cmd("colorscheme gruvbox")
 vim.cmd('hi IlluminatedWordText  gui=underdashed')
 vim.cmd('hi IlluminatedWordRead  gui=underdashed')
 vim.cmd('hi IlluminatedWordWrite gui=underdashed')
+vim.cmd('hi LspSignatureActiveParameter gui=bold')
 
