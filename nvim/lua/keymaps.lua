@@ -4,12 +4,13 @@ vim.g.maplocalleader = ' '
 local km = vim.api.nvim_set_keymap
 km('n', '<c-s>', ':silent w<CR>', { silent=true })
 km('i', '<c-s>', '<Esc>:silent w<CR>a', { silent=true })
-km('n', '<F6>', '<cmd>Neotree filesystem reveal toggle=true<CR>', { silent=true })
-km('i', '<F6>', '<cmd>Neotree filesystem reveal toggle=true<CR>', { silent=true })
+km('n', '<leader>t', '<cmd>Neotree filesystem reveal toggle=true<CR>', { silent=true })
 km('n', '<leader>p', '"*p', { silent=true })
 km('v', '<leader>p', '"*p', { silent=true })
-km('n', '<leader>y', '"*y', { silent=true })
-km('v', '<leader>y', '"*y', { silent=true })
+-- km('n', '<leader>y', '"*y', { silent=true })
+-- km('v', '<leader>y', '"*y', { silent=true })
+km('n', '<leader>y', '"+y', { silent=true })
+km('v', '<leader>y', '"+y', { silent=true })
 km('n', '<c-[>', ':noh<CR>', { silent=true }) -- Clear search selection
 
 -- Move selected lines up/down
@@ -36,7 +37,7 @@ km('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
 km('n', "<leader>h", "<cmd>Telescope oldfiles<CR>", opts)
 km('n', "<leader>lg", "<cmd>Telescope live_grep<CR>", opts)
 km('n', ';al', '8o<C-[>7dk', opts)
-km('n', '<leader>t', ':SymbolsOutline<CR>', opts)
+-- km('n', '<leader>t', ':SymbolsOutline<CR>', opts)
 km('n', '<c-\\>', '<cmd>lua ToggleTerminal()<CR>', opts)
 km('i', '<c-\\>', '<cmd>lua ToggleTerminal()<CR>', opts)
 km('t', '<c-\\>', '<cmd>lua ToggleTerminal()<CR>', opts)

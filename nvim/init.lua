@@ -28,6 +28,22 @@ else
 end
 vim.loader.enable()
 
+if os.getenv("TERM") == "xterm-kitty" or os.getenv("TERM") == "kitty" then
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      vim.defer_fn(function()
+        vim.cmd("silent !kitty @ set-spacing margin=0 padding=0")
+      end, 100)
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("VimLeave", {
+    callback = function()
+      vim.cmd("silent !kitty @ set-spacing default")
+    end,
+  })
+end
+
 --- Load plugins and configs ----------
 
 require('keymaps')

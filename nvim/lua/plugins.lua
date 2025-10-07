@@ -80,11 +80,15 @@ require('lazy').setup({
   { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'akinsho/bufferline.nvim', version = '*'}, -- icons support required
   { 'akinsho/toggleterm.nvim', version = '*', config = true},
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release && cmake --install build --prefix build' },
   { 'linux-cultist/venv-selector.nvim',
     dependencies = { "neovim/nvim-lspconfig", "mfussenegger/nvim-dap", { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } }, },
-    lazy = false,
-    branch = 'regexp',
+    ft = "python",
+    -- keys = {{ ",v", "<cmd>VenvSelect<cr>"},}
+    -- opts = {
+	    -- search = {},
+	    -- options = {}
+    -- }
   }
 })
 

@@ -1,7 +1,7 @@
 require'nvim-autopairs'.setup()
 require'colorizer'.setup()
 require('alpha').setup(require('alpha.themes.startify').config)
-require'venv-selector'.setup()
+require'venv-selector'.setup({options={}}) -- NOTE: Check this if something wrong with venv
 require('neoscroll').setup({duration_multiplier = 0.3})
 
 require('setup.neo-tree')

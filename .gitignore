@@ -1,0 +1,9 @@
+*
+
+!.gitignore
+!alacritty/*
+!dunst/*
+!kitty/*
+!nvim/*
+!rofi/*
+!waybar/*
