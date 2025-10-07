@@ -1,0 +1,6 @@
+/**
+ * Font configuration
+ */
+* {
+    font: "FiraCode NerdFont 12";
+}
