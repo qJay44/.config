@@ -66,6 +66,7 @@ require('lazy').setup({
   'nvim-lualine/lualine.nvim',                      -- Status bar (icons support required)
   'goolord/alpha-nvim',                             -- Start screen (icons support required)
   'karb94/neoscroll.nvim',                          -- Scrolll animation
+  'stevearc/conform.nvim',                          -- Formatter
 
   { 'nvim-neo-tree/neo-tree.nvim',
     branch='v3.x',

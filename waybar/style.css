@@ -27,7 +27,7 @@
 
 /* Global styles */
 * {
-  font-size: 14;
+  font-size: 14px;
   font-weight: bold;
   padding: 0;
   margin: 0;
@@ -35,8 +35,9 @@
 
 #waybar {
   border: none;
+  border-radius: 10px;
   margin-top: 3px;
-  background-color: @base;
+  background-color: rgba(30, 30, 46, 0.75);
   color: @text;
   font-family: "JetBrainsMono Nerd Font";
 }
@@ -50,6 +51,7 @@
 #battery,
 #backlight,
 #wireplumber,
+#custom-mic,
 #custom-notification,
 #language,
 #clock,
@@ -135,7 +137,7 @@
 
 /* Clock & Window */
 #clock {
-  color: @overlay0;
+  color: @pink;
   background-color: @surface0;
   padding: 0px 10px;
   border-radius: 12px;
@@ -161,6 +163,7 @@
 #battery:hover,
 #backlight:hover,
 #wireplumber:hover,
+#custom-mic:hover,
 #custom-notification:hover,
 #language:hover,
 #network:hover,

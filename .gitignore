@@ -3,6 +3,7 @@
 !.gitignore
 !alacritty/
 !dunst/
+!hypr/
 !kitty/
 !nvim/
 !rofi/
@@ -10,6 +11,7 @@
 
 !alacritty/**
 !dunst/**
+!hypr/**
 !kitty/**
 !nvim/**
 !rofi/**

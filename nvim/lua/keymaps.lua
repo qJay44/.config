@@ -11,6 +11,7 @@ km('v', '<leader>p', '"*p', { silent=true })
 -- km('v', '<leader>y', '"*y', { silent=true })
 km('n', '<leader>y', '"+y', { silent=true })
 km('v', '<leader>y', '"+y', { silent=true })
+km('n', '<leader><S-f>', '<cmd>lua require("conform").format()<CR>', { silent=true })
 km('n', '<c-[>', ':noh<CR>', { silent=true }) -- Clear search selection
 
 -- Move selected lines up/down

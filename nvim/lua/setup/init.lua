@@ -2,7 +2,10 @@ require'nvim-autopairs'.setup()
 require'colorizer'.setup()
 require('alpha').setup(require('alpha.themes.startify').config)
 require'venv-selector'.setup({options={}}) -- NOTE: Check this if something wrong with venv
-require('neoscroll').setup({duration_multiplier = 0.3})
+
+if vim.fn.exists('g:neovide') == 0 then
+  require('neoscroll').setup({duration_multiplier = 0.3})
+end
 
 require('setup.neo-tree')
 require('setup.notify')
@@ -20,6 +23,7 @@ require('setup.ibl')
 require('setup.lint')
 require('setup.autochdir')
 require('setup.gruvbox')
+require('setup.conform')
 
 require'dapui'.setup()
 

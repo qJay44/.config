@@ -1,30 +1,22 @@
 {
-	"layer": "top",
-	"position": "top",
-	"margin-top": 3,
-	"margin-left": 15,
-	"margin-right": 15,
-	"modules-left": [
-		"custom/icon",
-		"hyprland/workspaces"
-	],
-	"modules-center": [
-		"temperature",
-		"cpu",
-		"memory"
-	],
-	"modules-right": [
-		"battery",
-		"backlight",
-		"wireplumber",
-		"custom/notification",
-		"hyprland/language",
-		"clock",
-		"network",
-		"custom/power",
-		"tray"
-	],
-	"include": [
-		"~/.config/waybar/modules.jsonc"
-	]
+  "layer": "top",
+  "position": "top",
+  "margin-top": 3,
+  "margin-left": 15,
+  "margin-right": 15,
+  "modules-left": ["custom/icon", "hyprland/workspaces"],
+  "modules-center": ["temperature", "cpu", "memory"],
+  "modules-right": [
+    "battery",
+    "backlight",
+    "wireplumber",
+    "custom/mic",
+    // "custom/notification",
+    "hyprland/language",
+    "clock",
+    "network",
+    "custom/power",
+    "tray",
+  ],
+  "include": ["~/.config/waybar/modules.jsonc"],
 }
