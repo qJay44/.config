@@ -31,9 +31,12 @@
     },
   },
   // center modules
-  "temperature": {
-    "format": " <span color='#cdd6f4'>{temperatureC}°C</span>",
+  "custom/temperature": {
+    "exec": "~/.config/waybar/temperature.sh",
+    "interval": 3,
+    "return-type": "json",
     "tooltip": true,
+    "format": "<span color='#f9e2af'> </span><span color='#cdd6f4'>{text}</span>",
   },
   "memory": {
     "interval": 10,
@@ -140,7 +143,7 @@
   "custom/power": {
     "format": "⏻ ",
     "tooltip": false,
-    "on-click": "powermenu.sh",
+    "on-click": "~/.local/bin/powermenu.sh",
     "on-click-right": "killall rofi",
   },
   "tray": {

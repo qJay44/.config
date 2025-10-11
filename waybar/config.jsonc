@@ -5,7 +5,7 @@
   "margin-left": 15,
   "margin-right": 15,
   "modules-left": ["custom/icon", "hyprland/workspaces"],
-  "modules-center": ["temperature", "cpu", "memory"],
+  "modules-center": ["custom/temperature", "cpu", "memory"],
   "modules-right": [
     "battery",
     "backlight",

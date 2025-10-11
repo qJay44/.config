@@ -29,6 +29,7 @@
 * {
   font-size: 14px;
   font-weight: bold;
+  font-family: "JetBrainsMono Nerd Font";
   padding: 0;
   margin: 0;
 }
@@ -51,6 +52,7 @@
 #battery,
 #backlight,
 #wireplumber,
+#custom-temperature,
 #custom-mic,
 #custom-notification,
 #language,
@@ -163,6 +165,7 @@
 #battery:hover,
 #backlight:hover,
 #wireplumber:hover,
+#custom-temperature:hover,
 #custom-mic:hover,
 #custom-notification:hover,
 #language:hover,
