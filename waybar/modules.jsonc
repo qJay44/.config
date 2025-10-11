@@ -33,10 +33,11 @@
   // center modules
   "temperature": {
     "format": " <span color='#cdd6f4'>{temperatureC}°C</span>",
+    "tooltip": true,
   },
   "memory": {
     "interval": 10,
-    "format": " {used:0.2f}GiB",
+    "format": " {used:0.2f} GB",
     "max-length": 10,
     "tooltip": false,
   },

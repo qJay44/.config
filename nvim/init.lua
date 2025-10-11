@@ -7,6 +7,7 @@ if vim.fn.exists('g:neovide') == 1 then
   vim.g.neovide_opacity = 0.85
   vim.g.neovide_fullscreen = false
   vim.g.neovide_floating_shadow = false
+  vim.g.neovide_hide_mouse_when_typing = true
 
   vim.api.nvim_create_autocmd("BufLeave", {
     callback = function()
@@ -56,6 +57,7 @@ vim.opt.cmdheight   = 1               -- Hide command line
 vim.opt.shortmess   = 'nocI'          -- Disable prompting for ENTER to continue when cmdheight=0
 vim.opt.splitright  = true            -- Vertically split windows will open on the right side
 vim.opt.fillchars   = {eob = " "}     -- Hide tildas at the sidebar (missing fields are optional)
+vim.opt.mouse=''
 -- vim.opt.foldmethod  = 'expr'
 -- vim.opt.foldexpr    = 'nvim_treesitter#foldexpr()'
 -- vim.opt.foldminlines = 5
@@ -85,13 +87,6 @@ function DeleteBuffer()
     vim.api.nvim_command('bdelete')
   end
 end
-
---- Auto commands ----------------------
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"help", "man"},
-  command = "wincmd L",
-})
 
 ----------------------------------------
 

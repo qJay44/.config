@@ -6,5 +6,6 @@ return {
     "--header-insertion=iwyu",
     "--completion-style=detailed",
     "--function-arg-placeholders=1",
-  }
+    "--compile-commands-dir=./Build"
+  },
 }
