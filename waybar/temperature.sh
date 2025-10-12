@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 output=$(sensors coretemp-isa-000 | awk '
 /Package id 0: / {printf "%s\n", $4}
 /Core [0-9]+: / {printf "%s %s %s\n", $1, $2, $3}

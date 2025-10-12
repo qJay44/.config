@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# NOTE: suspended
+
 IFACE="wlan0"
 IFACE_WIRED="enp4s0"
 THEME_DIR="$HOME/.config/rofi/wifi"
@@ -13,9 +15,13 @@ scan_networks() {
 
 # grab just the SSID column
 get_networks() {
-  iwctl station "$IFACE" get-networks \
-    | tail -n +5 \
-    | awk '{printf "%s %s\n", $1, $2}'
+  nets=$(iwctl station "$IFACE" get-networks)
+  echo "$nets"
+  echo "\nafter\n"
+
+  out=$(echo "$nets" | tail -n +5 | sed -e 's/\x1b\[[0-9;]*m//g' | sed 's/>/ /' | awk '/****/{print $1}')
+
+  echo "$out"
 }
 
 # show connectivity status NOTE: Wi-Fi only
@@ -35,6 +41,9 @@ get_status() {
 
 # main loop: Show SSIDs + Scan + Settings
 main_menu() {
+  scan_networks
+  get_networks
+  exit;
   while true; do
     scan_networks
     local status_line

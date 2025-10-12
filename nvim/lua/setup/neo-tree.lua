@@ -58,6 +58,23 @@ require('neo-tree').setup({
         nowait = true
       }
     }
+  },
+  filesystem = {
+    bind_to_cwd = true,
   }
 })
+
+vim.keymap.set('n', '<leader>t', function()
+  require('neo-tree.command').execute({
+    action = "focus",              -- OPTIONAL, this is the default value
+    source = "filesystem",         -- OPTIONAL, this is the default value
+    position = "left",             -- OPTIONAL, this is the default value
+    dir = vim.fn.getcwd(),
+    reveal_file = vim.fn.expand('%:p'), -- path to file or folder to reveal
+    reveal_force_cwd = true,            -- change cwd without asking if needed
+    toggle = true
+  })
+  end,
+  { desc = "Open neo-tree at current working directory" }
+);
 
