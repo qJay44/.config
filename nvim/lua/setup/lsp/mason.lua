@@ -9,6 +9,7 @@ local servers = {
   'lua_ls',
   'ts_ls',
   'pyright',
+  'glsl_analyzer',
   'bashls',
 }
 

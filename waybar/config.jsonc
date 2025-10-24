@@ -10,14 +10,15 @@
     "battery",
     "backlight",
     "wireplumber",
+    "bluetooth",
     "custom/mic",
     // "custom/notification",
     "hyprland/language",
     "custom/dunst",
     "clock",
     "network",
-    "custom/power",
-    "tray",
+    "custom/power"
+    // "tray",
   ],
   "include": ["~/.config/waybar/modules.jsonc"],
 }
