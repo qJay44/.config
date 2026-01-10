@@ -47,7 +47,8 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-vim.api.nvim_set_keymap("n", "<C-F6>", "<cmd>silent w<CR><cmd>ToggleTerm<CR>i<Backspace><Up><CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-\'>", "<cmd>silent w<CR><cmd>ToggleTerm<CR>i<Backspace><Up><CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-\'>", "<cmd>silent w<CR><cmd>ToggleTerm<CR>i<Backspace><Up><CR>", {noremap = true, silent = true})
 
 -- cd %:h
 
