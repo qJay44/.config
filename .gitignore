@@ -16,3 +16,6 @@
 !nvim/**
 !rofi/**
 !waybar/**
+
+!.zshrc
+!my.zsh-theme

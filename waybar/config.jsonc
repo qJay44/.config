@@ -14,7 +14,6 @@
     "custom/mic",
     // "custom/notification",
     "hyprland/language",
-    "custom/dunst",
     "clock",
     "network",
     "custom/power"
