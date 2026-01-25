@@ -1,6 +1,7 @@
+# https://github.com/shivanshu-semwal/dotfiles/tree/master/.config/dunst
 # https://dunst-project.org/documentation/
 [global]
-    font = FiraCode Nerd Font 16
+    font = FiraCode Nerd Font 11
     # https://developer.gnome.org/pygtk/stable/pango-markup-language.html
     # The format of the message.  Possible variables are:
     # %a appname
@@ -18,26 +19,26 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    width=350
-    height=180
+    width = 350
+    height = (0, 180)
     # origin=
     # notification_limit=
-    offset=10x40
+    offset = (10, 40)
     shrink = yes
     transparency = 0
     idle_threshold = 120
     monitor = 0
     follow = mouse
     sticky_history = yes
-    history_length = 20rofi -dmenu -theme ~/.config/rofi/dunst/theme.rasi -p "open"
+    #history_length = 20
     show_indicators = yes
     line_height = 0
     separator_height = 3
     padding = 8
     horizontal_padding = 10
     separator_color = "#1d2021"
-    dmenu = rofi -dmenu -theme ~/.config/rofi/notification/action-theme.rasi -p " "
-    browser = firefox
+    #dmenu = rofi -dmenu -theme ~/.config/rofi/notification/action-theme.rasi -p " "
+    browser = google-chrome-stable
     icon_position = left
     min_icon_size = 100
     max_icon_size = 100

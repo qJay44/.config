@@ -3,20 +3,20 @@ return {
     -- pyright = {
     --   disableOrganizeImports = true,
     -- },
-    -- python = {
-    --   analysis = {
-    --     typeCheckingMode = 'off',
-    --     diagnosticMode = 'workspace',
-    --     useLibraryCodeForTypes = false,
-    --     inlayHints = {
-    --       variableTypes = true,
-    --       functionReturnTypes = true,
-    --     },
-    --   },
-    -- },
+    python = {
+      analysis = {
+        -- typeCheckingMode = 'off',
+        diagnosticMode = 'workspace',
+        useLibraryCodeForTypes = false,
+        inlayHints = {
+          variableTypes = true,
+          functionReturnTypes = true,
+        },
+      },
+    },
   },
-  root_dir = function()
-    return vim.fn.getcwd()
-  end,
+  -- root_dir = function()
+  --   return vim.fn.getcwd()
+  -- end,
 }
 
