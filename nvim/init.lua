@@ -29,6 +29,17 @@ else
 end
 vim.loader.enable()
 
+vim.filetype.add({
+  extension = {
+    vert = "glsl",
+    frag = "glsl",
+    tese = "glsl",
+    tesc = "glsl",
+    geom = "glsl",
+    comp = "glsl",
+  },
+})
+
 --- Load plugins and configs ----------
 
 require('keymaps')
@@ -64,7 +75,7 @@ vim.opt.mouse=''
 
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h12"
-vim.lsp.set_log_level("error")
+vim.lsp.set_log_level("trace")
 
 --- Functions --------------------------
 

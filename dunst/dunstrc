@@ -2,7 +2,7 @@
 # https://dunst-project.org/documentation/
 [global]
     font = FiraCode Nerd Font 11
-    # https://developer.gnome.org/pygtk/stable/pango-markup-language.html
+    # https://docs.gtk.org/Pango/pango_markup.html
     # The format of the message.  Possible variables are:
     # %a appname
     # %s summary

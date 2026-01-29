@@ -1,33 +1,16 @@
 local dap = require('dap')
-local mingw64bin = 'C:\\Users\\q44\\Documents\\Libs\\mingw64\\bin\\'
+local platform = vim.loop.os_uname().sysname
 
--- setup cppdbg adapter
-dap.adapters.cppdbg = {
-  id = 'cppdbg',
-  type = 'executable',
-  command = vim.fn.stdpath('data') .. '\\mason\\bin\\OpenDebugAD7.cmd',
-  options = {
-    detached = false
-  },
-}
-
-dap.adapters.executable = {
-  type = 'executable',
-  command = vim.fn.stdpath('data') .. '\\mason\\bin\\codelldb.cmd',
-  name = 'lldb1',
-  host = '127.0.0.1',
-  port = 13000
-}
-
-dap.adapters.codelldb = {
-  name = 'codelldb server',
-  type = 'server',
-  port = '${port}',
-  executable = {
-    command = vim.fn.stdpath('data') .. '\\mason\\bin\\codelldb.cmd',
-    args = {'--port', '${port}'}
+if (platform == 'Windows_NT') then
+  type = 'cppdbg'
+  dap.adapters.cppdbg = {
+    id = 'cppdbg',
+    type = 'executable',
+    command = vim.fn.stdpath('data') .. '\\mason\\bin\\OpenDebugAD7.cmd',
+    options = {
+      detached = false
+    },
   }
-}
 
 -- this configuration should start cppdbg and the debug the executable main in the current directory when executing :DapContinue
 dap.configurations.cpp = {
@@ -39,7 +22,7 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}\\Build\\Debug\\Run',
     stopOnEntry = true,
     MIMode = 'gdb',
-    miDebuggerPath = mingw64bin .. 'gdb.exe',
+    miDebuggerPath = vim.fn.expand(vim.env.HOME .. '\\Documents\\Libs\\mingw64\\bin\\gdb.exe'),
     setupCommands = {
       {
         text = '-enable-pretty-printing',
@@ -49,6 +32,8 @@ dap.configurations.cpp = {
     },
   }
 }
+
+end
 
 dap.configurations.c = dap.configurations.cpp
 

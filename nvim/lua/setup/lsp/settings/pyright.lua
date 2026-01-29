@@ -6,17 +6,21 @@ return {
     python = {
       analysis = {
         -- typeCheckingMode = 'off',
-        diagnosticMode = 'workspace',
+        diagnosticMode = 'openFilesOnly',
         useLibraryCodeForTypes = false,
         inlayHints = {
           variableTypes = true,
           functionReturnTypes = true,
         },
+        logLevel = "Trace"
       },
     },
+    exclude = {
+      ".venv",
+      "**/*.cache"
+    },
+    venvPath = ".",
+    venv = ".venv",
   },
-  -- root_dir = function()
-  --   return vim.fn.getcwd()
-  -- end,
 }
 

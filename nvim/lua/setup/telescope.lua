@@ -2,8 +2,24 @@ local telescope = require'telescope'
 local actions = require 'telescope.actions'
 local icons = require 'setup.icons'
 
+local previewers = require("telescope.previewers")
+
+local custom_maker = function(filepath, bufnr, opts)
+  local glslExts = { "frag", "vert", "tesc", "tese", "geom", "comp" }
+
+  for _, ext in ipairs(glslExts) do
+    if filepath:match("%." .. ext .. "$") then
+      vim.api.nvim_set_option_value("filetype", "glsl", { buf = bufnr })
+      break
+    end
+  end
+
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
+
 telescope.setup {
   defaults = {
+    buffer_previewer_maker = custom_maker,
     prompt_prefix = icons.ui.Telescope .. " ",
     selection_caret = " ",
     path_display = { "smart" },

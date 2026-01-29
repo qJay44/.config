@@ -63,10 +63,10 @@ elif app["APP_NAME"] in discard_crunch_appname:
     exit(0)
 
 if not os.path.isfile(FILE):
-    with open(FILE, 'w') as f:
+    with open(FILE, 'w', encoding='utf8') as f:
         f.write('{"apps": []}')
 
-with open(FILE, 'r+') as f:
+with open(FILE, 'r+', encoding='utf8') as f:
     data = json.load(f)
     data['apps'].append(app)
     f.seek(0)
