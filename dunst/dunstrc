@@ -39,34 +39,36 @@
     separator_color = "#1d2021"
     #dmenu = rofi -dmenu -theme ~/.config/rofi/notification/action-theme.rasi -p " "
     browser = google-chrome-stable
+    #icon_path = /usr/share/icons/
+    enable_recursive_icon_lookup = true
+    icon_theme = "Papirus"
     icon_position = left
     min_icon_size = 100
     max_icon_size = 100
-    icon_path = /usr/share/icons/Papirus-Dark/24x24/actions:/usr/share/icons/Papirus/24x24/animations:/usr/share/icons/Papirus/24x24/apps:/usr/share/icons/Papirus/24x24/categories:/usr/share/icons/Papirus/24x24/devices:/usr/share/icons/Papirus/24x24/emblems:/usr/share/icons/Papirus/24x24/emotes:/usr/share/icons/Papirus/24x24/mimetypes:/usr/share/icons/Papirus/24x24/panel:/usr/share/icons/Papirus/24x24/places:/usr/share/icons/Papirus/24x24/status
-    # icon_theme = ePapirus
     corner_radius = 10
     progress_bar = true
     progress_bar_height = 10
+    progress_bar_corner_radius = 5
     mouse_left_click = close_current
     mouse_middle_click = close_all
     mouse_right_click = context
 
 [urgency_low]
-    background = "#282a36"
+    background = "#282a36cc"
     foreground = "#f8f8f2"
     frame_color = "#44475a"
     highlight = "#50fa7b"
     timeout = 2
 
 [urgency_normal]
-    background = "#282a36"
+    background = "#282a36cc"
     foreground = "#f8f8f2"
     frame_color = "#44475a"
     highlight = "#50fa7b"
     timeout = 2
 
 [urgency_critical]
-    background = "#282a36"
+    background = "#282a36cc"
     foreground = "#ff5555"
     frame_color = "#44475a"
     highlight = "#50fa7b"

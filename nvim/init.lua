@@ -40,6 +40,8 @@ vim.filetype.add({
   },
 })
 
+vim.treesitter.language.register('bash', 'zsh')
+
 --- Load plugins and configs ----------
 
 require('keymaps')
@@ -75,7 +77,7 @@ vim.opt.mouse=''
 
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h12"
-vim.lsp.set_log_level("trace")
+vim.lsp.set_log_level("error")
 
 --- Functions --------------------------
 

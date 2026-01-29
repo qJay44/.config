@@ -4,7 +4,11 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+
 export VISUAL=nvim
+# export XDG_DATA_HOME="$HOME/.local/share"
 #export QT_STYLE_OVERRIDE=adwaita
 
 bindkey '^ ' autosuggest-accept
@@ -92,6 +96,11 @@ alias img="kitty +kitten icat"
 # ======== FZF
 
 source <(fzf --zsh)
+
+# Preview icons in Kitty terminal
+papi() {
+  fd "$1" /usr/share/icons/Papirus -e svg -j 1 -x bash -c 'kitten icat -n --scale-up --align center --use-window-size 1,1,25,25 "$1"; echo " <- $1"' _ {}
+}
 
 # User configuration
 

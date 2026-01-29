@@ -43,7 +43,6 @@
   font-family: "JetBrainsMono Nerd Font";
 }
 
-/* Загальні стилі для елементів */
 #custom-icon,
 #workspaces,
 #temperature,
@@ -76,9 +75,9 @@
 
 /* Workspaces */
 #workspaces {
-    padding: 0px 8px;
-    background-color: @surface0;
-    border-radius: 12px;
+  padding: 0px 8px;
+  background-color: @surface0;
+  border-radius: 12px;
 }
 
 #workspaces button {
@@ -159,7 +158,7 @@
   padding: 0px 3px 0px 7px;
 }
 
-/* Hover-ефекти */
+/* Hover */
 #custom-icon:hover,
 #temperature:hover,
 #cpu:hover,
@@ -190,3 +189,4 @@ tooltip {
   padding: 10px;
   border-radius: 0px;
 }
+

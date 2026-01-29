@@ -13,7 +13,7 @@ local servers = {
   'bashls',
 }
 
-local settings = {
+mason.setup({
   ui = {
     border = "rounded",
     icons = {
@@ -24,9 +24,8 @@ local settings = {
   },
   log_level = vim.log.levels.INFO,
   max_concurrent_installers = 4,
-}
+})
 
-mason.setup(settings)
 -- mason_lspconfig.setup {
 --   ensure_installed = servers,
 --   automatic_installation = true,
@@ -37,15 +36,20 @@ mason_nvim_dap.setup {
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.editsNearCursor = true
+
 for _, server in pairs(servers) do
+  vim.lsp.enable(server)
+
   if server == 'lua_ls' then
     require('lazydev').setup()
+  elseif server == 'bashls' then
+    vim.lsp.config['bashls'].filetypes = {'bash', 'sh', 'zsh'}
   end
 
-  local exists, module = pcall(require, "setup.lsp.settings." .. server)
-  if exists then vim.lsp.config[server] = module end
+  local exists, settings = pcall(require, "setup.lsp.settings." .. server)
+  if exists then vim.lsp.config[server].settings = settings end
 
   vim.lsp.config[server].capabilities = capabilities
-  vim.lsp.enable(server)
 end
 

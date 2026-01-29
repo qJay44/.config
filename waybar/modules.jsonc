@@ -7,24 +7,15 @@
     "tooltip": false,
   },
   "hyprland/workspaces": {
-    "format": "{id} {windows} ",
-    "window-rewrite-default": "",
-    "window-rewrite": {
-      "title<.*youtube.*>": "<span color='#f38ba8'></span>", // Windows whose titles contain "youtube"
-      "class<firefox>": "<span color='#eba0ac'></span>", // Windows whose classes are "firefox"
-      "class<spotify>": "<span color='#a6e3a1'></span>",
-      "class<discord>": "<span color='#b4befe'></span>",
-      "class<vesktop>": "<span color='#b4befe'></span>",
-      "class<ayugram-desktop>": "<span color='#74c7ec'></span>",
-      "class<ayugram>": "<span color='#74c7ec'></span>",
-      "class<telegram-desktop>": "<span color='#74c7ec'></span>",
-      "class<telegram>": "<span color='#74c7ec'></span>",
-      "class<firefox> title<.*github.*>": "<span color='black'></span>", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-      "chrome": "",
-      "kitty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
-      "code": "<span color='#89b4fa'>󰨞</span>",
-      "neovide": "<span fgcolor='#5D993C'></span>",
-      "title<.* - (.*) - VSCodium>": "codium $1", // captures part of the window title and formats it into output
+
+    "format": "{icon} {windows}",
+    "format-window-separator": "",
+    "workspace-taskbar": {
+      "enable": true,
+      "update-active-window": false,
+      "format": "{icon}",
+      "icon-size": 16,
+      "icon-theme": "Papirus-Dark",
     },
     "persistent-workspaces": {
       "*": 5, // 5 workspaces by default on every monitor
@@ -40,14 +31,21 @@
   },
   "memory": {
     "interval": 10,
-    "format": " {used:0.2f} GB",
+    "format": "  {used:0.2f} GB",
     "max-length": 10,
     "tooltip": false,
   },
   "cpu": {
     "interval": 1,
-    "format": " {usage:>2}% <span color='#cdd6f4'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}</span>",
+    "format": "<span color='#89dceb'> {usage:>2}%</span> <span color='#cdd6f4'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}</span>",
     "format-icons": ["⣀", "⣄", "⣆", "⣇", "⣧", "⣷", "⣾", "⣿"],
+  },
+  "upower": {
+   "native-path": "battery_sony_controller_battery_d0o27o88o32ofcoee",
+   "icon-size": 20,
+   "hide-if-empty": true,
+   "tooltip": true,
+   "tooltip-spacing": 20
   },
   // right modules
   "battery": {
@@ -80,8 +78,8 @@
   },
   "wireplumber": {
     "node-type": "Audio/Sink",
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
+    "format": "<span color='#94e2d5'>{icon}</span> {volume}%",
+    "format-muted": "<span color='#94e2d5' size='x-large'>󰝟</span>",
     "format-icons": ["", "", ""],
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "scroll-step": 5,
@@ -103,17 +101,17 @@
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   },
-  "custom/mic": {
-    "exec": "~/.config/waybar/mic.sh",
-    "interval": 1,
-    "return-type": "json",
-    "tooltip": true,
-    "format": "<tt>{icon}</tt>",
-    "format-icons": {
-      "no": "",
-      "yes": " ",
-    },
-  },
+  // "custom/mic": {
+  //   "exec": "~/.config/waybar/mic.sh",
+  //   "interval": 1,
+  //   "return-type": "json",
+  //   "tooltip": true,
+  //   "format": "<tt>{icon}</tt>",
+  //   "format-icons": {
+  //     "no": "",
+  //     "yes": " ",
+  //   },
+  // },
   "hyprland/language": {
     "format": "{shortDescription}",
   },
@@ -156,9 +154,4 @@
     "on-click": "~/.local/bin/powermenu.sh",
     "on-click-right": "killall rofi",
   },
-  // "tray": {
-  //   "icon-size": 15,
-  //   "spacing": 10,
-  //   "icons": {},
-  // },
 }

@@ -26,3 +26,5 @@ require'nvim-treesitter.configs'.setup {
     }
   }
 }
+
+local parsers = require('nvim-treesitter.parsers').ft_to_lang('zsh')
