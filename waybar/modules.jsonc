@@ -41,7 +41,7 @@
     "format-icons": ["⣀", "⣄", "⣆", "⣇", "⣧", "⣷", "⣾", "⣿"],
   },
   "upower": {
-   "native-path": "battery_sony_controller_battery_d0o27o88o32ofcoee",
+   "native-path": "ps-controller-battery-f4:93:9f:94:c6:f5",
    "icon-size": 20,
    "hide-if-empty": true,
    "tooltip": true,
@@ -80,7 +80,7 @@
     "node-type": "Audio/Sink",
     "format": "<span color='#94e2d5'>{icon}</span> {volume}%",
     "format-muted": "<span color='#94e2d5' size='x-large'>󰝟</span>",
-    "format-icons": ["", "", ""],
+    "format-icons": ["", "", " "],
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "scroll-step": 5,
   },
@@ -155,3 +155,4 @@
     "on-click-right": "killall rofi",
   },
 }
+

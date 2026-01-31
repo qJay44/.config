@@ -52,6 +52,7 @@
     mouse_left_click = close_current
     mouse_middle_click = close_all
     mouse_right_click = context
+    enable_posix_regex=true
 
 [urgency_low]
     background = "#282a36cc"
