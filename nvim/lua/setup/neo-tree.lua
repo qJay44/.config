@@ -61,6 +61,9 @@ require('neo-tree').setup({
   },
   filesystem = {
     bind_to_cwd = true,
+    filtered_items = {
+      hide_dotfiles = false
+    },
   }
 })
 
@@ -72,7 +75,11 @@ vim.keymap.set('n', '<leader>t', function()
     dir = vim.fn.getcwd(),
     reveal_file = vim.fn.expand('%:p'), -- path to file or folder to reveal
     reveal_force_cwd = true,            -- change cwd without asking if needed
-    toggle = true
+    toggle = true,
+    hide_dotfiles = false,
+          always_show_by_pattern = { -- uses glob style patterns
+            ".env*",
+          },
   })
   end,
   { desc = "Open neo-tree at current working directory" }

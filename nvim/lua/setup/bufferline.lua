@@ -1,5 +1,3 @@
----@diagnostic disable: missing-fields
-
 local bufferline = require('bufferline')
 local fillBg = '#191919'
 

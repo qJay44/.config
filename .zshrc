@@ -6,6 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+export GTK_THEME="Adwaita:dark"
 
 export VISUAL=nvim
 # export XDG_DATA_HOME="$HOME/.local/share"

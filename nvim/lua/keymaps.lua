@@ -10,16 +10,17 @@ km('v', '<leader>p', '"*p', { silent=true })
 -- km('v', '<leader>y', '"*y', { silent=true })
 km('n', '<leader>y', '"+y', { silent=true })
 km('v', '<leader>y', '"+y', { silent=true })
-km('n', '<leader><S-f>', '<cmd>lua require("conform").format()<CR>', { silent=true })
 km('n', '<c-[>', ':noh<CR>', { silent=true }) -- Clear search selection
+km('x', '<leader>ga', '<Plug>(EasyAlign)', {})
+km('n', '<leader>ga', '<Plug>(EasyAlign)', {})
 
 -- Move selected lines up/down
 km('v', 'J', ":m '>+1<CR>gv=gv", {})
 km('v', 'K', ":m '<-2<CR>gv=gv", {})
 
 -- Make cursor at the center when scrolling
--- km('n', '<c-d>', '<c-d>zz', {})
--- km('n', '<c-u>', '<c-u>zz', {})
+km('n', '<c-d>', '<c-d>zz', {})
+km('n', '<c-u>', '<c-u>zz', {})
 
 local opts = { noremap=true, silent=true }
 km('n', '<leader><c-s>', ':silent noau w<CR>', opts)
@@ -48,6 +49,12 @@ km('i', '<c-+>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor
 km('n', '<c-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', opts)
 km('i', '<c-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', opts)
 
+km('n', '<A-o>', '<Cmd>SwitchSourceAndHeader<CR>', opts)
+km('n', '<leader>cf', '<Cmd>ImplementInSource<CR>', opts)
+km('v', '<leader>cf', '<Cmd>lua require("cppassist").ImplementInSourceInVisualMode<CR>', opts)
+km('n', '<leader>cv', '<Cmd>ImplementOutOfClass<CR>', opts)
+km('n', '<leader>gh', '<Cmd>GotoHeaderFile<CR>', opts)
+
 km('x', ';s', 'y:%s/<c-r>"//g<Left><Left>', { noremap=true })
 km('x', ';ls', 'y:.s/<c-r>"//g<Left><Left>', { noremap=true })
 
@@ -62,12 +69,14 @@ km("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
 km("n", "gs", "<cmd>lua vim.lsp.buf.signature_help({border = 'rounded'})<CR>", opts)
 km("n", "<M-f>", "<cmd>Format<cr>", opts)
-km("n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+-- km("n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 -- km("n", "<M-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 km("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 km("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+km("v", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 -- km("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 -- km("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 -- km("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 -- km("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 --
+

@@ -2,7 +2,7 @@
     "fori": {
         "prefix": "fori",
         "body": [
-            "for (size_t i = 0; i < ${1:length}; i++) {",
+            "for (int i = 0; i < ${1:length}; i++) {",
             "\t$0",
             "}"
         ],
@@ -11,7 +11,7 @@
     "forj": {
         "prefix": "forj",
         "body": [
-            "for (size_t j = 0; j < ${1:length}; j++) {",
+            "for (int j = 0; j < ${1:length}; j++) {",
             "\t$0",
             "}"
         ],
@@ -20,11 +20,56 @@
     "fork": {
         "prefix": "fork",
         "body": [
+            "for (int k = 0; k < ${1:length}; k++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for k loop"
+    },
+    "foriz": {
+        "prefix": "foriz",
+        "body": [
+            "for (size_t i = 0; i < ${1:length}; i++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for i loop"
+    },
+    "forjz": {
+        "prefix": "forjz",
+        "body": [
+            "for (size_t j = 0; j < ${1:length}; j++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for j loop"
+    },
+    "forkz": {
+        "prefix": "forkz",
+        "body": [
             "for (size_t k = 0; k < ${1:length}; k++) {",
             "\t$0",
             "}"
         ],
         "description": "Simple for k loop"
+    },
+    "forx": {
+        "prefix": "forx",
+        "body": [
+            "for (int x = 0; x < ${1:length}; x++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for x loop"
+    },
+    "fory": {
+        "prefix": "fory",
+        "body": [
+            "for (int y = 0; y < ${1:length}; y++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Simple for y loop"
     },
     "ooo": {
         "prefix": "ooo",

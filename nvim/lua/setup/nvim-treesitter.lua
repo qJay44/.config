@@ -1,30 +1,43 @@
-require'nvim-treesitter.install'.compilers = { 'clang' }
-require'nvim-treesitter.configs'.setup {
-  modules = {},
-  ensure_installed = { "cpp", "python", "javascript", "lua", "glsl", "typescript", "cmake", "comment"},
-  sync_install = false,
-  auto_install = true,
-  ignore_install = {},
-  indent = {enable = true},
-  highlight = { enable = true },
-  playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false, -- Whether the query persists across vim sessions
-    keybindings = {
-      toggle_query_editor = 'o',
-      toggle_hl_groups = 'i',
-      toggle_injected_languages = 't',
-      toggle_anonymous_nodes = 'a',
-      toggle_language_display = 'I',
-      focus_language = 'f',
-      unfocus_language = 'F',
-      update = 'R',
-      goto_node = '<cr>',
-      show_help = '?',
-    }
-  }
-}
+-- FIXME: Only for master branch?
 
-local parsers = require('nvim-treesitter.parsers').ft_to_lang('zsh')
+-- require'nvim-treesitter.install'.compilers = { 'clang' }
+-- require'nvim-treesitter.configs'.setup {
+--   modules = {},
+--   ensure_installed = { "cpp", "python", "javascript", "lua", "glsl", "typescript", "cmake", "comment"},
+--   sync_install = false,
+--   auto_install = true,
+--   ignore_install = {},
+--   indent = {enable = true},
+--   highlight = { enable = true },
+--   playground = {
+--     enable = true,
+--     disable = {},
+--     updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+--     persist_queries = false, -- Whether the query persists across vim sessions
+--     keybindings = {
+--       toggle_query_editor = 'o',
+--       toggle_hl_groups = 'i',
+--       toggle_injected_languages = 't',
+--       toggle_anonymous_nodes = 'a',
+--       toggle_language_display = 'I',
+--       focus_language = 'f',
+--       unfocus_language = 'F',
+--       update = 'R',
+--       goto_node = '<cr>',
+--       show_help = '?',
+--     }
+--   }
+-- }
+
+-- local parsers = require('nvim-treesitter.parsers').ft_to_lang('zsh')
+
+-- NOTE: Since using main branch of treesitter
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+    if lang then
+      vim.treesitter.start(args.buf, lang)
+    end
+  end,
+})
+

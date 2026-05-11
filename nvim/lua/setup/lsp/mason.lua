@@ -26,10 +26,11 @@ mason.setup({
   max_concurrent_installers = 4,
 })
 
--- mason_lspconfig.setup {
---   ensure_installed = servers,
---   automatic_installation = true,
--- }
+mason_lspconfig.setup {
+  ensure_installed = servers,
+  automatic_installation = true,
+}
+
 mason_nvim_dap.setup {
   ensure_installed = { 'cpptools' },
   automatic_installation = true,

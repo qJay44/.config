@@ -40,6 +40,9 @@ require("gruvbox").setup({
     GitSignsChange          = { link = 'GruvBoxYellow' },
     FocusedSymbol           = { link = 'CursorLine'    },
     Directory               = { link = 'GruvboxBlue'   },
+    NvimTreeGitDirty        = { link = 'GruvboxYellow' },
+    NvimTreeGitNew          = { link = 'GruvboxAqua'   },
+    NvimTreeGitDirtyIcon    = { link = 'GruvboxYellow' },
 
     -- Treesitter
     ['@variable']         = { link = 'GruvboxBlue'   },
@@ -51,11 +54,6 @@ require("gruvbox").setup({
     ['@namespace']        = { link = 'GruvboxAqua'   },
     ['@text.todo']        = { link = 'GruvboxOrange' },
     ['@text.danger']      = { link = 'GruvboxRed'    },
-
-    -- Git signs
-    ['NvimTreeGitDirty']       = { link = 'GruvboxYellow' },
-    ['NvimTreeGitNew']         = { link = 'GruvboxAqua'   },
-    ['NvimTreeGitDirtyIcon']   = { link = 'GruvboxYellow' },
 
     -- LSP semantics to match Treesitter
     ["@lsp.type.class"]         = { link = "@type"         },

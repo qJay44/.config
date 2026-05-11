@@ -24,6 +24,7 @@ require('setup.lint')
 require('setup.autochdir')
 require('setup.gruvbox')
 require('setup.conform')
+require('setup.cppassist')
 
 require'dapui'.setup()
 

@@ -2,7 +2,6 @@ local dap = require('dap')
 local platform = vim.loop.os_uname().sysname
 
 if (platform == 'Windows_NT') then
-  type = 'cppdbg'
   dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
@@ -12,26 +11,47 @@ if (platform == 'Windows_NT') then
     },
   }
 
--- this configuration should start cppdbg and the debug the executable main in the current directory when executing :DapContinue
-dap.configurations.cpp = {
-  {
-    name = 'Launch',
-    type = 'cppdbg',
-    request = 'launch',
-    program = '${workspaceFolder}\\Build\\Debug\\Run\\MyProject.exe',
-    cwd = '${workspaceFolder}\\Build\\Debug\\Run',
-    stopOnEntry = true,
-    MIMode = 'gdb',
-    miDebuggerPath = vim.fn.expand(vim.env.HOME .. '\\Documents\\Libs\\mingw64\\bin\\gdb.exe'),
-    setupCommands = {
-      {
-        text = '-enable-pretty-printing',
-        description =  'enable pretty printing',
-        ignoreFailures = false
+  -- this configuration should start cppdbg and the debug the executable main in the current directory when executing :DapContinue
+  dap.configurations.cpp = {
+    {
+      name = 'Launch',
+      type = 'cppdbg',
+      request = 'launch',
+      program = '${workspaceFolder}\\Build\\Debug\\Run\\MyProject.exe',
+      cwd = '${workspaceFolder}\\Build\\Debug\\Run',
+      stopOnEntry = true,
+      MIMode = 'gdb',
+      miDebuggerPath = vim.fn.expand(vim.env.HOME .. '\\Documents\\Libs\\mingw64\\bin\\gdb.exe'),
+      setupCommands = {
+        {
+          text = '-enable-pretty-printing',
+          description =  'enable pretty printing',
+          ignoreFailures = false
+        },
       },
-    },
+    }
   }
-}
+
+else
+  dap.adapters.codelldb = {
+    type = 'server',
+    port = '${port}',
+    executable = {
+      command = vim.fn.stdpath('data') .. '/mason/bin/codelldb',
+      args = {'--port', '${port}'}
+    }
+  }
+
+  dap.configurations.cpp = {
+    {
+      name = 'Launch',
+      type = 'codelldb',
+      request = 'launch',
+      program = '${workspaceFolder}/Build/Debug/Run/MyProject',
+      cwd = '${workspaceFolder}/Build/Debug/Run',
+      stopOnEntry = false
+    }
+  }
 
 end
 
@@ -58,18 +78,18 @@ vim.keymap.set('n', '<Leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn
 vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end)
 vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
 vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
-  require('dap.ui.widgets').hover()
+  require('dap.ui.widgets').hover(nil, {border = "rounded"})
 end)
 vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
-  require('dap.ui.widgets').preview()
+  require('dap.ui.widgets').preview(nil, {border = "rounded"})
 end)
 vim.keymap.set('n', '<Leader>df', function()
   local widgets = require('dap.ui.widgets')
-  widgets.centered_float(widgets.frames)
+  widgets.centered_float(widgets.frames, {border = "rounded"})
 end)
 vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require('dap.ui.widgets')
-  widgets.centered_float(widgets.scopes)
+  widgets.centered_float(widgets.scopes, {border = "rounded"})
 end)
 
 vim.keymap.set('n', '<S-F5>', function()

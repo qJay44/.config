@@ -1,7 +1,7 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-require('luasnip.loaders.from_vscode').lazy_load({paths = {'./snippets'}})
+-- require('luasnip.loaders.from_vscode').lazy_load({paths = {'./snippets'}})
 require('luasnip.loaders.from_vscode').lazy_load()
 
 local check_backspace = function()
@@ -22,7 +22,6 @@ cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
-      -- vim.snippet.expand(args.body)
     end,
   },
   mapping = {
@@ -36,19 +35,16 @@ cmp.setup({
       }),
     ['<C-Space>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.jumpable(1) then
+      if luasnip.jumpable(1) then
         luasnip.jump(1)
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif check_backspace() then
-        -- cmp.complete()
         fallback()
       else
-        fallback()
+        cmp.complete()
       end
     end, {
       "i",
@@ -68,13 +64,12 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
-      -- { name = 'nvim_lsp', keyword_length = 0, max_item_count = 7 },
-      { name = 'nvim_lsp', max_item_count = 7 },
-      { name = 'luasnip', max_item_count = 7 },
-      { name = 'nvim_lua', max_item_count = 7 },
-      { name = 'buffer', max_item_count = 7  },
-      { name = 'path', max_item_count = 7  },
-      { name = 'lazydev', group_index = 0 }
+    { name = 'nvim_lsp' },
+    { name = 'luasnip'  },
+    { name = 'nvim_lua' },
+    { name = 'buffer'   },
+    { name = 'path'     },
+    { name = 'lazydev'  }
   }),
   formatting = {
     expandable_indicator = true,

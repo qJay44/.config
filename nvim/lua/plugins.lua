@@ -44,13 +44,12 @@ require('lazy').setup({
   -- CMP snippets
   {'L3MON4D3/LuaSnip', version = "v2.*"},
   'saadparwaiz1/cmp_luasnip',
+   "rafamadriz/friendly-snippets",
 
   -- Other
   'wakatime/vim-wakatime',                          -- Coding time
   'tpope/vim-surround',                             -- Vim surround keymaps
   'tpope/vim-commentary',                           -- Vim comment keymaps
-  'nvim-treesitter/nvim-treesitter',                -- Better highlight
-  'nvim-treesitter/playground',                     -- Usefull treesitter tools
   'ntpeters/vim-better-whitespace',                 -- Highlight extra whitespaces
   'windwp/nvim-autopairs',                          -- Place two parenthesises at once
   'tpope/vim-fugitive',                             -- Git commands
@@ -67,6 +66,10 @@ require('lazy').setup({
   'goolord/alpha-nvim',                             -- Start screen (icons support required)
   'karb94/neoscroll.nvim',                          -- Scrolll animation
   'stevearc/conform.nvim',                          -- Formatter
+  'junegunn/vim-easy-align',                        -- Aligner
+
+  -- NOTE: 0.12 temporary fix?
+  {'nvim-treesitter/nvim-treesitter', branch = "main"},                -- Better highlight
 
   { 'nvim-neo-tree/neo-tree.nvim',
     branch='v3.x',
@@ -90,6 +93,10 @@ require('lazy').setup({
 	    -- search = {},
 	    -- options = {}
     -- }
+  },
+  { 'Kohirus/cppassist.nvim',
+    opt = true,
+    ft = { "h", "cpp", "hpp", "c", "cc", "cxx" },
   }
 })
 

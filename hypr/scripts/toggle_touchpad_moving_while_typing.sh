@@ -14,6 +14,7 @@ else
   iconState="off"
 fi
 
-dunstify "$newState" -i "/usr/share/icons/Papirus-Dark/24x24/panel/input-touchpad-${iconState}.svg"
 hyprctl keyword input:touchpad:disable_while_typing "$newState"
+
+dunstify -a "hypr" -i "input-touchpad-${iconState}" "input:touchpad:disable_while_typing" $newState
 

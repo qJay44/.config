@@ -19,10 +19,15 @@ end
 
 telescope.setup {
   defaults = {
+    preview = {treesitter = false},
+
     buffer_previewer_maker = custom_maker,
     prompt_prefix = icons.ui.Telescope .. " ",
     selection_caret = " ",
     path_display = { "smart" },
+    -- history = { -- history of prompts (not files)
+    --   limit = 500
+    -- },
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
