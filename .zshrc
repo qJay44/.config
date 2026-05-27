@@ -4,11 +4,13 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+# export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+# export XDG_DATA_DIRS="${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 export GTK_THEME="Adwaita:dark"
 
 export VISUAL=nvim
+export EDITOR=nvim
+
 # export XDG_DATA_HOME="$HOME/.local/share"
 #export QT_STYLE_OVERRIDE=adwaita
 
@@ -88,8 +90,8 @@ source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c50,)"
 
-alias ll="ls -la"
-alias ls="eza --icons=always --color=always --all --no-filesize"
+alias lla="lls -la"
+alias lls="eza --icons=always --color=always --all --no-filesize"
 # alias cat="bat"
 alias img="kitty +kitten icat"
 # alias batjc="python batjc.py"

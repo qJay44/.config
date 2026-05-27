@@ -43,6 +43,8 @@ require("gruvbox").setup({
     NvimTreeGitDirty        = { link = 'GruvboxYellow' },
     NvimTreeGitNew          = { link = 'GruvboxAqua'   },
     NvimTreeGitDirtyIcon    = { link = 'GruvboxYellow' },
+    RenderMarkDownCode      = { link = ''},
+    RenderMarkDownCodeInline= { link = 'CursorLine'},
 
     -- Treesitter
     ['@variable']         = { link = 'GruvboxBlue'   },
@@ -104,4 +106,19 @@ vim.cmd('hi IlluminatedWordText  gui=underdashed')
 vim.cmd('hi IlluminatedWordRead  gui=underdashed')
 vim.cmd('hi IlluminatedWordWrite gui=underdashed')
 vim.cmd('hi LspSignatureActiveParameter gui=bold')
+
+local function highlight_doc_tags()
+  local patterns = { [[@param]], [[@return]], [[@brief]], [[@see]] }
+
+  for _, pattern in ipairs(patterns) do
+    vim.fn.matchadd("Keyword", pattern)
+  end
+end
+
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+  pattern = "*",
+  callback = function()
+    vim.schedule(highlight_doc_tags)
+  end,
+})
 

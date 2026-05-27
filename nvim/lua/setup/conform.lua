@@ -2,12 +2,20 @@ local conform = require("conform")
 
 conform.setup({
   formatters_by_ft = {
-    ["py"] = {"prettier"}
+    python = {"prettier"},
+    lua = {"prettier"},
   },
   formatters = {
     pointer_left = {
       command = "clang-format",
-      args = { "--style={BasedOnStyle: InheritParentConfig, PointerAlignment: Left}" },
+      args = function(_, ctx)
+        local home = os.getenv("HOME")
+        return {
+          "-style=file:" .. home .. "/.config/.clang-format",
+          "-assume-filename=" .. ctx.filename,
+          '-'
+        }
+      end,
     }
   }
 })

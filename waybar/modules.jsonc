@@ -4,7 +4,7 @@
     "format": "󰣇",
     "on-click": "rofi -show drun -theme ~/.config/rofi/config.rasi",
     "on-click-right": "killall rofi",
-    "tooltip": false,
+    "tooltip": false
   },
   "hyprland/workspaces": {
 
@@ -15,11 +15,12 @@
       "update-active-window": false,
       "format": "{icon}",
       "icon-size": 16,
-      "icon-theme": "Papirus-Dark",
+      "icon-theme": "MyCustomIcons"
     },
     "persistent-workspaces": {
-      "*": 5, // 5 workspaces by default on every monitor
-    },
+      "eDP-1": [1,2,3],
+      "HDMI-A-1": [4,5,6]
+    }
   },
   // center modules
   "custom/temperature": {
@@ -27,18 +28,25 @@
     "interval": 3,
     "return-type": "json",
     "tooltip": true,
-    "format": "<span color='#f9e2af'> </span><span color='#cdd6f4'>{text}</span>",
+    "format": "<span color='#f9e2af'> </span><span color='#cdd6f4'>{text}</span>"
   },
   "memory": {
     "interval": 10,
     "format": "  {used:0.2f} GB",
     "max-length": 10,
-    "tooltip": false,
+    "tooltip": false
   },
   "cpu": {
     "interval": 1,
     "format": "<span color='#89dceb'> {usage:>2}%</span> <span color='#cdd6f4'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}</span>",
-    "format-icons": ["⣀", "⣄", "⣆", "⣇", "⣧", "⣷", "⣾", "⣿"],
+    "format-icons": ["⣀", "⣄", "⣆", "⣇", "⣧", "⣷", "⣾", "⣿"]
+  },
+  "custom/recorder": {
+    "exec": "if pgrep -x wf-recorder > /dev/null; then echo '🔴 REC'; else echo ''; fi",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false,
+    "on-click": "pkill -x wf-recorder && pkill -RTMIN+8 waybar"
   },
   "upower": {
    "native-path": "ps-controller-battery-f4:93:9f:94:c6:f5",
@@ -51,7 +59,7 @@
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-icons": {
@@ -61,20 +69,20 @@
         "<span color='#f38ba8'></span> ",
         "<span color='#f9e2af'></span> ",
         "<span color='#a6e3a1'></span> ",
-        "<span color='#a6e3a1'></span> ",
-      ],
+        "<span color='#a6e3a1'></span> "
+      ]
     },
     "max-length": 25,
-    "tooltip": true,
+    "tooltip": true
   },
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": [
       "<span color='#f5e0dc'>󰃞</span>",
       "<span color='#f5c2e7'>󰃟</span>",
-      "<span color='#cba6f7'>󰃠</span>",
+      "<span color='#cba6f7'>󰃠</span>"
     ],
-    "tooltip": false,
+    "tooltip": false
   },
   "wireplumber": {
     "node-type": "Audio/Sink",
@@ -82,7 +90,7 @@
     "format-muted": "<span color='#94e2d5' size='x-large'>󰝟</span>",
     "format-icons": ["", "", " "],
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "scroll-step": 5,
+    "scroll-step": 5
   },
   // "wireplumber#source": {
   //     "node-type": "Audio/Source",
@@ -113,7 +121,7 @@
   //   },
   // },
   "hyprland/language": {
-    "format": "{shortDescription}",
+    "format": "{shortDescription}"
   },
   "clock": {
     "format": " {:%I:%M %p  %d.%m}",
@@ -129,16 +137,16 @@
         "days": "<span color='#cdd6f4'><b>{}</b></span>", // text
         "weeks": "<span color='#a6e3a1'><b>W{}</b></span>", // green
         "weekdays": "<span color='#cba6f7'><b>{}</b></span>", // mauve
-        "today": "<span color='#74c7ec'><b><u>{}</u></b></span>", // sapphire
-      },
+        "today": "<span color='#74c7ec'><b><u>{}</u></b></span>" // sapphire
+      }
     },
     "actions": {
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
+      "on-scroll-down": "shift_down"
+    }
   },
   "network": {
     "interval": 10,
@@ -146,13 +154,13 @@
     "format-ethernet": " ",
     "format-disconnected": " ",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-ethernet": "{ifname} "
   },
   "custom/power": {
     "format": "⏻ ",
     "tooltip": false,
     "on-click": "~/.local/bin/powermenu.sh",
-    "on-click-right": "killall rofi",
-  },
+    "on-click-right": "killall rofi"
+  }
 }
 

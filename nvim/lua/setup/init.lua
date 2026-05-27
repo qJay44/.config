@@ -25,6 +25,9 @@ require('setup.autochdir')
 require('setup.gruvbox')
 require('setup.conform')
 require('setup.cppassist')
+require('setup.kitty-scrollback')
+require('setup.conceal')
+require('setup.todo-comments')
 
 require'dapui'.setup()
 

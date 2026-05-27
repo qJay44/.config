@@ -36,8 +36,38 @@ mason_nvim_dap.setup {
   automatic_installation = true,
 }
 
+-- Custom LSP hover handler to clean Clangd's double-escaped markdown sequences
+local origOpenFloatPreview = vim.lsp.util.open_floating_preview
+vim.lsp.util.open_floating_preview = function(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = "rounded"
+
+  if type(contents) == "table" then
+    for i, line in ipairs(contents) do
+      -- Add manually if goes wrong
+      -- line = line:gsub([[\`]], "`")
+      -- line = line:gsub([[\_]], "_")
+      contents[i] = line:gsub([[\]], "")
+    end
+  end
+
+  local f_buf, f_win = origOpenFloatPreview(contents, syntax, opts, ...)
+  if f_buf and f_win then
+    vim.wo[f_win].conceallevel = 2
+    vim.wo[f_win].concealcursor = "n"
+  end
+
+  return f_buf, f_win
+end
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.editsNearCursor = true
+
+vim.lsp.config('*', {
+  on_attach = function(_, bufnr)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Sanitized LSP Hover" })
+  end,
+})
 
 for _, server in pairs(servers) do
   vim.lsp.enable(server)

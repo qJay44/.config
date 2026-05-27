@@ -62,7 +62,7 @@ km('x', ';ls', 'y:.s/<c-r>"//g<Left><Left>', { noremap=true })
 
 km("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 km("n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
-km("n", "K", "<cmd>lua vim.lsp.buf.hover({border = 'rounded'})<CR>", opts)
+-- km("n", "K", "<cmd>lua vim.lsp.buf.hover({border = 'rounded'})<CR>", opts)
 km("n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
 km("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 km("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)

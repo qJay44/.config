@@ -29,6 +29,13 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar & hyprpaper &")
   hl.exec_cmd("bluetoothctl power off")
   hl.exec_cmd("wl-paste -t text -w xclip -selection clipboard")
+
+  -- Browser filer picker theme
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
+  hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme \"Adwaita-dark\"")
+  hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\"")
+  hl.exec_cmd("systemctl --user restart xdg-desktop-portal")
 end)
 
 ---------- Environment variables -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -151,6 +158,26 @@ hl.config({
 
 ---------- Input ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+local dwt = true
+local function toggle_dwt()
+  dwt = not dwt
+  hl.config({
+    input = {
+      touchpad = {
+        disable_while_typing = dwt
+      }
+    }
+  })
+
+  arg = "off"
+  if (dwt) then
+    arg = "on"
+  end
+
+  hl.exec_cmd("~/.config/hypr/scripts/toggle_touchpad_moving_while_typing.sh " .. arg)
+end
+
+
 hl.config({
   input = {
     kb_layout  = "us,ru",
@@ -165,7 +192,7 @@ hl.config({
 
     touchpad = {
       natural_scroll = false,
-      disable_while_typing = true,
+      disable_while_typing = false,
     },
   },
 })
@@ -197,10 +224,11 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({action = "toggle"}))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
-hl.bind(mainMod .. " + down", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle_touchpad_moving_while_typing.sh"))
+hl.bind(mainMod .. " + down", toggle_dwt)
 hl.bind(mainMod .. " + ALT + H", hl.dsp.window.swap({direction = "left"}))
 hl.bind(mainMod .. " + ALT + L", hl.dsp.window.swap({direction = "right"}))
 hl.bind(mainMod .. " + ALT + 0", hl.dsp.window.resize({x = 1280, y = 720}))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/record-window.sh"))
 
 -- vim like jumps between windows
 hl.bind(mainMod .. " + H", hl.dsp.focus({direction = "left" }))
@@ -337,8 +365,33 @@ hl.window_rule({
   no_initial_focus = true
 })
 
+hl.window_rule({
+  name = "vlc",
+  match = {
+    class = "vlc",
+  },
+  float = true,
+  size = {1600, 900},
+  center = true,
+})
+
 hl.workspace_rule({
   workspace = "2",
   on_created_empty = "[silent] google-chrome-stable"
+})
+
+hl.workspace_rule({
+  workspace = "1",
+  monitor = "eDP-1"
+})
+
+hl.workspace_rule({
+  workspace = "2",
+  monitor = "eDP-1"
+})
+
+hl.workspace_rule({
+  workspace = "3",
+  monitor = "eDP-1"
 })
 

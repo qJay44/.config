@@ -2,8 +2,6 @@ local telescope = require'telescope'
 local actions = require 'telescope.actions'
 local icons = require 'setup.icons'
 
-local previewers = require("telescope.previewers")
-
 local custom_maker = function(filepath, bufnr, opts)
   local glslExts = { "frag", "vert", "tesc", "tese", "geom", "comp" }
 
@@ -14,12 +12,12 @@ local custom_maker = function(filepath, bufnr, opts)
     end
   end
 
-  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+  require("telescope.previewers").buffer_previewer_maker(filepath, bufnr, opts)
 end
 
 telescope.setup {
   defaults = {
-    preview = {treesitter = false},
+    preview = {treesitter = true},
 
     buffer_previewer_maker = custom_maker,
     prompt_prefix = icons.ui.Telescope .. " ",

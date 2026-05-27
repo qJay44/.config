@@ -7,6 +7,7 @@
   "modules-left": ["custom/icon", "hyprland/workspaces"],
   "modules-center": ["custom/temperature", "cpu", "memory"],
   "modules-right": [
+    "custom/recorder",
     "upower",
     "battery",
     "backlight",
@@ -18,6 +19,6 @@
     "network",
     "custom/power"
   ],
-  "include": ["~/.config/waybar/modules.jsonc"],
+  "include": ["~/.config/waybar/modules.jsonc"]
 }
 

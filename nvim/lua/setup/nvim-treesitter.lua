@@ -31,7 +31,6 @@
 
 -- local parsers = require('nvim-treesitter.parsers').ft_to_lang('zsh')
 
--- NOTE: Since using main branch of treesitter
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
