@@ -39,7 +39,7 @@
   "cpu": {
     "interval": 1,
     "format": "<span color='#89dceb'> {usage:>2}%</span> <span color='#cdd6f4'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}</span>",
-    "format-icons": ["⣀", "⣄", "⣆", "⣇", "⣧", "⣷", "⣾", "⣿"]
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
   },
   "custom/recorder": {
     "exec": "if pgrep -x wf-recorder > /dev/null; then echo '🔴 REC'; else echo ''; fi",
@@ -49,7 +49,8 @@
     "on-click": "pkill -x wf-recorder && pkill -RTMIN+8 waybar"
   },
   "upower": {
-   "native-path": "ps-controller-battery-f4:93:9f:94:c6:f5",
+   // "native-path": "ps-controller-battery-f4:93:9f:94:c6:f5",
+   "native-path": "ps-controller-battery-b3:89:8e:87:57:1f",
    "icon-size": 20,
    "hide-if-empty": true,
    "tooltip": true,

@@ -12,7 +12,7 @@ hl.monitor({
 hl.monitor({
     output   = "HDMI-A-1",
     mode     = "preferred",
-    position = "auto",
+    position = "auto-left",
     scale    = "auto",
 })
 
@@ -219,6 +219,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(terminal, {float = true, center = true, size = {1200, 720}}))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({action = "toggle"}))
@@ -266,10 +267,11 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
----------- Windows and Workspaces ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+hl.bind("switch:[switch lock]", hl.dsp.exec_cmd("hyprlock", {locked = true}))
 
--- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+---------- Windows -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
 hl.window_rule({
   -- Ignore maximize requests from all apps. You'll probably like this.
@@ -374,6 +376,30 @@ hl.window_rule({
   size = {1600, 900},
   center = true,
 })
+
+hl.window_rule({
+  name = "dolphin",
+  match = {
+    class = "org.kde.dolphin",
+  },
+  float = true,
+  size = {1600, 900},
+  center = true,
+})
+
+hl.window_rule({
+  name = "telegram",
+  match = {
+    class = "org.telegram.desktop",
+  },
+  float = true,
+  size = {1600, 900},
+  center = true,
+})
+
+---------- Workspaces ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 hl.workspace_rule({
   workspace = "2",

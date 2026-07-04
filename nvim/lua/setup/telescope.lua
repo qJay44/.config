@@ -117,3 +117,11 @@ telescope.setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 
+-- Keybind to open oldfiles with absolute paths
+vim.keymap.set('n', '<leader>H', function()
+  require('telescope.builtin').oldfiles({
+    path_display = { "absolute" },
+    prompt_title = "Old Files (Absolute Paths)",
+  })
+end, { desc = "Telescope oldfiles with absolute paths" })
+
