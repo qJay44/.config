@@ -3,17 +3,17 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
+  output   = "",
+  mode     = "preferred",
+  position = "auto",
+  scale    = "auto",
 })
 
 hl.monitor({
-    output   = "HDMI-A-1",
-    mode     = "preferred",
-    position = "auto-left",
-    scale    = "auto",
+  output   = "HDMI-A-1",
+  mode     = "preferred",
+  position = "auto-left",
+  scale    = "auto",
 })
 
 ---------- My programs ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,16 +30,17 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("bluetoothctl power off")
   hl.exec_cmd("wl-paste -t text -w xclip -selection clipboard")
 
-  -- Browser filer picker theme
+  -- Browser file picker theme
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
   hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme \"Adwaita-dark\"")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\"")
-  hl.exec_cmd("systemctl --user restart xdg-desktop-portal")
+  hl.exec_cmd("systemctl --user restart xdg-desktop-portal xdg-desktop-portal-gtk")
 end)
 
 ---------- Environment variables -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+hl.env("GTK_THEME", "Adwaita-dark")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
@@ -383,7 +384,7 @@ hl.window_rule({
     class = "org.kde.dolphin",
   },
   float = true,
-  size = {1600, 900},
+  size = {1200, 720},
   center = true,
 })
 
@@ -397,6 +398,16 @@ hl.window_rule({
   center = true,
 })
 
+hl.window_rule({
+  name = "file picker",
+  match = {
+    class = "xdg-desktop-portal-gtk",
+  },
+  float = true,
+  size = {1200, 720},
+  center = true,
+})
+
 ---------- Workspaces ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
@@ -406,18 +417,19 @@ hl.workspace_rule({
   on_created_empty = "[silent] google-chrome-stable"
 })
 
-hl.workspace_rule({
-  workspace = "1",
-  monitor = "eDP-1"
-})
+for i = 1, 3 do
+  hl.workspace_rule({
+    workspace = "" .. i,
+    monitor = "eDP-1"
+  })
+end
 
-hl.workspace_rule({
-  workspace = "2",
-  monitor = "eDP-1"
-})
+for i = 3, 6 do
+  hl.workspace_rule({
+    workspace = "" .. i,
+    monitor = "HDMI-A-1"
+  })
+end
 
-hl.workspace_rule({
-  workspace = "3",
-  monitor = "eDP-1"
-})
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

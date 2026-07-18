@@ -6,13 +6,13 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 # export XDG_DATA_DIRS="${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
-export GTK_THEME="Adwaita:dark"
+# export GTK_THEME="Adwaita:dark"
 
 export VISUAL=nvim
 export EDITOR=nvim
 
 # export XDG_DATA_HOME="$HOME/.local/share"
-#export QT_STYLE_OVERRIDE=adwaita
+# export QT_STYLE_OVERRIDE=adwaita
 
 bindkey '^ ' autosuggest-accept
 
