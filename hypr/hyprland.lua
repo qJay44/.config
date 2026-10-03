@@ -85,7 +85,6 @@ hl.config({
       enabled      = false,
       range        = 4,
       render_power = 3,
-      color        = 0x1a1a1aee,
     },
 
     blur = {
@@ -268,7 +267,9 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-hl.bind("switch:[switch lock]", hl.dsp.exec_cmd("hyprlock", {locked = true}))
+hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true })
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("notify-send 'Lid Switch [on]'"), { locked = true })
+hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("notify-send 'Lid Switch [off]'"), { locked = true })
 
 ---------- Windows -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -306,105 +307,78 @@ hl.window_rule({
 -- overlayLayerRule:set_enabled(false)
 
 -- Hyprland-run windowrule
-hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
+-- hl.window_rule({
+--   name  = "move-hyprland-run",
+--   match = { class = "hyprland-run" },
+--   move  = "20 monitor_h-120",
+--   float = true,
+-- })
+
+local windowRules = {
+  {
+    name = "cpp-windows",
+    match = {
+      title = "MyProgram",
+    },
     float = true,
-})
-
-hl.window_rule({
-  name = "cpp-windows",
-  match = {
-    title = "MyProgram",
+    center = true
   },
-  float = true,
-  center = true
-})
-
-hl.window_rule({
-  name = "python-plot-windows",
-  match = {
-    class = "Matplotlib",
+  {
+    name = "python-plot-windows",
+    match = {
+      class = "Matplotlib",
+    },
+    float = true,
+    center = true
   },
-  float = true,
-  center = true
-})
-
-hl.window_rule({
-  name = "neovide",
-  match = {
-    class = "neovide",
-    workspace = "2"
+  {
+    name = "neovide",
+    match = {
+      class = "neovide",
+      workspace = "2"
+    },
+    workspace = "special:magic",
   },
-  workspace = "special:magic",
-})
-
-hl.window_rule({
-  name = "neovide-magic",
-  match = {
-    class = "neovide",
-    workspace = "special:magic"
+  {
+    name = "neovide-magic",
+    match = {
+      class = "neovide",
+      workspace = "special:magic"
+    },
+    no_blur = true
   },
-  no_blur = true
-})
-
-hl.window_rule({
-  name = "android-studio",
-  match = {
-    class = "^jetbrains-.+$"
+  {
+    name = "android-studio",
+    match = {
+      class = "(?:^jetbrains-.+$)"
+    },
+    float = true,
+    tag = "+jb"
   },
-  float = true,
-  tag = "+jb"
-})
-
-hl.window_rule({
-  name = "android-studio-tagged",
-  match = {
-    tag = "jb"
+  {
+    name = "android-studio-tagged",
+    match = {
+      tag = "jb"
+    },
+    stay_focused = false,
+    no_initial_focus = true
   },
-  stay_focused = true,
-  no_initial_focus = true
-})
+}
+
+local excludedClasses = {}
+for _, rule in ipairs(windowRules) do
+  table.insert(excludedClasses, rule.match.class)
+  hl.window_rule(rule)
+end
 
 hl.window_rule({
-  name = "vlc",
+  name = "fallback",
   match = {
-    class = "vlc",
+    class = "negative:" .. table.concat(excludedClasses, "|"),
   },
   float = true,
   size = {1600, 900},
-  center = true,
-})
-
-hl.window_rule({
-  name = "dolphin",
-  match = {
-    class = "org.kde.dolphin",
-  },
-  float = true,
-  size = {1200, 720},
-  center = true,
-})
-
-hl.window_rule({
-  name = "telegram",
-  match = {
-    class = "org.telegram.desktop",
-  },
-  float = true,
-  size = {1600, 900},
-  center = true,
-})
-
-hl.window_rule({
-  name = "file picker",
-  match = {
-    class = "xdg-desktop-portal-gtk",
-  },
-  float = true,
-  size = {1200, 720},
   center = true,
 })
 
@@ -424,7 +398,7 @@ for i = 1, 3 do
   })
 end
 
-for i = 3, 6 do
+for i = 4, 6 do
   hl.workspace_rule({
     workspace = "" .. i,
     monitor = "HDMI-A-1"
