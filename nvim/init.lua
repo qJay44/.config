@@ -61,7 +61,6 @@ vim.opt.cursorline  = true               -- Highlight current line
 vim.opt.backup      = false              -- No backup files
 vim.opt.writebackup = false              -- No backup when writting a file in different editors
 vim.opt.swapfile    = false              -- No swap files (realtime backup)
-vim.opt.updatetime  = 100                -- The lenght of time Vim waits after you stop typing before it triggers the associated plugins
 vim.opt.laststatus  = 3                  -- Makes statusline unsplittable
 vim.opt.pumblend    = 30                 -- Popup menu opaque
 vim.opt.winblend    = 10                 -- Floating windows opaque
@@ -73,6 +72,7 @@ vim.opt.fillchars   = {eob = " "}        -- Hide tildas at the sidebar (missing 
 vim.opt.shada       = "!,'500,<50,s10,h" -- Caching (affects telescope history length)
 vim.opt.pumheight   = 7                  -- CMP max item count
 
+-- vim.opt.updatetime  = 100                -- The lenght of time Vim waits after you stop typing before it triggers the associated plugins
 -- vim.opt.mouse=''
 -- vim.opt.foldmethod  = 'expr'
 -- vim.opt.foldexpr    = 'nvim_treesitter#foldexpr()'
@@ -80,7 +80,7 @@ vim.opt.pumheight   = 7                  -- CMP max item count
 
 -- Other
 vim.o.guifont = "FiraCode Nerd Font:h12"
-vim.lsp.set_log_level("error")
+vim.lsp.set_log_level("info")
 
 --- Functions --------------------------
 

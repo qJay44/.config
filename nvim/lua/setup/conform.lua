@@ -4,6 +4,8 @@ conform.setup({
   formatters_by_ft = {
     python = {"prettier"},
     lua = {"prettier"},
+    css = {"prettier"},
+    html = {"prettier"},
   },
   formatters = {
     pointer_left = {
@@ -21,6 +23,10 @@ conform.setup({
 })
 
 vim.keymap.set('v', '<leader>f', function()
+  conform.format({formatters = {"pointer_left"}, lsp_fallback = false})
+end)
+
+vim.keymap.set('v', '<leader>F', function()
   conform.format({formatters = {"pointer_left"}, lsp_fallback = false})
 end)
 

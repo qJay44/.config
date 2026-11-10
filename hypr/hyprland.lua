@@ -211,15 +211,16 @@ hl.device({
 
 ---------- Keybinds ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+-- https://wiki.hypr.land/configuring/core/binds/
+
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(terminal, {float = true, center = true, size = {1200, 720}}))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(terminal, {float = true, center = true, size = "1200 720"}))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({action = "toggle"}))
@@ -317,6 +318,14 @@ hl.window_rule({
 
 local windowRules = {
   {
+    name = "chrome-ws-2",
+    match = {
+      class = "google-chrome",
+      workspace = 2
+    },
+    float = false,
+  },
+  {
     name = "cpp-windows",
     match = {
       title = "MyProgram",
@@ -386,10 +395,46 @@ hl.window_rule({
 
 -- https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
-hl.workspace_rule({
-  workspace = "2",
-  on_created_empty = "[silent] google-chrome-stable"
-})
+-- hl.workspace_rule({
+--   workspace = "2",
+--   on_created_empty = "[silent] google-chrome-stable"
+-- })
+
+local workspacePrograms = {
+  ["2"] = {"google-chrome-stable", {}},
+}
+
+hl.on("workspace.created", function (ws)
+  if not ws.is_empty then return end
+
+  local idStr = tostring(ws.id)
+  local program = ws.id and workspacePrograms[idStr] or workspacePrograms[ws.name]
+  if program == nil then return end
+
+  local cmd, providedRules = table.unpack(program)
+
+  if type(cmd) ~= "string" then
+    local txt = string.format("[Event::workspace.created] Type mismatch (cmd: [%s] expected: [string])", type(cmd))
+    hl.notification.create({text = txt, timeout = 5000, icon = "error"})
+    return
+  end
+
+  if type(providedRules) ~= "table" then
+    local txt = string.format("[Event::workspace.created] Type mismatch (providedRules: [%s] expected: [table])", type(providedRules))
+    hl.notification.create({text = txt, timeout = 5000, icon = "error"})
+    return
+  end
+
+	local rules = {}
+	if providedRules then
+		for k, v in pairs(providedRules) do
+      rules[k] = v
+    end
+	end
+  rules.workspace = (ws.id and idStr or ws.name) .. " silent"
+
+  hl.exec_cmd(cmd, rules)
+end)
 
 for i = 1, 3 do
   hl.workspace_rule({

@@ -70,6 +70,7 @@ require('lazy').setup({
 
   -- NOTE: 0.12 temporary fix?
   {'nvim-treesitter/nvim-treesitter', branch = "main"},                -- Better highlight
+  {'nvim-treesitter/nvim-treesitter-context'},
 
   { 'nvim-neo-tree/neo-tree.nvim',
     branch='v3.x',

@@ -1,6 +1,7 @@
 require'nvim-autopairs'.setup()
 require('alpha').setup(require('alpha.themes.startify').config)
 require'venv-selector'.setup({options={}}) -- NOTE: Check this if something wrong with venv
+require('treesitter-context').setup{separator='-'}
 
 if vim.fn.exists('g:neovide') == 0 then
   require('neoscroll').setup({duration_multiplier = 0.3})

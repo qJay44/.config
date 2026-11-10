@@ -48,7 +48,7 @@ else
       type = 'codelldb',
       request = 'launch',
       program = '${workspaceFolder}/Build/Debug/Run/MyProject',
-      cwd = '${workspaceFolder}/Build/Debug/Run',
+      cwd = '${workspaceFolder}',
       stopOnEntry = false
     }
   }

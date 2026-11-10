@@ -79,7 +79,7 @@ for _, server in pairs(servers) do
   end
 
   local exists, settings = pcall(require, "setup.lsp.settings." .. server)
-  if exists then vim.lsp.config[server].settings = settings end
+  if exists then vim.lsp.config[server] = settings end
 
   vim.lsp.config[server].capabilities = capabilities
 end
